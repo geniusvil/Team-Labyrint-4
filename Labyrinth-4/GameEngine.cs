@@ -1,24 +1,24 @@
-﻿namespace Labyrinth4
+﻿namespace Labyrinth
 {
     using System;
     using System.Linq;
 
-    public class GameProcesor
+    public class GameEngine
     {
-        private readonly Score Scoreboard;
+        private readonly Score scoreboard;
         private uint moveCount;
-        private Labyrinth matrix;
+        private Labyrinth labyrinth;
 
-        public GameProcesor()
+        public GameEngine()
         {
-            this.Scoreboard = new Score();
+            this.scoreboard = new Score();
             this.StartGame();
-       }
+        }
 
-        public Labyrinth Matrix
+        public Labyrinth Labyrinth
         {
-            get { return matrix; }
-            set { matrix = value; }
+            get { return labyrinth; }
+            set { labyrinth = value; }
         }
 
         public void ShowCommandChoice()
@@ -32,26 +32,26 @@
 
             if (commandLowerLetters.Length == 1)
             {
-                if (this.IsNextStepInMatrix())
+                try
                 {
                     ExecuteMoveCommand(commandLowerLetters);
+                    moveCount++;
                 }
-                else
+                catch
                 {
                     Console.WriteLine("Invalid move!");
                 }
+
             }
             else
             {
                 ExecuteGameCommand(commandLowerLetters);
             }
-
             if (this.IsOutOfMatrix())
             {
                 this.Finish();
             }
         }
-
 
         private void ExecuteMoveCommand(String command)
         {
@@ -70,6 +70,7 @@
                     this.MoveDown();
                     break;
             }
+
         }
 
         private void ExecuteGameCommand(String command)
@@ -77,7 +78,7 @@
             switch (command)
             {
                 case "top":
-                    this.Scoreboard.ShowScores();
+                    this.scoreboard.ShowScores();
                     break;
                 case "restart":
                     this.StartGame();
@@ -95,14 +96,14 @@
         private void Finish()
         {
             Console.WriteLine(string.Format("Congratulations! You escaped in {0} moves.", this.moveCount.ToString()));
-            this.Scoreboard.HandleScoreboard(this.moveCount);
+            this.scoreboard.HandleScoreboard(this.moveCount);
             this.StartGame();
         }
 
         private bool IsOutOfMatrix()
         {
-            if (this.matrix.СurrentRow == 0 || this.matrix.СurrentRow == 6 ||
-                this.matrix.CurrentCol == 0 || this.matrix.CurrentCol == 6)
+            if (this.labyrinth.СurrentRow == 0 || this.labyrinth.СurrentRow == 6 ||
+                this.labyrinth.СurrentCol == 0 || this.labyrinth.СurrentCol == 6)
             {
                 return true;
             }
@@ -115,44 +116,67 @@
             Console.WriteLine();
             Console.WriteLine("Welcome to LABYRINTHgame.\nPlease try to escape. Use\n'TOP'     to view the top scoreboard,\n'RESTART' to start a new game and\n'EXIT'    to quit the game.");
 
-            this.Matrix = new Labyrinth();
+            this.Labyrinth = new Labyrinth();
+
             this.moveCount = 0;
         }
 
         private void MoveDown()
         {
-                this.Matrix.СurrentRow++;
-                this.moveCount++;
+            this.Labyrinth.СurrentRow++;
+            //   this.moveCount++;
         }
 
         private void MoveUp()
         {
-                this.Matrix.СurrentRow--;
-                this.moveCount++;
+            this.Labyrinth.СurrentRow--;
+            //   this.moveCount++;
         }
 
         private void MoveRight()
         {
-                this.Matrix.CurrentCol++;
-                this.moveCount++;
+            this.Labyrinth.СurrentCol++;
+            //   this.moveCount++;
         }
 
         private void MoveLeft()
         {
-                this.Matrix.CurrentCol--;
-                this.moveCount++;
+            this.Labyrinth.СurrentCol--;
+            this.moveCount++;
         }
 
-        private bool IsNextStepInMatrix()
-        {
-            bool isInMatrix = false;
-            if (this.Matrix.CurrentCol - 1 >= 0 || this.Matrix.CurrentCol + 1 < this.Matrix.Matrix.GetLength(1) ||
-                this.Matrix.СurrentRow - 1 >= 0 || this.Matrix.СurrentRow + 1 < this.Matrix.Matrix.GetLength(0))
-            {
-                isInMatrix = true;
-            }
+        //private bool IsNextStepInMatrix()
+        //{
+        //    bool isInMatrix = false;
+        //    if (this.Matrix.CurrentCol - 1 >= 0 || this.Matrix.CurrentCol + 1 < this.Matrix.Matrix.GetLength(1) ||
+        //        this.Matrix.СurrentRow - 1 >= 0 || this.Matrix.СurrentRow + 1 < this.Matrix.Matrix.GetLength(0))
+        //    {
+        //        isInMatrix = true;
+        //    }
 
-            return isInMatrix;
+        //    return isInMatrix;
+        //}
+
+        public void ShowLabyrinth()
+        {
+
+            for (int i = 0; i < this.Labyrinth.Matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Labyrinth.Matrix.GetLength(1); j++)
+                {
+                    if (i==this.Labyrinth.СurrentRow && j ==this.Labyrinth.СurrentCol)
+                    {
+                        this.Labyrinth.Matrix[i, j] = 'X';
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    Console.Write(this.Labyrinth.Matrix[i,j]);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
