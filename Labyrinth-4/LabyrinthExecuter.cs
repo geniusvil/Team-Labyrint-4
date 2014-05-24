@@ -20,7 +20,5 @@
                 Console.WriteLine();
             }
         }
-
-
     }
 }

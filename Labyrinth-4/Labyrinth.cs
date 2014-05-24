@@ -9,7 +9,6 @@
         private const int StartRow = 3;
         private const int StartCol = 3;
 
-
         private readonly char[,] matrix;
         private const int Rows = 7;
         private const int Cols = 7;
@@ -28,7 +27,6 @@
         {
             get
             {
-
                 return matrix;
             }
         }
