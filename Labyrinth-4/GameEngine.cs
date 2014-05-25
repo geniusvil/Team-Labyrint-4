@@ -6,8 +6,8 @@
     public class GameEngine
     {
         private readonly Score scoreboard;
+
         private uint moveCount;
-        private Labyrinth labyrinth;
 
         public GameEngine()
         {
@@ -15,11 +15,7 @@
             this.StartGame();
         }
 
-        public Labyrinth Labyrinth
-        {
-            get { return labyrinth; }
-            set { labyrinth = value; }
-        }
+        public Labyrinth Labyrinth { get; set; }
 
         public void ShowCommandChoice()
         {
@@ -34,22 +30,44 @@
             {
                 try
                 {
-                    ExecuteMoveCommand(commandLowerLetters);
-                    moveCount++;
+                    this.ExecuteMoveCommand(commandLowerLetters);
+                    this.moveCount++;
                 }
                 catch
                 {
                     Console.WriteLine("Invalid move!");
                 }
-
             }
             else
             {
-                ExecuteGameCommand(commandLowerLetters);
+                this.ExecuteGameCommand(commandLowerLetters);
             }
             if (this.IsOutOfMatrix())
             {
                 this.Finish();
+            }
+        }
+
+        //    return isInMatrix;
+        //}
+        public void ShowLabyrinth()
+        {
+            for (int i = 0; i < this.Labyrinth.Matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Labyrinth.Matrix.GetLength(1); j++)
+                {
+                    if (i == this.Labyrinth.CurrentRow && j == this.Labyrinth.CurrentCol)
+                    {
+                        this.Labyrinth.Matrix[i, j] = 'X';
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    Console.Write(this.Labyrinth.Matrix[i, j]);
+                }
+                Console.WriteLine();
             }
         }
 
@@ -70,7 +88,6 @@
                     this.MoveDown();
                     break;
             }
-
         }
 
         private void ExecuteGameCommand(String command)
@@ -102,8 +119,8 @@
 
         private bool IsOutOfMatrix()
         {
-            if (this.labyrinth.СurrentRow == 0 || this.labyrinth.СurrentRow == 6 ||
-                this.labyrinth.СurrentCol == 0 || this.labyrinth.СurrentCol == 6)
+            if (this.Labyrinth.CurrentRow == 0 || this.Labyrinth.CurrentRow == 6 ||
+                this.Labyrinth.CurrentCol == 0 || this.Labyrinth.CurrentCol == 6)
             {
                 return true;
             }
@@ -123,28 +140,27 @@
 
         private void MoveDown()
         {
-            this.Labyrinth.СurrentRow++;
+            this.Labyrinth.CurrentRow++;
             //   this.moveCount++;
         }
 
         private void MoveUp()
         {
-            this.Labyrinth.СurrentRow--;
+            this.Labyrinth.CurrentRow--;
             //   this.moveCount++;
         }
 
         private void MoveRight()
         {
-            this.Labyrinth.СurrentCol++;
+            this.Labyrinth.CurrentCol++;
             //   this.moveCount++;
         }
 
         private void MoveLeft()
         {
-            this.Labyrinth.СurrentCol--;
+            this.Labyrinth.CurrentCol--;
             this.moveCount++;
         }
-
         //private bool IsNextStepInMatrix()
         //{
         //    bool isInMatrix = false;
@@ -153,30 +169,5 @@
         //    {
         //        isInMatrix = true;
         //    }
-
-        //    return isInMatrix;
-        //}
-
-        public void ShowLabyrinth()
-        {
-
-            for (int i = 0; i < this.Labyrinth.Matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < this.Labyrinth.Matrix.GetLength(1); j++)
-                {
-                    if (i==this.Labyrinth.СurrentRow && j ==this.Labyrinth.СurrentCol)
-                    {
-                        this.Labyrinth.Matrix[i, j] = 'X';
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                    }
-                    Console.Write(this.Labyrinth.Matrix[i,j]);
-                }
-                Console.WriteLine();
-            }
-        }
     }
 }

@@ -1,79 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Labyrinth
+﻿namespace Labyrinth
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Score
     {
- 
-        List<Tuple<uint, String>> scoreboard;
-
-    
+        private readonly List<Tuple<uint, String>> scoreboard;
 
         public Score()
         {
-            scoreboard = new List<Tuple<uint, string>>();
+            this.scoreboard = new List<Tuple<uint, string>>();
         }
 
         public void HandleScoreboard(uint moveCount)
         {
-            if (scoreboard.Count() >= 5 && moveCount > scoreboard.Last().Item1)
+            if (this.scoreboard.Count() >= 5 && moveCount > this.scoreboard.Last().Item1)
             {
                 Console.WriteLine("Your not good enough for the scoreboard :)");
+
                 return;
             }
 
-            if (scoreboard.Count == 0 ||
-                (scoreboard.Count < 5) && scoreboard.Last().Item1 < moveCount)
+            if (this.scoreboard.Count == 0 ||
+                this.scoreboard.Count < 5 &&
+                this.scoreboard.Last().Item1 < moveCount)
             {
-                String nickname = ShowScoreboardInMessage();
-                scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
+                String nickname = this.ShowScoreboardInMessage();
+
+                this.scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
                 this.ShowScores();
+                
                 return;
             }
 
-            for (int i = 0; i < scoreboard.Count(); ++i)
+            for (int i = 0; i < this.scoreboard.Count(); ++i)
             {
-                if (moveCount <= scoreboard[i].Item1)
+                if (moveCount <= this.scoreboard[i].Item1)
                 {
-                    String nickname = ShowScoreboardInMessage();
-                    scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
-                    if (scoreboard.Count > 5)
+                    String nickname = this.ShowScoreboardInMessage();
+
+                    this.scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
+
+                    if (this.scoreboard.Count > 5)
                     {
-                        scoreboard.Remove(scoreboard.Last());
+                        this.scoreboard.Remove(this.scoreboard.Last());
                     }
+
                     this.ShowScores();
                     break;
                 }
             }
         }
 
-        private String ShowScoreboardInMessage()
-        {
-            Console.Write("Please enter your name for the top scoreboard: ");
-            String nickname = Console.ReadLine();
-            return nickname;
-        }
-
         public void ShowScores()
         {
-            if (scoreboard.Count == 0)
+            if (this.scoreboard.Count == 0)
             {
                 Console.WriteLine("The scoreboard is empty.");
                 return;
             }
 
-            for (int i = 0; i < scoreboard.Count; ++i)
+            for (int i = 0; i < this.scoreboard.Count; ++i)
             {
-                Console.WriteLine(  (i+1).ToString() + 
-                                    ". " +
-                                    scoreboard[i].Item2 +
-                                    " --> " + 
-                                    scoreboard[i].Item1.ToString() +
-                                    " moves.");
+                Console.WriteLine(string.Format("{0}. {1} --> {2} moves.", (i + 1).ToString(), this.scoreboard[i].Item2, this.scoreboard[i].Item1.ToString()));
             }
+        }
+
+        private String ShowScoreboardInMessage()
+        {
+            Console.Write("Please enter your name for the top scoreboard: ");
+
+            String nickname = Console.ReadLine();
+
+            return nickname;
         }
     }
 }

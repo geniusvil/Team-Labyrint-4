@@ -1,12 +1,11 @@
 ﻿namespace Labyrinth
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    class LabyrinthExecuter
+
+    internal class LabyrinthExecuter
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             GameEngine engine = new GameEngine();
 
@@ -14,9 +13,11 @@
             {
                 engine.ShowLabyrinth();
                 engine.ShowCommandChoice();
+
                 String command = Console.ReadLine();
 
                 engine.HandleCommand(command);
+
                 Console.WriteLine();
             }
         }
