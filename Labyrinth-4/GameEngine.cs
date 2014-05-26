@@ -20,6 +20,7 @@
         public void ShowCommandChoice()
         {
             Console.Write("Enter your move (L: LEFT, R: RIGHT, U: UP, D: DOWN) : ");
+            Console.WriteLine("Some Change Here.");
         }
 
         public void HandleCommand(String command)
