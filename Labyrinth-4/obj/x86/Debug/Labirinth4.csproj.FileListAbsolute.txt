@@ -8,5 +8,3 @@ C:\Users\Dimitar\Documents\Visual Studio 2013\Projects\Team-Labyrint-4\Labyrinth
 C:\Users\Dimitar\Documents\Visual Studio 2013\Projects\Team-Labyrint-4\Labyrinth-4\obj\x86\Debug\Labirinth4.csprojResolveAssemblyReference.cache
 C:\Users\Dimitar\Documents\Visual Studio 2013\Projects\Team-Labyrint-4\Labyrinth-4\obj\x86\Debug\Labyrinth.exe
 C:\Users\Dimitar\Documents\Visual Studio 2013\Projects\Team-Labyrint-4\Labyrinth-4\obj\x86\Debug\Labyrinth.pdb
-C:\Users\Minchev\Documents\GitHub\Team-Labyrint-4\Labyrinth-4\obj\x86\Debug\Labyrinth.exe
-C:\Users\Minchev\Documents\GitHub\Team-Labyrint-4\Labyrinth-4\obj\x86\Debug\Labyrinth.pdb
