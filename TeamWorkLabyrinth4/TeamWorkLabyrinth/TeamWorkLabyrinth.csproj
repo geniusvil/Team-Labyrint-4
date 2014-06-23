@@ -42,15 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coordinate.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="HexagonLabyrinth.cs" />
-    <Compile Include="IHexagonLabyrinth.cs" />
     <Compile Include="ILabyrinth.cs" />
     <Compile Include="ILabyrinthFactory.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRendable.cs" />
-    <Compile Include="IRombLabyrinth.cs" />
-    <Compile Include="ISquareLabyrint.cs" />
-    <Compile Include="ITriangleLabyrint.cs" />
     <Compile Include="IUserCommand.cs" />
     <Compile Include="KeyboardCommand.cs" />
     <Compile Include="Labyrinth.cs" />

@@ -1,35 +1,37 @@
 ﻿namespace TeamWorkLabyrinth
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    public class HexagonLabyrinth : Labyrinth
+    public class HexagonLabyrinth : Labyrinth, ILabyrinth, IRendable
     {
         private readonly Random randomGenerator = new Random();
 
-
-        public HexagonLabyrinth():base(LabyrinthType.Hexagon)
+        public HexagonLabyrinth() : base(LabyrinthType.Hexagon)
         {
-
+            this.Matrix = this.Fill(); 
         }
-        public char[,] DrawHexagone()
+       
+        protected override char[,] Fill()
         {
+            int oneThirdRows = this.Rows / 3;
+            int oneThirdCols = this.Cols / 3;
+
+            int twoThirdsRows = 2 * oneThirdRows;
+            int twoThirdsCols = 2 * oneThirdCols;
+
             for (int row = 0; row < this.Rows; row++)
             {
                 for (int col = 0; col < this.Cols; col++)
                 {
-
-                    if (row == Player.Row && col == Player.Col)
+                    if (row == this.Player.Coordinates.Row && col == this.Player.Coordinates.Col)
                     {
-                        this.Matrix[row, col] = Player.Symbol;
+                        this.Matrix[row, col] = this.Player.Symbol;
                     }
-                    else if ((row + col < 4) ||
-                            (col > 8 && col < this.Rows && row < 4 && col - row > 8) ||
-                            (row > 8 && row < this.Rows && col < 4 && row - col > 8) ||
-                            (row > 8 && row < this.Rows && col > 8 && col < this.Rows && row + col > 20))
+                    else if ((row + col < oneThirdRows) ||
+                             ((col > twoThirdsCols && col < this.Cols) && (row < oneThirdRows && col - row > twoThirdsCols)) ||
+                             ((row > twoThirdsRows && row < this.Rows) && (col < oneThirdCols && row - col > twoThirdsRows)) ||
+                             ((row > twoThirdsRows && row < this.Rows) && (col > twoThirdsCols && col < this.Rows && row + col > 20)))
                     {
                         this.Matrix[row, col] = '.';
                     }
@@ -37,11 +39,9 @@
                     {
                         this.Matrix[row, col] = this.GetSymbol();
                     }
-
                 }
             }
             return this.Matrix;
         }
-
     }
 }

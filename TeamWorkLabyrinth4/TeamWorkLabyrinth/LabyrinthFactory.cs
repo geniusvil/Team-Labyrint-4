@@ -1,31 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeamWorkLabyrinth
 {
-    public class LabyrinthFactory:ILabyrinthFactory
+    public abstract class LabyrinthFactory : ILabyrinthFactory
     {
-        public ITriangleLabyrint CreateTriangleLabyrinth()
+        public ILabyrinth CreateTriangleLabyrinth()
         {
-            return new ITriangleLabyrint();
+            return new TriangleLabyrint();
         }
 
-        public IRombLabyrinth CreateRombLabyrinth()
+        public ILabyrinth CreateRombLabyrinth()
         {
-            return new IRombLabyrinth();
+            return new RombLabyrinth();
         }
 
-        public IHexagonLabyrinth CreateHexagonLabyrinth()
+        public ILabyrinth CreateHexagonLabyrinth()
         {
-            return new IHexagonLabyrinth();
+            return new HexagonLabyrinth();
         }
 
-        public ISquareLabyrint CreateSquareLabyrinth()
+        public ILabyrinth CreateSquareLabyrinth()
         {
-            return new ISquareLabyrint();
+            return new SquareLabyrint();
         }
     }
 }

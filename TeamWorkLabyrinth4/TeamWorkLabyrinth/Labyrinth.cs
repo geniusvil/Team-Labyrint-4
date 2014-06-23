@@ -1,50 +1,51 @@
 ﻿namespace TeamWorkLabyrinth
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-   
-    public abstract class Labyrinth: ILabyrinth, IRendable
+
+    public abstract class Labyrinth : GameObject, ILabyrinth, IRendable
     {
         private const int InitialRows = 13;
         private const int InitialCols = 13;
-
         private readonly Random randomGenerator = new Random();
+        private Player player;
 
-      //  private char[,] matrix = new char[InitialCols, InitialCols];
-        private IPlayer player;
-
-
-        public Labyrinth(LabyrinthType type)
+        public Labyrinth(LabyrinthType type)//, string name)
         {
-            this.Matrix = Fill();
-            this.Player.Col = 7;
-            this.Player.Row = 7;
-            if(type == null)
+            // this.Matrix = Fill(); //КОЙ FILL СЕ ПОЛЗВА !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            this.Player = new Player();//(name);
+            if (type == null)
             {
                 this.Type = LabyrinthType.Square;
             }
             this.Type = type;
         }
 
-        public char[,] Matrix { get; set; }
+        public char[,] Matrix { get; protected set; }
 
         public LabyrinthType Type { get; private set; }
 
         public int Rows
         {
-            get { return InitialRows; }
+            get 
+            { 
+                if (this.Type == LabyrinthType.Triangle)
+                {
+                    return InitialRows / 2; 
+                }
+                return InitialRows; 
+            }
         }
 
-        // do we need them , or to use Coords
         public int Cols
         {
-            get { return InitialCols; }
+            get
+            {
+                return InitialCols;
+            }
         }
 
-        public IPlayer Player
+        public Player Player
         {
             get
             {
@@ -64,11 +65,11 @@
         {
             get
             {
-                return Matrix[row, col];
+                return this.Matrix[row, col];
             }
             set
             {
-                if (row < 0 || col < 0 || row >=this.Rows || col >= this.Cols)
+                if (row < 0 || col < 0 || row >= this.Rows || col >= this.Cols)
                 {
                     throw new ArgumentException("Index CANNOT be negative or bigger than the size of the matrix!");
                 }
@@ -82,29 +83,42 @@
             throw new NotImplementedException();
         }
 
-        private char[,] Fill()
+        //    for (int i = 0; i < this.Rows; i++)
+        //    {
+        //        for (int j = 0; j < this.Cols; j++)
+        //        {
+        //            build.AppendFormat("{0} ", this.Matrix[i, j]);
+        //        }
+        //        build.Append("\n");
+        //    }
+        //    return build.ToString();
+        //}
+        public void Render()
         {
-            char[,] matrix = new char[InitialRows, InitialCols];
-
-            for (int i = 0; i < this.Rows; i++)
+            for (int row = 0; row < InitialRows; row++)
             {
-                for (int j = 0; j < this.Cols; j++)
+                for (int col = 0; col < InitialCols; col++)
                 {
-                    if (i == Player.Row && j == Player.Col)
+                    if (this.Matrix[row, col] == '*' || this.Matrix[row, col] == '-')
                     {
-                        matrix[i, j] = Player.Symbol;
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    else if (this.Matrix[row, col] == this.Player.Symbol)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
-                       matrix[i, j] = this.GetSymbol();
+                        Console.ForegroundColor = ConsoleColor.Black;
                     }
-                   
-                }
-            }
-            // validation for possible way
 
-            return matrix;
+                    Console.Write(this.Matrix[row, col]);
+                }
+                Console.WriteLine();
+            }
         }
+
+        protected abstract char[,] Fill();
 
         protected char GetSymbol()
         {
@@ -119,26 +133,8 @@
                 return '-';
             }
         }
-
         //public override string ToString()
         //{
         //    StringBuilder build = new StringBuilder();
-
-        //    for (int i = 0; i < this.Rows; i++)
-        //    {
-        //        for (int j = 0; j < this.Cols; j++)
-        //        {
-        //            build.AppendFormat("{0} ", this.Matrix[i, j]);
-        //        }
-        //        build.Append("\n");
-        //    }
-
-        //    return build.ToString();
-        //}
-
-        public void Render()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

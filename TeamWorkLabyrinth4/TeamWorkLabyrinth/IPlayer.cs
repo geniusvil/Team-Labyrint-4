@@ -1,24 +1,18 @@
 ﻿namespace TeamWorkLabyrinth
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public interface IPlayer
     {
-        
-        int Row { get; set; }
+        string Name { get; set; }
 
-        int Col { get; set; }
+        int Points { get; }
 
-        char Symbol { get; }
-
-        void ResetInitialPosition();
-
+        Coordinate Coordinates { get; set; }
+       
         void UpdatePoints();
 
-        void UpdatePosition(Coordinate position);
+        void UpdatePosition(Coordinate newCoordinates);
     }
 }

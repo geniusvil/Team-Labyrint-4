@@ -1,158 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TeamWorkLabyrinth.Coordinate">
-    <Position X="0.5" Y="8.25" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.Coordinate" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Coordinate.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamWorkLabyrinth.KeyboardCommand" BaseTypeListCollapsed="true">
-    <Position X="4" Y="10.25" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.KeyboardCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>KeyboardCommand.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TeamWorkLabyrinth.HexagonLabyrinth">
-    <Position X="5" Y="5.75" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.GameObject" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>HexagonLabyrinth.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TeamWorkLabyrinth.HexagonLabyrinth">
+    <Position X="7.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HexagonLabyrinth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Class Name="TeamWorkLabyrinth.Labyrinth">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEABABIAAAEAECAAAAIAAAAAgCAABARAAAQAAAAA=</HashCode>
       <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamWorkLabyrinth.LabyrinthEngine">
-    <Position X="5.75" Y="9.5" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.LabyrinthEngine" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LabyrinthEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamWorkLabyrinth.LabyrinthFactory" BaseTypeListCollapsed="true">
-    <Position X="4" Y="8.25" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.LabyrinthFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAACCAAAA=</HashCode>
       <FileName>LabyrinthFactory.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TeamWorkLabyrinth.Player" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="8.25" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.Player">
+    <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIgCEAAIAAAQQCCAEEAgAAAAAAAAAgCAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIgCAAAIAAAAQAKAAEAAAAAAAAAAAgAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TeamWorkLabyrinth.Program">
-    <Position X="5.75" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamWorkLabyrinth.RombLabyrinth">
-    <Position X="7.25" Y="5.75" Width="1.5" />
+    <Position X="9.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>RombLabyrinth.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamWorkLabyrinth.ScoreBoard">
-    <Position X="0.5" Y="10.25" Width="1.5" />
+  <Class Name="TeamWorkLabyrinth.ScoreBoard" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAACAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ScoreBoard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamWorkLabyrinth.SquareLabyrint">
-    <Position X="0.5" Y="5.75" Width="1.5" />
+    <Position X="2.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>SquareLabyrint.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamWorkLabyrinth.TriangleLabyrint">
-    <Position X="2.75" Y="5.75" Width="1.5" />
+    <Position X="5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>TriangleLabyrint.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="TeamWorkLabyrinth.IHexagonLabyrinth">
-    <Position X="7.5" Y="11" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IHexagonLabyrinth.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="TeamWorkLabyrinth.ILabyrinth">
-    <Position X="7.5" Y="8.25" Width="1.5" />
+  <Interface Name="TeamWorkLabyrinth.ILabyrinth" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAECAAAAIAAAAAAAAAAAQAAAQAAAAA=</HashCode>
       <FileName>ILabyrinth.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TeamWorkLabyrinth.ILabyrinthFactory">
-    <Position X="9.25" Y="8.25" Width="1.5" />
+  <Interface Name="TeamWorkLabyrinth.ILabyrinthFactory" Collapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAACCAAAA=</HashCode>
       <FileName>ILabyrinthFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TeamWorkLabyrinth.IPlayer">
-    <Position X="11" Y="11.25" Width="1.5" />
+  <Interface Name="TeamWorkLabyrinth.IPlayer" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACEAAIAAAAAAAAEAAgAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgCAAAIAAAAQAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TeamWorkLabyrinth.IRendable">
-    <Position X="11" Y="10" Width="1.5" />
+  <Interface Name="TeamWorkLabyrinth.IRendable" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>IRendable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TeamWorkLabyrinth.IRombLabyrinth">
-    <Position X="7.5" Y="12" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IRombLabyrinth.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="TeamWorkLabyrinth.ISquareLabyrint">
-    <Position X="7.5" Y="14" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ISquareLabyrint.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="TeamWorkLabyrinth.ITriangleLabyrint">
-    <Position X="7.5" Y="13" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ITriangleLabyrint.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="TeamWorkLabyrinth.IUserCommand">
-    <Position X="11" Y="8.25" Width="1.5" />
+  <Interface Name="TeamWorkLabyrinth.IUserCommand" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>IUserCommand.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="TeamWorkLabyrinth.LabyrinthType">
-    <Position X="9.25" Y="10.25" Width="1.5" />
+  <Enum Name="TeamWorkLabyrinth.LabyrinthType" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAgACAAAAA=</HashCode>
       <FileName>LabyrinthType.cs</FileName>

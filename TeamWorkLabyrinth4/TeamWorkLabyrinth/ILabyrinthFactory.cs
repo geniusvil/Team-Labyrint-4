@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeamWorkLabyrinth
 {
     public interface ILabyrinthFactory
     {
-        ITriangleLabyrint CreateTriangleLabyrinth();
+        ILabyrinth CreateTriangleLabyrinth();
 
-        IRombLabyrinth CreateRombLabyrinth();
+        ILabyrinth CreateRombLabyrinth();
 
-        IHexagonLabyrinth CreateHexagonLabyrinth();
+        ILabyrinth CreateHexagonLabyrinth();
 
-        ISquareLabyrint CreateSquareLabyrinth();
+        ILabyrinth CreateSquareLabyrinth();
     }
 }
