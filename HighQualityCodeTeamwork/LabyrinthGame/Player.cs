@@ -69,7 +69,20 @@
 
         public void UpdatePosition(Coordinate newCoordinates)
         {
-            throw new NotImplementedException();
+            //this.Coordinates.Row += newCoordinates.Row;
+            //this.Coordinates.Col += newCoordinates.Col;
+            Coordinates.Update(newCoordinates);
+        }
+
+        public void ShowPlayer(ILabyrinth labyrinth)
+        {
+            labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Player;
+            Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
+        }
+        public void RemovePlayer(ILabyrinth labyrinth)
+        {
+            labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Path;
+            Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
         }
     }
 }

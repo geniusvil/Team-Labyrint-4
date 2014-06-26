@@ -13,7 +13,7 @@
             int halfRows = this.Matrix.GetLength(0) / 2;
             int halfCols = this.Matrix.GetLength(1) / 2;
 
-            for (int row = 0; row < halfRows; row++)
+            for (int row = 0; row <= halfRows; row++)
             {
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {

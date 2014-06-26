@@ -48,6 +48,8 @@
     <Compile Include="ILabyrinthCreator.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderable.cs" />
+    <Compile Include="IUserCommand.cs" />
+    <Compile Include="KeyboardCommand.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="LabyrinthCreator.cs" />
     <Compile Include="Player.cs" />

@@ -12,6 +12,11 @@
         {
             labyrinth.FillMatrix();
 
+           // (labyrinth as IRenderable).Render();
+        }
+
+        public void Render(ILabyrinth labyrinth)
+        {
             (labyrinth as IRenderable).Render();
         }
     }

@@ -25,14 +25,14 @@
 
             private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Col coordinate can not be negative.");
-                }
-                else
-                {
+            //    if (value < 0)
+            //    {
+            //        throw new ArgumentOutOfRangeException("Col coordinate can not be negative.");
+            //    }
+            //    else
+            //    {
                     this.col = value;
-                }
+                //}
             }
         }
 
@@ -46,14 +46,14 @@
 
             private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Row coordinate can not be negative.");
-                }
-                else
-                {
+                //if (value < 0)
+                //{
+                //    throw new ArgumentOutOfRangeException("Row coordinate can not be negative.");
+                //}
+                //else
+                //{
                     this.row = value;
-                }
+                //}
             }
         }
 
@@ -62,10 +62,12 @@
         /// </summary>
         /// <param name="rowChange">Value to change row coordinate</param>
         /// <param name="colChange">Value to change col coordinate</param>
-        public void Update(int rowChange, int colChange)
+        public void Update(Coordinate newCoordinates)//(int rowChange, int colChange)
         {
-            this.Row += rowChange;
-            this.Col += colChange;
+            this.Row += newCoordinates.Row;
+            this.Col += newCoordinates.Col;
+            //this.Row += rowChange;
+            //this.Col += colChange;
         }
     }
 }
