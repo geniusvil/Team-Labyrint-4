@@ -1,9 +1,7 @@
 ﻿namespace LabyrinthGame
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
     public interface IPlayer
     {
@@ -15,6 +13,6 @@
 
         void UpdatePoints();
 
-        void UpdatePosition(Coordinate newCoordinates);
+        void UpdatePosition(ICoordinate newCoordinates);
     }
 }

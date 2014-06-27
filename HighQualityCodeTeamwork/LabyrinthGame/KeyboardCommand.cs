@@ -1,51 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LabyrinthGame
+﻿namespace LabyrinthGame
 {
+    using System;
+    using System.Linq;
+
     public class KeyboardCommand : IUserCommand
     {
-        
-        public Coordinate MoveLeft()
+        public ICoordinate MoveLeft()
         {
             return new Coordinate(0, -1);
         }
 
-        public Coordinate MoveRight()
+        public ICoordinate MoveRight()
         {
             return new Coordinate(0, 1);
         }
 
-        public Coordinate MoveDown()
+        public ICoordinate MoveDown()
         {
             return new Coordinate(+1, 0);
         }
 
-        public Coordinate MoveUp()
+        public ICoordinate MoveUp()
         {
-            return new Coordinate(-1,0);
+            return new Coordinate(-1, 0);
         }
 
-        public Coordinate ProcessInput()
+        public ICoordinate ProcessCommands()
         {
-           // if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo keyPressed = Console.ReadKey();
-                //while (Console.KeyAvailable)
-                //{
-                //    Console.ReadKey();
-                //}
 
                 switch (keyPressed.Key)
                 {
-                    case ConsoleKey.LeftArrow: return MoveLeft();
-                    case ConsoleKey.RightArrow: return MoveRight();
-                    case ConsoleKey.UpArrow: return MoveUp();
-                    case ConsoleKey.DownArrow: return MoveDown();
-                    default: return new Coordinate(0, 0);
+                    case ConsoleKey.LeftArrow:
+
+                        return this.MoveLeft();
+                    case ConsoleKey.RightArrow:
+
+                        return this.MoveRight();
+                    case ConsoleKey.UpArrow:
+
+                        return this.MoveUp();
+                    case ConsoleKey.DownArrow:
+
+                        return this.MoveDown();
+                    default:
+
+                        return new Coordinate(0, 0);
                 }
             }
         }

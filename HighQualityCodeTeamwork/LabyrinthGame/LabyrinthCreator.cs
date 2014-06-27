@@ -11,8 +11,6 @@
         public void Create(ILabyrinth labyrinth)
         {
             labyrinth.FillMatrix();
-
-           // (labyrinth as IRenderable).Render();
         }
 
         public void Render(ILabyrinth labyrinth)

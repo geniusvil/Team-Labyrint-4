@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LabyrinthGame
+﻿namespace LabyrinthGame
 {
+    using System;
+    using System.Linq;
+
     public interface IUserCommand
     {
-        Coordinate MoveLeft();
+        ICoordinate MoveLeft();
 
-        Coordinate MoveRight();
+        ICoordinate MoveRight();
 
-        Coordinate MoveDown();
+        ICoordinate MoveDown();
 
-        Coordinate MoveUp();
-        Coordinate ProcessInput();
+        ICoordinate MoveUp();
+
+        ICoordinate ProcessCommands();
     }
 }

@@ -44,14 +44,17 @@
     <Compile Include="Coordinate.cs" />
     <Compile Include="DiamondLabyrinth.cs" />
     <Compile Include="HexagonalLabyrinth.cs" />
+    <Compile Include="ICoordinate.cs" />
     <Compile Include="ILabyrinth.cs" />
     <Compile Include="ILabyrinthCreator.cs" />
+    <Compile Include="ILabyrinthEngine.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderable.cs" />
     <Compile Include="IUserCommand.cs" />
     <Compile Include="KeyboardCommand.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="LabyrinthCreator.cs" />
+    <Compile Include="LabyrinthEngine.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

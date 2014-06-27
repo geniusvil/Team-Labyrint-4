@@ -58,7 +58,7 @@
                     {
                         Console.ForegroundColor = ConsoleColor.Gray;
                     }
-                    else if (this.Matrix[row, col] == (char)Symbol.BlankSpace )
+                    else if (this.Matrix[row, col] == (char)Symbol.BlankSpace)
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
@@ -66,6 +66,7 @@
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
+
                     Console.Write("{0,2}", this.Matrix[row, col]);
                 }
 

@@ -21,7 +21,6 @@
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
                     // TODO - Get conditions outside to facilitate debugging
-
                     if ((row + col < oneThirdRows) ||
                         ((col > twoThirdsCols && col < this.Matrix.GetLength(1)) && (row < oneThirdRows && col - row > twoThirdsCols)) ||
                         ((row > twoThirdsRows && row < this.Matrix.GetLength(0)) && (col < oneThirdCols && row - col > twoThirdsRows)) ||

@@ -1,73 +1,29 @@
 ﻿namespace LabyrinthGame
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
-    public class Coordinate
+    public class Coordinate : ICoordinate
     {
-        private int row;
-        private int col;
-
         public Coordinate(int rowCoordinate, int colCoordinate)
         {
             this.Row = rowCoordinate;
             this.Col = colCoordinate;
         }
 
-        public int Col
-        {
-            get
-            {
-                return this.col;
-            }
+        public int Col { get; private set; }
 
-            private set
-            {
-            //    if (value < 0)
-            //    {
-            //        throw new ArgumentOutOfRangeException("Col coordinate can not be negative.");
-            //    }
-            //    else
-            //    {
-                    this.col = value;
-                //}
-            }
-        }
-
-
-        public int Row
-        {
-            get
-            {
-                return this.row;
-            }
-
-            private set
-            {
-                //if (value < 0)
-                //{
-                //    throw new ArgumentOutOfRangeException("Row coordinate can not be negative.");
-                //}
-                //else
-                //{
-                    this.row = value;
-                //}
-            }
-        }
+        public int Row { get; private set; }
 
         /// <summary>
         /// Updates coordinates assuming the mark of the given parameters
         /// </summary>
         /// <param name="rowChange">Value to change row coordinate</param>
         /// <param name="colChange">Value to change col coordinate</param>
-        public void Update(Coordinate newCoordinates)//(int rowChange, int colChange)
+        public void Update(ICoordinate newCoordinates)
         {
             this.Row += newCoordinates.Row;
             this.Col += newCoordinates.Col;
-            //this.Row += rowChange;
-            //this.Col += colChange;
         }
     }
 }

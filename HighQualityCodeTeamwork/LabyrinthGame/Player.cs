@@ -1,23 +1,21 @@
 ﻿namespace LabyrinthGame
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
     public class Player : IPlayer
     {
-        private readonly string defaultPlayerName = "Bai Ivan";
-
         private const int StartRow = 6;
         private const int StartCol = 6;
+
+        private readonly string defaultPlayerName = "Bai Ivan";
 
         private string name;
         private int points;
 
         public Player()
         {
-            this.Coordinates = new Coordinate(StartRow,StartCol);
+            this.Coordinates = new Coordinate(StartRow, StartCol);
         }
 
         public string Name
@@ -31,7 +29,7 @@
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
-                    this.name = defaultPlayerName;
+                    this.name = this.defaultPlayerName;
                 }
                 else
                 {
@@ -67,11 +65,9 @@
             this.Points++;
         }
 
-        public void UpdatePosition(Coordinate newCoordinates)
+        public void UpdatePosition(ICoordinate newCoordinates)
         {
-            //this.Coordinates.Row += newCoordinates.Row;
-            //this.Coordinates.Col += newCoordinates.Col;
-            Coordinates.Update(newCoordinates);
+            this.Coordinates.Update(newCoordinates);
         }
 
         public void ShowPlayer(ILabyrinth labyrinth)
@@ -79,6 +75,7 @@
             labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Player;
             Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
         }
+
         public void RemovePlayer(ILabyrinth labyrinth)
         {
             labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Path;
