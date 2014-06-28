@@ -40,6 +40,9 @@
             //    newCoord = command.ProcessCommands();
             //}
 
+            var menu = new Menu();
+            string typeOfShape = menu.GetUserChoice();
+
             LabyrinthEngine.Instance.Start();
         }
     }
