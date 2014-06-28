@@ -58,7 +58,7 @@
 
         private string GetChoice()
         {
-            string menuChoice ;
+            string menuChoiceNum ;
 
             // Print A Menu
             Console.WriteLine("Please make your choice\n");
@@ -71,10 +71,10 @@
             Console.Write("Your choice is : ");
 
             // Retrieve the user's choice
-            menuChoice = Console.ReadLine();
+            menuChoiceNum = Console.ReadLine();
             Console.WriteLine();
 
-            return menuChoice;
+            return menuChoiceNum;
         }
 
         public void StartGame()
