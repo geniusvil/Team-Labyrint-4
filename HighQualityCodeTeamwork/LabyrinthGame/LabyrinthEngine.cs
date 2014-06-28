@@ -7,10 +7,11 @@
     {
         private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
-        private ILabyrinthCreator creator;
-        private ILabyrinth labyrinth;
-        private IPlayer player;
-        private IUserCommand command;
+        private readonly ILabyrinthCreator creator;
+        private readonly ILabyrinth labyrinth;
+        private readonly IPlayer player;
+        private readonly IUserCommand command;
+
         private ICoordinate coordinates;
         private Menu menu;
 
@@ -33,23 +34,11 @@
 
         public void Start()
         {
-            var userChoice = this.menu.GetUserChoice();
+            var userChoise = this.menu.GetUserChoice();
             string typeLabyrint = "";
-            if (userChoice == "1")
+            if (userChoise == "1")
             {
-                ReadLabyrinthType();
-            }
-            else if (userChoice == "2")
-            {
-                Start();
-            }
-            else if (userChoice == "3")
-            {
-                ShowScoreBoard();
-            }
-            else if (userChoice == "4")
-            {
-
+                typeLabyrint = this.menu.GetLabyrinthType();
             }
 
             this.labyrinth = CreateRequiredLabyrinth(typeLabyrint);
@@ -58,14 +47,6 @@
 
             var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
 
-            while (!isWayOut)
-            {
-                Console.Clear();
-                this.creator.Create(this.labyrinth);
-                isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
-            }
-            
-
             this.player.ShowPlayer(this.labyrinth);
             this.player.RemovePlayer(this.labyrinth);
 
@@ -73,28 +54,31 @@
 
             while (true)
             {
+                var currentCoord = new Coordinate(this.player.Coordinates.Row, this.player.Coordinates.Col);
+
                 Console.Clear();
 
-                player.UpdatePosition(this.coordinates);
+                this.player.UpdatePosition(this.coordinates);
+                var previousCoord = currentCoord - this.player.Coordinates;
 
-                player.ShowPlayer(this.labyrinth);
-                (this.labyrinth as IRenderable).Render();
-                player.RemovePlayer(this.labyrinth);
+                if (IsPositionAvailable(this.player.Coordinates))
+                {
+                    ShowPlayerOnLabyrinth();
+                }
+                else
+                {
+                    this.player.UpdatePosition(previousCoord);
+                    ShowPlayerOnLabyrinth();
+                }
 
                 this.coordinates = command.ProcessCommands();
+
+                if (!isWayOut)
+                {
+                    Console.WriteLine("Bat Giorgi zadushaam sa");
+                }
             }
-        }
-
-        // from Score Class
-        private void ShowScoreBoard()
-        {
-            //TODO:
-            throw new NotImplementedException();
-        }
-
-        private string ReadLabyrinthType()
-        {
-           return  this.menu.GetLabyrinthType();
+            }
         }
 
         private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
@@ -117,7 +101,7 @@
 
         private bool IsPositionAvailable(ICoordinate newCoordinates)
         {
-            if (this.labyrinth.Matrix[newCoordinates.Row, newCoordinates.Col] == (char)Symbol.BlankSpace || this.labyrinth.Matrix[newCoordinates.Row, newCoordinates.Col] == (char)Symbol.Obstacle)
+            if (this.labyrinth.Matrix[newCoordinates.Row, newCoordinates.Col] == (char)Symbol.Obstacle)
             {
                 return false;
             }
@@ -127,8 +111,8 @@
 
         private bool IsPossibleWayOut(ILabyrinth labyrinth, ICoordinate givenCoords)
         {
-            if (givenCoords.Row > this.labyrinth.Matrix.GetLength(0) || givenCoords.Row < 0 ||
-                givenCoords.Col > this.labyrinth.Matrix.GetLength(1) || givenCoords.Col < 0)
+            if (givenCoords.Row >= this.labyrinth.Matrix.GetLength(0) || givenCoords.Row < 0 ||
+                givenCoords.Col >= this.labyrinth.Matrix.GetLength(1) || givenCoords.Col < 0)
             {
                 // We are out
                 return false;
