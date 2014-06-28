@@ -12,20 +12,24 @@
 
         public Menu()
         {
-            
+
         }
 
-        public void GetUserChoice()
+        public string GetUserChoice()
         {
+            string shape="";
             do
             {
                 myChoice = GetChoice();
+                
 
                 // Make a decision based on the user's choice
                 switch (myChoice)
                 {
                     case "1":
-                        Console.WriteLine("Start new game");
+                        //Console.WriteLine("Start new game");
+                        //Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+                        shape = StartGame();
                         break;
                     case "2":
                         Console.WriteLine("Load saved game");
@@ -46,21 +50,18 @@
                 }
 
                 // Pause to allow the user to see the results
-                Console.WriteLine("\n-----------------------------------------\n");
-                Console.Write("press Enter key to continue...");
-
-                Console.ReadLine();
                 Console.WriteLine();
 
             }
-            while (myChoice != "5" && myChoice != "4" && myChoice != "3" && myChoice != "2" && myChoice != "1"); 
+            while (myChoice != "5" && myChoice != "4" && myChoice != "3" && myChoice != "2" && myChoice != "1");
             // Keep going until the user wants to quit
+            return shape;
         }
 
 
         private string GetChoice()
         {
-            string myChoice;
+            string menuChoiceNum ;
 
             // Print A Menu
             Console.WriteLine("Please make your choice\n");
@@ -73,10 +74,49 @@
             Console.Write("Your choice is : ");
 
             // Retrieve the user's choice
-            myChoice = Console.ReadLine();
+            menuChoiceNum = Console.ReadLine();
             Console.WriteLine();
 
-            return myChoice;
+            return menuChoiceNum;
+        }
+
+        public string StartGame()
+        {
+            Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            Console.WriteLine("Please choose type of the labyrinth where D is for diamond, P is for Pentagon, H is for Hexagon, S is for Square: ");
+
+            string chooseTypeOfLab = Console.ReadLine();
+
+            do
+            {
+                // Make a decision based on the user's choice
+                switch (chooseTypeOfLab)
+                {
+                    case "D":
+                        Console.WriteLine("The game form is Diamond");
+                        break;
+                    case "P":
+                        Console.WriteLine("The game form is Pentagon");
+                        break;
+                    case "H":
+                        Console.WriteLine("The game form is Hexagon");
+                        break;
+                    case "S":
+                        Console.WriteLine("The game form is Square");
+                        break;
+                    default:
+                        Console.WriteLine("{0} is not a valid choice", myChoice);
+                        break;
+                }
+
+                // Pause to allow the user to see the results
+                Console.WriteLine();
+
+            }
+            while (chooseTypeOfLab != "P" && chooseTypeOfLab != "D" && chooseTypeOfLab != "S" && chooseTypeOfLab != "H");
+
+            return chooseTypeOfLab;
+
         }
 
         public void QuitGame()
@@ -84,7 +124,7 @@
             Console.WriteLine("You have quited the game");
             Environment.Exit(0);
         }
-        
+
 
     }
 }

@@ -8,6 +8,10 @@
 
     public interface IMenu
     {
+        string GetUserChoice();
+        //string GetChoice();
+        string StartGame();
+        void QuitGame();
 
     }
 }
