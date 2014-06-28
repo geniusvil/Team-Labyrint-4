@@ -7,6 +7,9 @@
     {
         private static void Main()
         {
+            var menu = new Menu();
+            menu.GetUserChoice();
+
             var labyrinthFacotory = new LabyrinthCreator();
 
             ILabyrinth hexLabyrinth = new HexagonalLabyrinth();
