@@ -13,6 +13,8 @@
         private string name;
         private int points;
 
+        private char currentSymbol;
+
         public Player()
         {
             this.Coordinates = new Coordinate(StartRow, StartCol);
@@ -72,15 +74,18 @@
 
         public void ShowPlayer(ILabyrinth labyrinth)
         {
-           // labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Player;
-           // Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
-            
+            currentSymbol = GetCurrentSymbol(labyrinth);
+            labyrinth.ChangeSymbol(this.Coordinates, (char)Symbol.Player);
         }
 
         public void RemovePlayer(ILabyrinth labyrinth)
         {
-            labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Path;
-           // Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
+            labyrinth.ChangeSymbol(this.Coordinates, currentSymbol);
+        }
+
+        private char GetCurrentSymbol(ILabyrinth labyrinth)
+        {
+            return labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col];
         }
     }
 }
