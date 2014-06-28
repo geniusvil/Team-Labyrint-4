@@ -64,14 +64,13 @@
             string menuChoiceNum ;
 
             // Print A Menu
-            Console.WriteLine("Please make your choice\n");
+            Console.WriteLine("Welcome to “LABYRINTH” game.\n");
 
-            Console.WriteLine("1 : Start new game");
-            Console.WriteLine("2 : Load Game");
-            Console.WriteLine("3 : Save Game");
-            Console.WriteLine("4 : Delete Saved Games");
-            Console.WriteLine("5 : Quit\n");
-            Console.Write("Your choice is : ");
+            Console.WriteLine("  1 : START");
+            Console.WriteLine("  2 : RESTART");
+            Console.WriteLine("  3 : SCOREBOARD");
+            Console.WriteLine("  4 : EXIT\n");
+            Console.Write("Your choice : ");
 
             // Retrieve the user's choice
             menuChoiceNum = Console.ReadLine();
@@ -82,30 +81,33 @@
 
         public string StartGame()
         {
-            Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            Console.WriteLine("Please choose type of the labyrinth where D is for diamond, P is for Pentagon, H is for Hexagon, S is for Square: ");
-
-            string chooseTypeOfLab = Console.ReadLine();
+            Console.WriteLine("Please choose type of the labyrinth\n");
+            Console.WriteLine("  D : DIAMOND");
+            Console.WriteLine("  P : PENTAGON");
+            Console.WriteLine("  H : HEXAGON");
+            Console.WriteLine("  S : SQUARE\n ");
+              Console.Write("Your choice : ");
+            string chooseTypeOfLab = Console.ReadLine().ToLower();
 
             do
             {
                 // Make a decision based on the user's choice
                 switch (chooseTypeOfLab)
                 {
-                    case "D":
+                    case "d":
                         Console.WriteLine("The game form is Diamond");
                         break;
-                    case "P":
+                    case "p":
                         Console.WriteLine("The game form is Pentagon");
                         break;
-                    case "H":
+                    case "h":
                         Console.WriteLine("The game form is Hexagon");
                         break;
-                    case "S":
+                    case "s":
                         Console.WriteLine("The game form is Square");
                         break;
                     default:
-                        Console.WriteLine("{0} is not a valid choice", myChoice);
+                        Console.WriteLine("Please choose between D, P, H, S!", myChoice);
                         break;
                 }
 
@@ -113,7 +115,7 @@
                 Console.WriteLine();
 
             }
-            while (chooseTypeOfLab != "P" && chooseTypeOfLab != "D" && chooseTypeOfLab != "S" && chooseTypeOfLab != "H");
+            while (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h");
 
             return chooseTypeOfLab;
 
@@ -121,7 +123,7 @@
 
         public void QuitGame()
         {
-            Console.WriteLine("You have quited the game");
+            Console.WriteLine("The End.");
             Environment.Exit(0);
         }
 
