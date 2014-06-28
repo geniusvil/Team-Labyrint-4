@@ -7,40 +7,40 @@
     {
         private static void Main()
         {
-            var menu = new Menu();
-            menu.GetUserChoice();
+            //var labyrinthFacotory = new LabyrinthCreator();
 
-            var labyrinthFacotory = new LabyrinthCreator();
+            //ILabyrinth hexLabyrinth = new HexagonalLabyrinth();
 
-            ILabyrinth hexLabyrinth = new HexagonalLabyrinth();
+            ////// ILabyrinth triangleLabyrinth = new TriangleLabyrinth();
 
-            //// ILabyrinth triangleLabyrinth = new TriangleLabyrinth();
+            //labyrinthFacotory.Create(hexLabyrinth);
 
-            labyrinthFacotory.Create(hexLabyrinth);
-            
-            //// labyrinthFacotory.Render(hexLabyrinth);
+            ////// labyrinthFacotory.Render(hexLabyrinth);
 
-            Console.WriteLine();
-            
-            //// labyrinthFacotory.Create(triangleLabyrinth);
+            //Console.WriteLine();
 
-            Player player = new Player();
+            ////// labyrinthFacotory.Create(triangleLabyrinth);
 
-            player.ShowPlayer(hexLabyrinth);
-            labyrinthFacotory.Render(hexLabyrinth);
-            player.RemovePlayer(hexLabyrinth);
-            
-            IUserCommand command = new KeyboardCommand();
-            ICoordinate newCoord = command.ProcessCommands();
+            //Player player = new Player();
 
-            while (true)
-            { 
-                player.UpdatePosition(newCoord);
-                player.ShowPlayer(hexLabyrinth);
-                labyrinthFacotory.Render(hexLabyrinth);
-                player.RemovePlayer(hexLabyrinth);
-                newCoord = command.ProcessCommands();
-            }
+            //player.ShowPlayer(hexLabyrinth);
+            //labyrinthFacotory.Render(hexLabyrinth);
+            //player.RemovePlayer(hexLabyrinth);
+
+            //IUserCommand command = new KeyboardCommand();
+            //ICoordinate newCoord = command.ProcessCommands();
+
+            //while (true)
+            //{
+            //    Console.Clear();
+            //    player.UpdatePosition(newCoord);
+            //    player.ShowPlayer(hexLabyrinth);
+            //    labyrinthFacotory.Render(hexLabyrinth);
+            //    player.RemovePlayer(hexLabyrinth);
+            //    newCoord = command.ProcessCommands();
+            //}
+
+            LabyrinthEngine.Instance.Start();
         }
     }
 }
