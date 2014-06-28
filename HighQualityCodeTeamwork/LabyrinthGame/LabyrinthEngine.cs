@@ -33,11 +33,23 @@
 
         public void Start()
         {
-            var userChoise = this.menu.GetUserChoice();
+            var userChoice = this.menu.GetUserChoice();
             string typeLabyrint = "";
-            if (userChoise == "1")
+            if (userChoice == "1")
             {
-                typeLabyrint = this.menu.GetLabyrinthType();
+                ReadLabyrinthType();
+            }
+            else if (userChoice == "2")
+            {
+                Start();
+            }
+            else if (userChoice == "3")
+            {
+                ShowScoreBoard();
+            }
+            else if (userChoice == "4")
+            {
+
             }
 
             this.labyrinth = CreateRequiredLabyrinth(typeLabyrint);
@@ -46,7 +58,13 @@
 
             var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
 
-            //Console.WriteLine();
+            while (!isWayOut)
+            {
+                Console.Clear();
+                this.creator.Create(this.labyrinth);
+                isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
+            }
+            
 
             this.player.ShowPlayer(this.labyrinth);
             this.player.RemovePlayer(this.labyrinth);
@@ -65,6 +83,18 @@
 
                 this.coordinates = command.ProcessCommands();
             }
+        }
+
+        // from Score Class
+        private void ShowScoreBoard()
+        {
+            //TODO:
+            throw new NotImplementedException();
+        }
+
+        private string ReadLabyrinthType()
+        {
+           return  this.menu.GetLabyrinthType();
         }
 
         private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)

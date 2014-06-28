@@ -20,28 +20,16 @@
         {
             string menuChoiceNum = "";
 
-            try
-            {
-                Console.WriteLine("Welcome to “LABYRINTH” game.\n");
-                menuChoiceNum = ReadRequiredChoice();
-                if (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4")
-                {
-                    Console.Clear();
-                    // Thread.Sleep(3000);
-                    throw new ArgumentException("Try again!");
-                }
-            }
-            catch (ArgumentException ex)
-            {
+       
                 do
                 {
+                    Console.WriteLine("Welcome to “LABYRINTH” game.\n");
                     Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
                     menuChoiceNum = ReadRequiredChoice();
                     Console.Clear();
                 }
                 while (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4");
 
-            }
 
             return menuChoiceNum;
         }
