@@ -1,37 +1,57 @@
 ﻿namespace LabyrinthGame
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     internal class Menu //: IMenu
     {
         // private string myChoice;
-
         public Menu()
         {
-
         }
 
         public string GetUserChoice()
         {
             string menuChoiceNum = "";
-
        
-                do
-                {
-                    Console.WriteLine("Welcome to “LABYRINTH” game.\n");
-                    Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
-                    menuChoiceNum = ReadRequiredChoice();
-                    Console.Clear();
-                }
-                while (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4");
-
+            do
+            {
+                Console.WriteLine("Welcome to “LABYRINTH” game.\n");
+                Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
+                menuChoiceNum = this.ReadRequiredChoice();
+                Console.Clear();
+            }
+            while (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4");
 
             return menuChoiceNum;
+        }
+
+        public string GetLabyrinthType()
+        {
+            string chooseTypeOfLab = "";
+
+            try
+            {
+                chooseTypeOfLab = this.ReadInputTypeLabyrinth();
+                if (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h")
+                {
+                    // Thread.Sleep(3000);
+                    Console.Clear();
+                    throw new ArgumentException("Try again!");
+                }
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Please choose between D, P, H and S\n");
+                chooseTypeOfLab = this.ReadInputTypeLabyrinth();
+            }
+            return chooseTypeOfLab;
+        }
+
+        public void QuitGame()
+        {
+            Console.WriteLine("The End.");
+            Environment.Exit(0);
         }
 
         private string ReadRequiredChoice()
@@ -52,31 +72,6 @@
             return menuChoiceNum;
         }
 
-        public string GetLabyrinthType()
-        {
-            string chooseTypeOfLab = "";
-
-            try
-            {
-                chooseTypeOfLab = ReadInputTypeLabyrinth();
-                if (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h")
-                {
-
-                    // Thread.Sleep(3000);
-                    Console.Clear();
-                    throw new ArgumentException("Try again!");
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("Please choose between D, P, H and S\n");
-                chooseTypeOfLab = ReadInputTypeLabyrinth();
-
-            }
-            return chooseTypeOfLab;
-
-        }
-
         private string ReadInputTypeLabyrinth()
         {
             string chooseTypeOfLab;
@@ -90,12 +85,5 @@
             Console.WriteLine();
             return chooseTypeOfLab;
         }
-        public void QuitGame()
-        {
-            Console.WriteLine("The End.");
-            Environment.Exit(0);
-        }
-
-
     }
 }

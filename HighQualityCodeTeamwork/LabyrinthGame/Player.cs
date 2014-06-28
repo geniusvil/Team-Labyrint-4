@@ -74,13 +74,13 @@
 
         public void ShowPlayer(ILabyrinth labyrinth)
         {
-            currentSymbol = GetCurrentSymbol(labyrinth);
+            this.currentSymbol = this.GetCurrentSymbol(labyrinth);
             labyrinth.ChangeSymbol(this.Coordinates, (char)Symbol.Player);
         }
 
         public void RemovePlayer(ILabyrinth labyrinth)
         {
-            labyrinth.ChangeSymbol(this.Coordinates, currentSymbol);
+            labyrinth.ChangeSymbol(this.Coordinates, this.currentSymbol);
         }
 
         private char GetCurrentSymbol(ILabyrinth labyrinth)
