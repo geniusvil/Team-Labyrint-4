@@ -17,11 +17,11 @@
 
         public string GetUserChoice()
         {
-            string shape="";
+            string shape = "";
             do
             {
                 myChoice = GetChoice();
-                
+
 
                 // Make a decision based on the user's choice
                 switch (myChoice)
@@ -61,7 +61,7 @@
 
         private string GetChoice()
         {
-            string menuChoiceNum ;
+            string menuChoiceNum;
 
             // Print A Menu
             Console.WriteLine("Please make your choice\n");
@@ -124,7 +124,5 @@
             Console.WriteLine("You have quited the game");
             Environment.Exit(0);
         }
-
-
     }
 }
