@@ -12,9 +12,11 @@
         private IPlayer player;
         private IUserCommand command;
         private ICoordinate coordinates;
+        private Menu menu;
 
         private LabyrinthEngine()
         {
+            this.menu = new Menu();
             this.creator = new LabyrinthCreator();
             this.labyrinth = new HexagonalLabyrinth();
             this.player = new Player();
@@ -31,6 +33,15 @@
 
         public void Start()
         {
+            var userChoise = this.menu.GetUserChoice();
+            string typeLabyrint = "";
+            if (userChoise == "1")
+            {
+                typeLabyrint = this.menu.GetLabyrinthType();
+            }
+
+            this.labyrinth = CreateRequiredLabyrinth(typeLabyrint);
+
             this.creator.Create(this.labyrinth);
 
             var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
@@ -54,7 +65,24 @@
 
                 this.coordinates = command.ProcessCommands();
             }
+        }
 
+        private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
+        {
+
+            switch (typeLabyrint)
+            {
+                case "d":
+                    return new DiamondLabyrinth();
+                case "p":
+                    return new TriangleLabyrinth();
+                case "h":
+                   return  new HexagonalLabyrinth();
+                case "s":
+                   return new SquareLabyrinth();
+                default:
+                   return new DiamondLabyrinth();
+            }
         }
 
         private bool IsPositionAvailable(ICoordinate newCoordinates)
@@ -105,5 +133,7 @@
 
             return true;
         }
+
+
     }
 }

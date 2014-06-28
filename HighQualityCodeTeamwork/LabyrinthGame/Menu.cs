@@ -4,11 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading;
     using System.Threading.Tasks;
 
-    internal class Menu : IMenu
+    internal class Menu //: IMenu
     {
-        private string myChoice;
+        // private string myChoice;
 
         public Menu()
         {
@@ -17,54 +18,38 @@
 
         public string GetUserChoice()
         {
-            string shape="";
-            do
+            string menuChoiceNum = "";
+
+            try
             {
-                myChoice = GetChoice();
-                
-
-                // Make a decision based on the user's choice
-                switch (myChoice)
+                Console.WriteLine("Welcome to “LABYRINTH” game.\n");
+                menuChoiceNum = ReadRequiredChoice();
+                if (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4")
                 {
-                    case "1":
-                        //Console.WriteLine("Start new game");
-                        //Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-                        shape = StartGame();
-                        break;
-                    case "2":
-                        Console.WriteLine("Load saved game");
-                        break;
-                    case "3":
-                        Console.WriteLine("Save the current game");
-                        break;
-                    case "4":
-                        Console.WriteLine("Delete saved game");
-                        break;
-                    case "5":
-                        Console.WriteLine("Quit the current game");
-                        QuitGame();
-                        break;
-                    default:
-                        Console.WriteLine("{0} is not a valid choice", myChoice);
-                        break;
+                    Console.Clear();
+                    // Thread.Sleep(3000);
+                    throw new ArgumentException("Try again!");
                 }
-
-                // Pause to allow the user to see the results
-                Console.WriteLine();
+            }
+            catch (ArgumentException ex)
+            {
+                do
+                {
+                    Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
+                    menuChoiceNum = ReadRequiredChoice();
+                    Console.Clear();
+                }
+                while (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4");
 
             }
-            while (myChoice != "5" && myChoice != "4" && myChoice != "3" && myChoice != "2" && myChoice != "1");
-            // Keep going until the user wants to quit
-            return shape;
+
+            return menuChoiceNum;
         }
 
-
-        private string GetChoice()
+        private string ReadRequiredChoice()
         {
-            string menuChoiceNum ;
-
-            // Print A Menu
-            Console.WriteLine("Welcome to “LABYRINTH” game.\n");
+            string menuChoiceNum = "";
+            // Console.WriteLine("Welcome to “LABYRINTH” game.\n");
 
             Console.WriteLine("  1 : START");
             Console.WriteLine("  2 : RESTART");
@@ -79,48 +64,44 @@
             return menuChoiceNum;
         }
 
-        public string StartGame()
+        public string GetLabyrinthType()
         {
+            string chooseTypeOfLab = "";
+
+            try
+            {
+                chooseTypeOfLab = ReadInputTypeLabyrinth();
+                if (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h")
+                {
+
+                    // Thread.Sleep(3000);
+                    Console.Clear();
+                    throw new ArgumentException("Try again!");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Please choose between D, P, H and S\n");
+                chooseTypeOfLab = ReadInputTypeLabyrinth();
+
+            }
+            return chooseTypeOfLab;
+
+        }
+
+        private string ReadInputTypeLabyrinth()
+        {
+            string chooseTypeOfLab;
             Console.WriteLine("Please choose type of the labyrinth\n");
             Console.WriteLine("  D : DIAMOND");
             Console.WriteLine("  P : PENTAGON");
             Console.WriteLine("  H : HEXAGON");
             Console.WriteLine("  S : SQUARE\n ");
-              Console.Write("Your choice : ");
-            string chooseTypeOfLab = Console.ReadLine().ToLower();
-
-            do
-            {
-                // Make a decision based on the user's choice
-                switch (chooseTypeOfLab)
-                {
-                    case "d":
-                        Console.WriteLine("The game form is Diamond");
-                        break;
-                    case "p":
-                        Console.WriteLine("The game form is Pentagon");
-                        break;
-                    case "h":
-                        Console.WriteLine("The game form is Hexagon");
-                        break;
-                    case "s":
-                        Console.WriteLine("The game form is Square");
-                        break;
-                    default:
-                        Console.WriteLine("Please choose between D, P, H, S!", myChoice);
-                        break;
-                }
-
-                // Pause to allow the user to see the results
-                Console.WriteLine();
-
-            }
-            while (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h");
-
+            Console.Write("Your choice : ");
+            chooseTypeOfLab = Console.ReadLine().ToLower();
+            Console.WriteLine();
             return chooseTypeOfLab;
-
         }
-
         public void QuitGame()
         {
             Console.WriteLine("The End.");
