@@ -11,7 +11,7 @@
         public void Create(ILabyrinth labyrinth)
         {
             labyrinth.FillMatrix();
-            Render(labyrinth);
+            this.Render(labyrinth);
         }
 
         private void Render(ILabyrinth labyrinth)

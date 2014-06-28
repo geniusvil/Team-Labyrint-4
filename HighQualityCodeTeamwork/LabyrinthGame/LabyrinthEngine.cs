@@ -8,12 +8,13 @@
         private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
         private readonly ILabyrinthCreator creator;
-        private readonly ILabyrinth labyrinth;
+        private  ILabyrinth labyrinth;
         private readonly IPlayer player;
         private readonly IUserCommand command;
 
+        private readonly Menu menu;
+
         private ICoordinate coordinates;
-        private Menu menu;
 
         private LabyrinthEngine()
         {
@@ -41,16 +42,16 @@
                 typeLabyrint = this.menu.GetLabyrinthType();
             }
 
-            this.labyrinth = CreateRequiredLabyrinth(typeLabyrint);
+            this.labyrinth = this.CreateRequiredLabyrinth(typeLabyrint);
 
             this.creator.Create(this.labyrinth);
 
-            var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
+            var isWayOut = this.IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
 
             this.player.ShowPlayer(this.labyrinth);
             this.player.RemovePlayer(this.labyrinth);
 
-            this.coordinates = command.ProcessCommands();
+            this.coordinates = this.command.ProcessCommands();
 
             while (true)
             {
@@ -61,7 +62,7 @@
                 this.player.UpdatePosition(this.coordinates);
                 var previousCoord = currentCoord - this.player.Coordinates;
 
-                if (IsPositionAvailable(this.player.Coordinates))
+                if (this.IsPositionAvailable(this.player.Coordinates))
                 {
                     ShowPlayerOnLabyrinth();
                 }
@@ -71,18 +72,24 @@
                     ShowPlayerOnLabyrinth();
                 }
 
-                this.coordinates = command.ProcessCommands();
+                this.coordinates = this.command.ProcessCommands();
 
                 if (!isWayOut)
                 {
                     Console.WriteLine("Bat Giorgi zadushaam sa");
                 }
             }
-        }
+            }
+
+        private void ShowPlayerOnLabyrinth()
+         {
+             this.player.ShowPlayer(this.labyrinth);
+             (this.labyrinth as IRenderable).Render();
+             this.player.RemovePlayer(this.labyrinth);
+          }
 
         private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
         {
-
             switch (typeLabyrint)
             {
                 case "d":
@@ -92,9 +99,9 @@
                 case "h":
                     return new HexagonalLabyrinth();
                 case "s":
-                    return new SquareLabyrinth();
+                   return new SquareLabyrinth();
                 default:
-                    return new DiamondLabyrinth();
+                   return new DiamondLabyrinth();
             }
         }
 
@@ -133,25 +140,19 @@
             this.labyrinth.Matrix[givenCoords.Row, givenCoords.Col] = (char)Symbol.Obstacle;
 
             givenCoords.Update(new Coordinate(0, -1));
-            IsPossibleWayOut(labyrinth, givenCoords); // left
+            this.IsPossibleWayOut(labyrinth, givenCoords); // left
 
             givenCoords.Update(new Coordinate(-1, 0));
-            IsPossibleWayOut(labyrinth, givenCoords);  // up
+            this.IsPossibleWayOut(labyrinth, givenCoords);  // up
 
             givenCoords.Update(new Coordinate(0, 1));
-            IsPossibleWayOut(labyrinth, givenCoords);  // right
+            this.IsPossibleWayOut(labyrinth, givenCoords);  // right
 
             givenCoords.Update(new Coordinate(1, 0));
-            IsPossibleWayOut(labyrinth, givenCoords); // down
+            this.IsPossibleWayOut(labyrinth, givenCoords); // down
 
             return true;
         }
-
-        private void ShowPlayerOnLabyrinth()
-        {
-            this.player.ShowPlayer(this.labyrinth);
-            (this.labyrinth as IRenderable).Render();
-            this.player.RemovePlayer(this.labyrinth);
-        }
     }
-}
+
+    }
