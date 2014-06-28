@@ -14,5 +14,9 @@
         void UpdatePoints();
 
         void UpdatePosition(ICoordinate newCoordinates);
+
+        void ShowPlayer(ILabyrinth labyrinth);
+
+        void RemovePlayer(ILabyrinth labyrinth);
     }
 }

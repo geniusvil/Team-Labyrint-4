@@ -7,15 +7,16 @@
     {
         private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
-        private readonly ILabyrinthCreator creator;
-        private readonly ILabyrinth labyrinth;
-        private readonly IPlayer player;
-        private readonly IUserCommand command;
-        private readonly ICoordinate coordinates;
+        private ILabyrinthCreator creator;
+        private ILabyrinth labyrinth;
+        private IPlayer player;
+        private IUserCommand command;
+        private ICoordinate coordinates;
 
         private LabyrinthEngine()
         {
             this.creator = new LabyrinthCreator();
+            this.labyrinth = new HexagonalLabyrinth();
             this.player = new Player();
             this.command = new KeyboardCommand();
         }
@@ -30,8 +31,30 @@
 
         public void Start()
         {
-           var isWayOut =  IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
-            throw new NotImplementedException();
+            this.creator.Create(this.labyrinth);
+
+            var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
+
+            //Console.WriteLine();
+
+            this.player.ShowPlayer(this.labyrinth);
+            this.player.RemovePlayer(this.labyrinth);
+
+            this.coordinates = command.ProcessCommands();
+
+            while (true)
+            {
+                Console.Clear();
+
+                player.UpdatePosition(this.coordinates);
+
+                player.ShowPlayer(this.labyrinth);
+                (this.labyrinth as IRenderable).Render();
+                player.RemovePlayer(this.labyrinth);
+
+                this.coordinates = command.ProcessCommands();
+            }
+
         }
 
         private bool IsPositionAvailable(ICoordinate newCoordinates)
@@ -70,10 +93,13 @@
 
             givenCoords.Update(new Coordinate(0, -1));
             IsPossibleWayOut(labyrinth, givenCoords); // left
+
             givenCoords.Update(new Coordinate(-1, 0));
             IsPossibleWayOut(labyrinth, givenCoords);  // up
+
             givenCoords.Update(new Coordinate(0, 1));
             IsPossibleWayOut(labyrinth, givenCoords);  // right
+
             givenCoords.Update(new Coordinate(1, 0));
             IsPossibleWayOut(labyrinth, givenCoords); // down
 
