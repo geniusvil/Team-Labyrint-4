@@ -78,7 +78,6 @@
                     Console.WriteLine("Bat Giorgi zadushaam sa");
                 }
             }
-            }
         }
 
         private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
@@ -91,11 +90,11 @@
                 case "p":
                     return new TriangleLabyrinth();
                 case "h":
-                   return  new HexagonalLabyrinth();
+                    return new HexagonalLabyrinth();
                 case "s":
-                   return new SquareLabyrinth();
+                    return new SquareLabyrinth();
                 default:
-                   return new DiamondLabyrinth();
+                    return new DiamondLabyrinth();
             }
         }
 
@@ -148,6 +147,11 @@
             return true;
         }
 
-
+        private void ShowPlayerOnLabyrinth()
+        {
+            this.player.ShowPlayer(this.labyrinth);
+            (this.labyrinth as IRenderable).Render();
+            this.player.RemovePlayer(this.labyrinth);
+        }
     }
 }
