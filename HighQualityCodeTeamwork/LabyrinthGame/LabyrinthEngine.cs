@@ -13,9 +13,11 @@
         private readonly IUserCommand command;
 
         private ICoordinate coordinates;
+        private Menu menu;
 
         private LabyrinthEngine()
         {
+            this.menu = new Menu();
             this.creator = new LabyrinthCreator();
             this.labyrinth = new HexagonalLabyrinth();
             this.player = new Player();
@@ -32,8 +34,15 @@
 
         public void Start()
         {
-            //var menu = new Menu();
-            //menu.GetUserChoice();
+            var userChoise = this.menu.GetUserChoice();
+            string typeLabyrint = "";
+            if (userChoise == "1")
+            {
+                typeLabyrint = this.menu.GetLabyrinthType();
+            }
+
+            this.labyrinth = CreateRequiredLabyrinth(typeLabyrint);
+
             this.creator.Create(this.labyrinth);
 
             var isWayOut = IsPossibleWayOut(this.labyrinth, this.player.Coordinates);
@@ -69,13 +78,25 @@
                     Console.WriteLine("Bat Giorgi zadushaam sa");
                 }
             }
+            }
         }
 
-        private void ShowPlayerOnLabyrinth()
+        private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
         {
-            this.player.ShowPlayer(this.labyrinth);
-            (this.labyrinth as IRenderable).Render();
-            this.player.RemovePlayer(this.labyrinth);
+
+            switch (typeLabyrint)
+            {
+                case "d":
+                    return new DiamondLabyrinth();
+                case "p":
+                    return new TriangleLabyrinth();
+                case "h":
+                   return  new HexagonalLabyrinth();
+                case "s":
+                   return new SquareLabyrinth();
+                default:
+                   return new DiamondLabyrinth();
+            }
         }
 
         private bool IsPositionAvailable(ICoordinate newCoordinates)
@@ -126,5 +147,7 @@
 
             return true;
         }
+
+
     }
 }
