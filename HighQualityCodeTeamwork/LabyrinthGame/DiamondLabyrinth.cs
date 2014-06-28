@@ -21,7 +21,7 @@
                     if ((row + col < halfRows) ||
                         ((col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols)) ||
                         ((row > halfRows && row < this.Matrix.GetLength(0)) && (col < halfCols && row - col > halfRows)) ||
-                        ((row > halfRows && row < this.Matrix.GetLength(0)) && (col > halfCols && col < this.Matrix.GetLength(1)) && (row + col > (this.Matrix.GetLength(0) + halfRows))))
+                        ((row > halfRows && row < this.Matrix.GetLength(0)) && (col > halfCols && col < this.Matrix.GetLength(1)) && (row + col > (this.Matrix.GetLength(0) + halfRows - 1))))
                     {
                         this.Matrix[row, col] = (char)Symbol.BlankSpace;
                     }

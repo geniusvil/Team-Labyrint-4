@@ -80,7 +80,7 @@
         /// <param name="row">row coordinate as int</param>
         /// <param name="col">col coordinate as int</param>
         /// <param name="newSymbol">symbol to be change one at specified position</param>
-        protected virtual void ChangeSymbol(int row, int col, char newSymbol)
+        public virtual void ChangeSymbol(int row, int col, char newSymbol)
         {
             this.Matrix[row, col] = newSymbol;
         }

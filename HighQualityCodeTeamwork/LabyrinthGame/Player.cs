@@ -72,14 +72,15 @@
 
         public void ShowPlayer(ILabyrinth labyrinth)
         {
-            labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Player;
-            Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
+           // labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Player;
+           // Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
+            
         }
 
         public void RemovePlayer(ILabyrinth labyrinth)
         {
             labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col] = (char)Symbol.Path;
-            Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
+           // Console.WriteLine(labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col]);
         }
     }
 }
