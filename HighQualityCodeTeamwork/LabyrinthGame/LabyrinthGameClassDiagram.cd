@@ -47,7 +47,7 @@
   <Class Name="LabyrinthGame.Player" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAACAAAAAgCAEAJAACAwAIAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEgAACAAAAAgCAEAJAACAwAIAAEACAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -76,17 +76,17 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="LabyrinthGame.Program" Collapsed="true">
+  <Class Name="LabyrinthGame.GameDemo" Collapsed="true">
     <Position X="13.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <FileName>GameDemo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="LabyrinthGame.ILabyrinth" Collapsed="true">
     <Position X="11.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAg=</HashCode>
       <FileName>ILabyrinth.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -100,7 +100,7 @@
   <Interface Name="LabyrinthGame.IPlayer" Collapsed="true">
     <Position X="11.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgCAAAIAAAAQAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgCAEAJAAAAQAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
