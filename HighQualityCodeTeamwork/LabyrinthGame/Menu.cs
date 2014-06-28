@@ -15,11 +15,13 @@
 
         }
 
-        public void GetUserChoice()
+        public string GetUserChoice()
         {
+            string shape="";
             do
             {
                 myChoice = GetChoice();
+                
 
                 // Make a decision based on the user's choice
                 switch (myChoice)
@@ -27,7 +29,7 @@
                     case "1":
                         //Console.WriteLine("Start new game");
                         //Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-                        StartGame();
+                        shape = StartGame();
                         break;
                     case "2":
                         Console.WriteLine("Load saved game");
@@ -53,6 +55,7 @@
             }
             while (myChoice != "5" && myChoice != "4" && myChoice != "3" && myChoice != "2" && myChoice != "1");
             // Keep going until the user wants to quit
+            return shape;
         }
 
 
@@ -77,7 +80,7 @@
             return menuChoiceNum;
         }
 
-        public void StartGame()
+        public string StartGame()
         {
             Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
             Console.WriteLine("Please choose type of the labyrinth where D is for diamond, P is for Pentagon, H is for Hexagon, S is for Square: ");
@@ -111,6 +114,8 @@
 
             }
             while (chooseTypeOfLab != "P" && chooseTypeOfLab != "D" && chooseTypeOfLab != "S" && chooseTypeOfLab != "H");
+
+            return chooseTypeOfLab;
 
         }
 

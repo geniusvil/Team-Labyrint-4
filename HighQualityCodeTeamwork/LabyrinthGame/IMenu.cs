@@ -8,9 +8,9 @@
 
     public interface IMenu
     {
-        void GetUserChoice();
+        string GetUserChoice();
         //string GetChoice();
-        void StartGame();
+        string StartGame();
         void QuitGame();
 
     }
