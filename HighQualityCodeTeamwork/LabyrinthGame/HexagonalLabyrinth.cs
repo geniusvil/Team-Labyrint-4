@@ -6,6 +6,7 @@
     /// <summary>
     /// Hexagonal shaped labyrinth
     /// </summary>
+        [Serializable]
     public class HexagonalLabyrinth : Labyrinth
     {
         public override void FillMatrix()

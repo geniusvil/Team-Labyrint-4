@@ -11,11 +11,16 @@
         public void Create(ILabyrinth labyrinth)
         {
             labyrinth.FillMatrix();
-            this.Render(labyrinth);
+           // if (LabyrinthEngine.Instance.IsWayOut)
+            {
+                Console.WriteLine();
+                this.Render(labyrinth);
+            }
         }
 
-        private void Render(ILabyrinth labyrinth)
+        public void Render(ILabyrinth labyrinth)
         {
+            Console.WriteLine();
             (labyrinth as IRenderable).Render();
         }
     }

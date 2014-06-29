@@ -10,5 +10,7 @@
         /// </summary>
         /// <param name="labyrinth"></param>
         void Create(ILabyrinth labyrinth);
+
+        void Render(ILabyrinth labyrinth);
     }
 }

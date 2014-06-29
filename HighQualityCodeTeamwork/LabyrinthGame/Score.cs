@@ -8,21 +8,57 @@ namespace LabyrinthGame
 {
     public class Score
     {
-        public void PrintScoreBoard(SortedDictionary<string, int> score)
+        private const int PlayersCount = 5;
+        private SortedDictionary<string, int> scoreBoard;
+
+        public Score()
         {
-            foreach (KeyValuePair<string, int> p in score)
+            this.ScoreBoard = new SortedDictionary<string, int>();
+        }
+
+        public SortedDictionary<string, int> ScoreBoard
+        {
+            get
             {
-                Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
+                return new SortedDictionary<string, int>(this.scoreBoard);
             }
+            private set
+            {
+                this.scoreBoard = value;
+            }
+        }
+        public void PrintScoreBoard()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            
+            int playersCount = PlayersCount;
+
+            if (this.ScoreBoard.Count < PlayersCount)
+            {
+                playersCount = this.ScoreBoard.Count;
+            }
+
+            for (int player = 0; player < playersCount; player++)
+            {
+                sb.AppendLine(string.Format("{0} Player:{1} - Score {2}", player + 1, this.ScoreBoard.Keys, this.ScoreBoard.Values));
+            }
+
+            //foreach (var p in this.ScoreBoard)
+            //{
+            //    Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
+            //}
 
         }
 
-        public void AddScore(Player player)
+        public void AddScore(IPlayer player)
         {
-            SortedDictionary<string, int> score = new SortedDictionary<string, int>();
-            score.Add(player.Name, player.Points);
-
-            PrintScoreBoard(score);
+            Console.Write("Please Enter Name: ");
+          // SHOULD ASK FOR NAME ONLY IF HAS BETTER SCORE THAN THE REST!!!!!!!!!!
+            string name = Console.ReadLine();
+            player.Name = name;
+            // no play is added here!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            this.ScoreBoard.Add(player.Name, player.Points);
         }
     }
 }

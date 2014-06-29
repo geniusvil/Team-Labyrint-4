@@ -2,10 +2,12 @@
 {
     using System;
     using System.Linq;
+    using System.Text;
 
     /// <summary>
     /// Labyrinth main logic
     /// </summary>
+    [Serializable]
     public abstract class Labyrinth : ILabyrinth, IRenderable
     {
         protected const int InitialRows = 13;
@@ -83,6 +85,7 @@
         public virtual void ChangeSymbol(ICoordinate coordinates, char newSymbol)
         {
             this.Matrix[coordinates.Row, coordinates.Col] = newSymbol;
+            
         }
 
         /// <summary>
@@ -102,5 +105,23 @@
                 return (char)Symbol.Path;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int row = 0; row < InitialRows; row++)
+            {
+                for (int col = 0; col < InitialCols; col++)
+                {
+
+
+                    sb.AppendFormat("{0,2}", this.Matrix[row, col]);
+                }
+
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        } 
+      
     }
 }
