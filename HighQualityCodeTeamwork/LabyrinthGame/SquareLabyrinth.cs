@@ -6,7 +6,7 @@
     /// <summary>
     /// Square shaped labyrinth
     /// </summary>
-        [Serializable]
+    [Serializable]
     public class SquareLabyrinth : Labyrinth
     {
         public override void FillMatrix()

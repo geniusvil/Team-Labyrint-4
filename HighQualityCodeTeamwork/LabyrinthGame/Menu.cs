@@ -16,8 +16,8 @@
        
             do
             {
-                Console.WriteLine("Welcome to “LABYRINTH” game.\n");
-               // Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
+                //  Console.WriteLine("Welcome to “LABYRINTH” game.");
+                // Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
                 menuChoiceNum = this.ReadRequiredChoice();
                 Console.Clear();
             }
@@ -30,21 +30,13 @@
         {
             string chooseTypeOfLab = "";
 
-            try
+            do
             {
-                chooseTypeOfLab = this.ReadInputTypeLabyrinth();
-                if (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h")
-                {
-                    // Thread.Sleep(3000);
-                    Console.Clear();
-                    throw new ArgumentException("Try again!");
-                }
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Please choose between D, P, H and S\n");
+                Console.Clear();
                 chooseTypeOfLab = this.ReadInputTypeLabyrinth();
             }
+            while (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h");
+           
             return chooseTypeOfLab;
         }
 
@@ -56,41 +48,45 @@
 
         public void MainMenu()
         {
-            Console.WriteLine("Please choose between 1, 2, 3 and 4\n");
+            Console.WriteLine("Welcome to “LABYRINTH” game.");
+            Console.WriteLine("\nPlease choose between 1, 2, 3 and 4\n");
             Console.WriteLine("  1 : START");
             Console.WriteLine("  2 : RESTART");
             Console.WriteLine("  3 : SCOREBOARD");
             Console.WriteLine("  4 : EXIT\n");
         }
+
         private string ReadRequiredChoice()
         {
             string menuChoiceNum = "";
             // Console.WriteLine("Welcome to “LABYRINTH” game.\n");
-            MainMenu();
+          
+            this.MainMenu();
             Console.Write("Your choice : ");
 
             // Retrieve the user's choice
             menuChoiceNum = Console.ReadLine();
-            Console.WriteLine();
+            // Console.WriteLine();
 
             return menuChoiceNum;
         }
 
         private void TypeLabyrinthMenu()
         {
-            Console.WriteLine("Please choose type of the labyrinth\n");
+            Console.WriteLine("\n\nPlease choose type of the labyrinth\n");
             Console.WriteLine("  D : DIAMOND");
             Console.WriteLine("  P : PENTAGON");
             Console.WriteLine("  H : HEXAGON");
             Console.WriteLine("  S : SQUARE\n ");
         }
+
         private string ReadInputTypeLabyrinth()
         {
             string chooseTypeOfLab;
-            TypeLabyrinthMenu();
+            this.TypeLabyrinthMenu();
             Console.Write("Your choice : ");
             chooseTypeOfLab = Console.ReadLine().ToLower();
-            Console.WriteLine();
+            // Console.WriteLine();
             return chooseTypeOfLab;
         }
     }

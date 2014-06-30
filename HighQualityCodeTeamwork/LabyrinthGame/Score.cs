@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LabyrinthGame
 {
@@ -27,10 +26,10 @@ namespace LabyrinthGame
                 this.scoreBoard = value;
             }
         }
+
         public void PrintScoreBoard()
         {
             StringBuilder sb = new StringBuilder();
-
             
             int playersCount = PlayersCount;
 
@@ -43,18 +42,16 @@ namespace LabyrinthGame
             {
                 sb.AppendLine(string.Format("{0} Player:{1} - Score {2}", player + 1, this.ScoreBoard.Keys, this.ScoreBoard.Values));
             }
-
             //foreach (var p in this.ScoreBoard)
             //{
             //    Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
             //}
-
         }
 
         public void AddScore(IPlayer player)
         {
             Console.Write("Please Enter Name: ");
-          // SHOULD ASK FOR NAME ONLY IF HAS BETTER SCORE THAN THE REST!!!!!!!!!!
+            // SHOULD ASK FOR NAME ONLY IF HAS BETTER SCORE THAN THE REST!!!!!!!!!!
             string name = Console.ReadLine();
             player.Name = name;
             // no play is added here!!!!!!!!!!!!!!!!!!!!!!!!!!!!

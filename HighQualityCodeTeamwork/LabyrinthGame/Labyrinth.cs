@@ -85,9 +85,23 @@
         public virtual void ChangeSymbol(ICoordinate coordinates, char newSymbol)
         {
             this.Matrix[coordinates.Row, coordinates.Col] = newSymbol;
-            
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int row = 0; row < InitialRows; row++)
+            {
+                for (int col = 0; col < InitialCols; col++)
+                {
+                    sb.AppendFormat("{0,2}", this.Matrix[row, col]);
+                }
+
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+      
         /// <summary>
         /// Gives a meaningful symbol depending on a randomly generated value
         /// </summary>
@@ -105,23 +119,5 @@
                 return (char)Symbol.Path;
             }
         }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            for (int row = 0; row < InitialRows; row++)
-            {
-                for (int col = 0; col < InitialCols; col++)
-                {
-
-
-                    sb.AppendFormat("{0,2}", this.Matrix[row, col]);
-                }
-
-                sb.AppendLine();
-            }
-            return sb.ToString();
-        } 
-      
     }
 }
