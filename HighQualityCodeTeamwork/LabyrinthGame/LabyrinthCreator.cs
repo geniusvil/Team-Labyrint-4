@@ -13,20 +13,18 @@
         public void Create(ILabyrinth labyrinth)
         {
             labyrinth.FillMatrix();
-            // if (LabyrinthEngine.Instance.IsWayOut)
-            {
-                Console.WriteLine();
-                bool isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
 
-                while (!isWayOut)
-                {
-                    //Console.Clear();
-                    labyrinth.FillMatrix();
-                    isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
-                }
-                LabyrinthEngine.Instance.Player.ShowPlayer(labyrinth);
-                this.Render(labyrinth);
+            Console.WriteLine();
+            bool isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
+
+            while (!isWayOut)
+            {
+                labyrinth.FillMatrix();
+                isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
             }
+
+            LabyrinthEngine.Instance.Player.ShowPlayer(labyrinth);
+            this.Render(labyrinth);
         }
 
         public void Render(ILabyrinth labyrinth)

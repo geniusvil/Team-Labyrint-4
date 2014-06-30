@@ -11,15 +11,13 @@
     {
         public override void FillMatrix()
         {
-            int halfRows = this.Matrix.GetLength(0) / 2;
-            int halfCols = this.Matrix.GetLength(1) / 2;
-
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
-                    if ((row + col < halfRows) ||
-                        ((col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols)))
+                    bool isBlankSpace = this.IsLabyrinthSign(row, col);
+
+                    if (isBlankSpace)
                     {
                         this.Matrix[row, col] = (char)Symbol.BlankSpace;
                     }
@@ -29,6 +27,24 @@
                     }
                 }
             }
+        }
+
+        protected override bool IsLabyrinthSign(int row, int col)
+        {
+            int halfRows = this.Matrix.GetLength(0) / 2;
+            int halfCols = this.Matrix.GetLength(1) / 2;
+
+            bool isBlankSpace = false;
+
+            bool isInUpLeftCorner = row + col < halfRows;
+            bool isInUpRightCorner = (col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols);
+
+            if (isInUpLeftCorner || isInUpRightCorner)
+            {
+                isBlankSpace = true;
+            }
+
+            return isBlankSpace;
         }
     }
 }

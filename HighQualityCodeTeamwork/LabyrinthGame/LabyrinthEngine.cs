@@ -5,6 +5,17 @@
 
     public sealed class LabyrinthEngine : ILabyrinthEngine
     {
+        private const string StartMenu = "1";
+        private const string RestartMenu = "2";
+        private const string ScoreboardMenu = "3";
+        private const string ExitMenu = "4";
+        private const string Pentagram = "p";
+        private const string Diamond = "d";
+        private const string Square = "s";
+        private const string Hexagon = "h";
+        private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
+        private const string PressArrowSign = "Or press some arrow to play.\n";
+
         private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
         private readonly ILabyrinthCreator creator;
@@ -37,26 +48,25 @@
         public void Start()
         {
             var userChoise = this.menu.GetUserChoice();
-            string typeLabyrint = "";
-            if (userChoise == "1")
+            string typeLabyrint = string.Empty;
+            if (userChoise == StartMenu)
             {
                 typeLabyrint = this.menu.GetLabyrinthType();
             }
-            else if (userChoise == "2")
+            else if (userChoise == RestartMenu)
             {
                 this.Start();
             }
-            else if (userChoise == "3")
+            else if (userChoise == ScoreboardMenu)
             {
                 this.score.PrintScoreBoard();
-               this.Start();
-               
+                this.Start();
             }
-            else if (userChoise == "4")
+            else if (userChoise == ExitMenu)
             {
                 // end of game!!!!
                 Console.Clear();
-                Console.WriteLine("\n\n\nTHE END!\n\n\n");
+                Console.WriteLine(TheEndSign);
                 Environment.Exit(0);
             }
 
@@ -71,7 +81,7 @@
 
                 this.ShowMenuDuringGamePlay();
                 Console.WriteLine("THIS MENU IS NOT WORKING YET");
-                Console.WriteLine("Or press some arrow to play.\n");
+                Console.WriteLine(PressArrowSign);
 
                 this.Player.RemovePlayer(this.labyrinth);
                 this.Player.UpdatePosition(this.coordinates);
@@ -120,13 +130,13 @@
         {
             switch (typeLabyrint)
             {
-                case "d":
+                case Diamond:
                     return new DiamondLabyrinth();
-                case "p":
+                case Pentagram:
                     return new TriangleLabyrinth();
-                case "h":
+                case Hexagon:
                     return new HexagonalLabyrinth();
-                case "s":
+                case Square:
                     return new SquareLabyrinth();
                 default:
                     return new DiamondLabyrinth();
@@ -136,13 +146,11 @@
         private bool IsGameOver()
         {
             bool isGameOver = false;
-            if (this.Player.Coordinates.Row < 0 ||
-                this.Player.Coordinates.Row == this.labyrinth.Matrix.GetLength(0) ||
-                this.Player.Coordinates.Col < 0 ||
-                this.Player.Coordinates.Col == this.labyrinth.Matrix.GetLength(1) ||
-                this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == (char)Symbol.BlankSpace ||
-                this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == ' '
-            )
+            bool isRowOut = this.Player.Coordinates.Row < 0 || this.Player.Coordinates.Row == this.labyrinth.Matrix.GetLength(0);
+            bool isColOut = this.Player.Coordinates.Col < 0 || this.Player.Coordinates.Col == this.labyrinth.Matrix.GetLength(1);
+            bool isBlankSpaceSign = this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == (char)Symbol.BlankSpace;
+
+            if (isRowOut || isColOut || isBlankSpaceSign)
             {
                 isGameOver = true;
             }

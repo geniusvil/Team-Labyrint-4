@@ -15,6 +15,11 @@
 
         public int Row { get; private set; }
 
+        public static Coordinate operator -(Coordinate first, Coordinate second)
+        {
+            return new Coordinate(first.Row - second.Row, first.Col - second.Col);
+        }
+
         /// <summary>
         /// Updates coordinates assuming the mark of the given parameters
         /// </summary>
@@ -24,11 +29,6 @@
         {
             this.Row += newCoordinates.Row;
             this.Col += newCoordinates.Col;
-        }
-
-        public static Coordinate operator -(Coordinate first, Coordinate second)
-        {
-            return new Coordinate(first.Row - second.Row, first.Col - second.Col);
         }
     }
 }

@@ -10,7 +10,6 @@
         string GetLabyrinthType();
 
         void MainMenu();
-
-       // void QuitGame();
+        //// void QuitGame();
     }
 }

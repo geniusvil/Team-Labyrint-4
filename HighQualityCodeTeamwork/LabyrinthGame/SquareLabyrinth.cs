@@ -19,5 +19,10 @@
                 }
             }
         }
+
+        protected override bool IsLabyrinthSign(int row, int col)
+        {
+            throw new ArgumentException("No such condition for that type of Labyrinth.");
+        }
     }
 }

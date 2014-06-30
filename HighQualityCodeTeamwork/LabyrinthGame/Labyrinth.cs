@@ -99,9 +99,15 @@
 
                 sb.AppendLine();
             }
+
             return sb.ToString();
         }
       
+        /// <summary>
+        /// Checks if sign is BlankSpace
+        /// </summary>
+        protected abstract bool IsLabyrinthSign(int row, int col);
+
         /// <summary>
         /// Gives a meaningful symbol depending on a randomly generated value
         /// </summary>

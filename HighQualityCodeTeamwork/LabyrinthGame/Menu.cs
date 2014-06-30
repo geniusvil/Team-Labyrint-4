@@ -5,66 +5,72 @@
 
     internal class Menu : IMenu
     {
+        private const string StartMenu = "1";
+        private const string RestartMenu = "2";
+        private const string ScoreboardMenu = "3";
+        private const string ExitMenu = "4";
+        private const string Pentagram = "p";
+        private const string Diamond = "d";
+        private const string Square = "s";
+        private const string Hexagon = "h";
+        private const string WelcomeSign = "Welcome to “LABYRINTH” game.";
+        private const string ChooseNumberSign = "\nPlease choose between 1, 2, 3 and 4\n";
+        private const string StartSign = "  1 : START";
+        private const string RestartSign = "  2 : RESTART";
+        private const string ScoreboardSign = "  3 : SCOREBOARD";
+        private const string ExitSign = "  4 : EXIT\n";
+        private const string YourChoiceSign = "Your choice : ";
+
         public Menu()
         {
         }
 
         public string GetUserChoice()
         {
-            string menuChoiceNum = "";
+            string userChoiceNum = string.Empty;
 
             do
             {
-                menuChoiceNum = this.ReadRequiredChoice();
+                userChoiceNum = this.ReadRequiredChoice();
                 Console.Clear();
             }
-            while (menuChoiceNum != "1" && menuChoiceNum != "2" && menuChoiceNum != "3" && menuChoiceNum != "4");
+            while (userChoiceNum != StartMenu && userChoiceNum != RestartMenu && userChoiceNum != ScoreboardMenu && userChoiceNum != ExitMenu);
 
-            return menuChoiceNum;
+            return userChoiceNum;
         }
 
         public string GetLabyrinthType()
         {
-            string chooseTypeOfLab = "";
+            string userChoiceOfLab = string.Empty;
 
             do
             {
                 Console.Clear();
-                chooseTypeOfLab = this.ReadInputTypeLabyrinth();
+                userChoiceOfLab = this.ReadInputTypeLabyrinth();
             }
-            while (chooseTypeOfLab != "p" && chooseTypeOfLab != "d" && chooseTypeOfLab != "s" && chooseTypeOfLab != "h");
+            while (userChoiceOfLab != Pentagram && userChoiceOfLab != Diamond && userChoiceOfLab != Square && userChoiceOfLab != Hexagon);
 
-            return chooseTypeOfLab;
+            return userChoiceOfLab;
         }
-
-        //public void QuitGame()
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("The End.");
-        //    Environment.Exit(0);
-        //}
 
         public void MainMenu()
         {
-            Console.WriteLine("Welcome to “LABYRINTH” game.");
-            Console.WriteLine("\nPlease choose between 1, 2, 3 and 4\n");
-            Console.WriteLine("  1 : START");
-            Console.WriteLine("  2 : RESTART");
-            Console.WriteLine("  3 : SCOREBOARD");
-            Console.WriteLine("  4 : EXIT\n");
+            Console.WriteLine(WelcomeSign);
+            Console.WriteLine(ChooseNumberSign);
+            Console.WriteLine(StartSign);
+            Console.WriteLine(RestartSign);
+            Console.WriteLine(ScoreboardSign);
+            Console.WriteLine(ExitSign);
         }
 
         private string ReadRequiredChoice()
         {
-            string menuChoiceNum = "";
-            // Console.WriteLine("Welcome to “LABYRINTH” game.\n");
-
+            string menuChoiceNum = string.Empty;
             this.MainMenu();
-            Console.Write("Your choice : ");
+            Console.Write(YourChoiceSign);
 
-            // Retrieve the user's choice
+            //// Retrieve the user's choice
             menuChoiceNum = Console.ReadLine();
-            // Console.WriteLine();
 
             return menuChoiceNum;
         }
@@ -82,9 +88,9 @@
         {
             string chooseTypeOfLab;
             this.TypeLabyrinthMenu();
-            Console.Write("Your choice : ");
+            Console.Write(YourChoiceSign);
             chooseTypeOfLab = Console.ReadLine().ToLower();
-            // Console.WriteLine();
+       
             return chooseTypeOfLab;
         }
     }
