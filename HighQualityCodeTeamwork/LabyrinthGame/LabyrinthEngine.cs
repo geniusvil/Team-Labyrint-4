@@ -49,12 +49,15 @@
             else if (userChoise == "3")
             {
                 this.score.PrintScoreBoard();
+               this.Start();
+               
             }
             else if (userChoise == "4")
             {
                 // end of game!!!!
                 Console.Clear();
-                Console.WriteLine("THE END!");
+                Console.WriteLine("\n\n\nTHE END!\n\n\n");
+                Environment.Exit(0);
             }
 
             this.labyrinth = this.CreateRequiredLabyrinth(typeLabyrint);
@@ -120,6 +123,7 @@
                 case "d":
                     return new DiamondLabyrinth();
                 case "p":
+                    return new TriangleLabyrinth();
                 case "h":
                     return new HexagonalLabyrinth();
                 case "s":
