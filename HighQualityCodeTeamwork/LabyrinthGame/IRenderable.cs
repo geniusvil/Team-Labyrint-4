@@ -4,7 +4,8 @@
     using System.Linq;
 
     /// <summary>
-    /// This is public interface that gives the view engine logic
+    /// Interface that gives the view engine logic, is inherited by the Labyrinth class
+    /// </summary>
     /// </summary>
     public interface IRenderable
     {

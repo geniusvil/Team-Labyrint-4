@@ -106,7 +106,7 @@
         /// <summary>
         /// Checks if sign is BlankSpace
         /// </summary>
-        protected abstract bool IsLabyrinthSign(int row, int col);
+        protected abstract bool IsBlankSpaceSign(int row, int col);
 
         /// <summary>
         /// Gives a meaningful symbol depending on a randomly generated value

@@ -16,7 +16,7 @@
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "Or press some arrow to play.\n";
 
-        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
+        private static readonly LabyrinthEngine singleInstance = new LabyrinthEngine();
 
         private readonly ILabyrinthCreator creator;
         private readonly IUserCommand command;
@@ -39,7 +39,7 @@
         {
             get
             {
-                return SingleInstance;
+                return singleInstance;
             }
         }
 
@@ -141,7 +141,7 @@
                 case Diamond:
                     return new DiamondLabyrinth();
                 case Pentagram:
-                    return new TriangleLabyrinth();
+                    return new PentagonLabyrinth();
                 case Hexagon:
                     return new HexagonalLabyrinth();
                 case Square:

@@ -10,6 +10,8 @@
     /// </summary>
     public class LabyrinthCreator : ILabyrinthCreator
     {
+
+        // МЕТОДА ИЗВЪРШВА ДВЕ НЕЩА  - СЪЗДАВА И РЕНДВА !!! РЕДНО ЛИ Е 
         public void Create(ILabyrinth labyrinth)
         {
             labyrinth.FillMatrix();
@@ -27,12 +29,20 @@
             this.Render(labyrinth);
         }
 
+        /// <summary>
+        /// The method prints the labyrinth matrix to the console
+        /// </summary>
+        /// <param name="labyrinth">Labyrinth object</param>
         public void Render(ILabyrinth labyrinth)
         {
             Console.WriteLine();
             (labyrinth as IRenderable).Render();
         }
 
+        /// <summary>C:\MyStaff\GitHub\Team-Labyrint-4\HighQualityCodeTeamwork\LabyrinthGame\IUserCommand.cs
+        /// The method deep clones the labyrinth matrix
+        /// </summary>
+        /// <param name="labyrinth">Labyrinth object</param>
         private static ILabyrinth DeepClone(ILabyrinth labyrinth)
         {
             using (var ms = new MemoryStream())
@@ -45,6 +55,12 @@
             }
         }
 
+        /// <summary>
+        /// The method checks if there is sequence of "path" signs to the edges of the matrix
+        /// </summary>
+        /// <param name="labyrinth">Labyrinth object</param>
+        /// <param name="givenCoords">The start point for checking</param>
+        /// <returns>Returns boolean type - if there is such "path" it is true, and if there is not - it is false</returns>
         private bool IsPossibleWayOut(ILabyrinth labyrinth, ICoordinate givenCoords)
         {
             ILabyrinth labyrinthDeepCloned = DeepClone(labyrinth);

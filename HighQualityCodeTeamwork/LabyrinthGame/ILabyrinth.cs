@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// Interface which is inherited by the Labyrinth class
+    /// </summary>
     public interface ILabyrinth
     {
         char[,] Matrix { get; }
