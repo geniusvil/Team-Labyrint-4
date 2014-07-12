@@ -10,9 +10,8 @@
     {
         string GetUserChoice();
 
-        string GetLabyrinthType();
+        string GetLabyrinthTypeFromUser();
 
         void MainMenu();
-        //// void QuitGame();
     }
 }

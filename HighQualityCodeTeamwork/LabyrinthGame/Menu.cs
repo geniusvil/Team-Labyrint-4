@@ -39,18 +39,18 @@
             return userChoiceNum;
         }
 
-        public string GetLabyrinthType()
+        public string GetLabyrinthTypeFromUser()
         {
-            string userChoiceOfLab = string.Empty;
+            string userChoiceOfLabyrinth = string.Empty;
 
             do
             {
                 Console.Clear();
-                userChoiceOfLab = this.ReadInputTypeLabyrinth();
+                userChoiceOfLabyrinth = this.ReadInputTypeLabyrinth();
             }
-            while (userChoiceOfLab != Pentagram && userChoiceOfLab != Diamond && userChoiceOfLab != Square && userChoiceOfLab != Hexagon);
+            while (userChoiceOfLabyrinth != Pentagram && userChoiceOfLabyrinth != Diamond && userChoiceOfLabyrinth != Square && userChoiceOfLabyrinth != Hexagon);
 
-            return userChoiceOfLab;
+            return userChoiceOfLabyrinth;
         }
 
         public void MainMenu()
@@ -62,6 +62,8 @@
             Console.WriteLine(ScoreboardSign);
             Console.WriteLine(ExitSign);
         }
+
+      
 
         private string ReadRequiredChoice()
         {

@@ -33,7 +33,7 @@
         {
             this.menu = new Menu();
             this.creator = new LabyrinthCreator();
-            this.labyrinth = new HexagonalLabyrinth();
+            //  this.labyrinth = new HexagonalLabyrinth();
             this.Player = new Player();
             this.command = new KeyboardCommand();
             this.score = new Score();
@@ -54,10 +54,11 @@
         /// </summary>
         public void Start()
         {
-            string typeLabyrint = this.GetPlayersChoice();
+            string userChoiceOfLabyrinth = this.GetPlayersChoice();
 
-            this.labyrinth = this.CreateRequiredLabyrinth(typeLabyrint);
-            this.creator.Create(this.labyrinth);
+            this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
+            LabyrinthEngine.Instance.Player.ShowPlayer(labyrinth);
+            this.labyrinth.Render();
 
             this.coordinates = this.command.ProcessCommands();
 
@@ -117,7 +118,7 @@
 
             if (userChoice == StartMenu)
             {
-                typeLabyrint = this.menu.GetLabyrinthType();
+                typeLabyrint = this.menu.GetLabyrinthTypeFromUser();
             }
             else if (userChoice == RestartMenu)
             {
@@ -159,27 +160,6 @@
             this.Player.RemovePlayer(this.labyrinth);
         }
 
-        /// <summary>
-        /// Creates user required labyrinth
-        /// </summary>
-        /// <param name="typeLabyrint">string representation of concrete labyrinth</param>
-        /// <returns>Instance of the selected labyrinth</returns>
-        private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
-        {
-            switch (typeLabyrint)
-            {
-                case Diamond:
-                    return new DiamondLabyrinth();
-                case Pentagram:
-                    return new PentagonLabyrinth();
-                case Hexagon:
-                    return new HexagonalLabyrinth();
-                case Square:
-                    return new SquareLabyrinth();
-                default:
-                    return new DiamondLabyrinth();
-            }
-        }
 
         /// <summary>
         /// Checks whether the game is over or not

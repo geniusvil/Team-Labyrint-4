@@ -8,7 +8,7 @@
     /// Labyrinth main logic
     /// </summary>
     [Serializable]
-    public abstract class Labyrinth : ILabyrinth, IRenderable
+    public abstract class Labyrinth : ILabyrinth
     {
         protected const int InitialRows = 13;
         protected const int InitialCols = 13;

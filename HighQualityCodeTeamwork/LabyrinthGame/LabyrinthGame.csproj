@@ -65,6 +65,7 @@
     <Compile Include="SquareLabyrinth.cs" />
     <Compile Include="Symbol.cs" />
     <Compile Include="PentagonLabyrinth.cs" />
+    <Compile Include="TypeLabyrinth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

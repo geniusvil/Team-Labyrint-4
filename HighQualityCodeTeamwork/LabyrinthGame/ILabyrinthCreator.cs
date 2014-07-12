@@ -9,7 +9,7 @@
         /// Fill labyrinth and rended it on the screen
         /// </summary>
         /// <param name="labyrinth"></param>
-        void Create(ILabyrinth labyrinth);
+        ILabyrinth Create(string typeLabyrinth);
 
         void Render(ILabyrinth labyrinth);
     }
