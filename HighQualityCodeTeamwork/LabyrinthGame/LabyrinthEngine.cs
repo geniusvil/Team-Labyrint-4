@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// Singleton implementation of the game engine
+    /// </summary>
     public sealed class LabyrinthEngine : ILabyrinthEngine
     {
         private const string StartMenu = "1";
@@ -45,6 +48,9 @@
 
         public IPlayer Player { get; private set; }
 
+        /// <summary>
+        /// Start methods contains the whole game logic in the correct order to be played
+        /// </summary>
         public void Start()
         {
             string typeLabyrint = GetPlayersChoice();
@@ -54,6 +60,14 @@
 
             this.coordinates = this.command.ProcessCommands();
 
+            GetGameLoop();
+        }
+
+        /// <summary>
+        /// Main game loop is executed in this method
+        /// </summary>
+        private void GetGameLoop()
+        {
             while (true)
             {
                 var currentCoord = new Coordinate(this.Player.Coordinates.Row, this.Player.Coordinates.Col);
@@ -91,6 +105,10 @@
             }
         }
 
+        /// <summary>
+        /// Handles the player's choice of labyrinth type
+        /// </summary>
+        /// <returns>labyrinth type as a string</returns>
         private string GetPlayersChoice()
         {
             var userChoice = this.menu.GetUserChoice();
@@ -120,6 +138,9 @@
             return typeLabyrint;
         }
 
+        /// <summary>
+        /// Shows game menu while game is played
+        /// </summary>
         private void ShowMenuDuringGamePlay()
         {
             Console.Clear();
@@ -127,6 +148,9 @@
             this.menu.MainMenu();
         }
 
+        /// <summary>
+        /// shows the player on over the labyrinth
+        /// </summary>
         private void ShowPlayerOnLabyrinth()
         {
             this.Player.ShowPlayer(this.labyrinth);
@@ -134,6 +158,11 @@
             this.Player.RemovePlayer(this.labyrinth);
         }
 
+        /// <summary>
+        /// Creates user required labyrinth
+        /// </summary>
+        /// <param name="typeLabyrint">string representation of concrete labyrinth</param>
+        /// <returns>Instance of the selected labyrinth</returns>
         private ILabyrinth CreateRequiredLabyrinth(string typeLabyrint)
         {
             switch (typeLabyrint)
@@ -151,6 +180,10 @@
             }
         }
 
+        /// <summary>
+        /// Checks whether the game is over or not
+        /// </summary>
+        /// <returns>boolean value for the game over</returns>
         private bool IsGameOver()
         {
             bool isGameOver = false;
@@ -166,6 +199,11 @@
             return isGameOver;
         }
 
+        /// <summary>
+        /// Checks whether the new position is available or it is an obstacle
+        /// </summary>
+        /// <param name="newCoordinates">the wanted new position to be checked</param>
+        /// <returns>boolean value</returns>
         private bool IsPositionAvailable(ICoordinate newCoordinates)
         {
             if (this.labyrinth.Matrix[newCoordinates.Row, newCoordinates.Col] == (char)Symbol.Obstacle)

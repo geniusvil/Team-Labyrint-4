@@ -38,7 +38,7 @@
         /// <summary>
         /// Updates coordinates assuming the mark of the given parameters
         /// </summary>
-        /// <param name="newCoordinates">Value to change coordinates, taht hold row and col</param>
+        /// <param name="newCoordinates">Value to change coordinates, that hold row and col</param>
         public void Update(ICoordinate newCoordinates)
         {
             this.Row += newCoordinates.Row;
