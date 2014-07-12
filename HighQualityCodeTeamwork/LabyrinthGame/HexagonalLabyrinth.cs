@@ -4,7 +4,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Hexagonal shaped labyrinth
+    /// Labyrinth with shape like hexadon
     /// </summary>
     [Serializable]
     public class HexagonalLabyrinth : Labyrinth

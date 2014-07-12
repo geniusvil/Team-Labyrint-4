@@ -2,7 +2,9 @@
 {
     using System;
     using System.Linq;
-
+    /// <summary>
+    /// The Player class hold information about start position, player name and points
+    /// </summary>
     public class Player : IPlayer
     {
         private const int StartRow = 6;
@@ -42,7 +44,7 @@
                 }
             }
         }
-
+        
         public int Points
         {
             get
@@ -62,7 +64,7 @@
                 }
             }
         }
-
+        
         public Coordinate Coordinates { get; set; }
 
         /// <summary>

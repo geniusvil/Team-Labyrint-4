@@ -4,7 +4,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Square shaped labyrinth
+    /// Labyrinth with shape like labirinth
     /// </summary>
     [Serializable]
     public class SquareLabyrinth : Labyrinth

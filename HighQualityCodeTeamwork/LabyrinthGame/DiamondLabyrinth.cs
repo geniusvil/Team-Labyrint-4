@@ -4,7 +4,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Diamond shaped labyrinth
+    /// Labyrinth with shape like diamond
     /// </summary>
     [Serializable]
     public class DiamondLabyrinth : Labyrinth
@@ -43,7 +43,7 @@
             int halfCols = this.Matrix.GetLength(1) / 2;
 
             bool isBlankSpace = false;
-
+            
             bool isInUpLeftCorner = row + col < halfRows;
             bool isInUpRightCorner = (col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols);
             bool isInDownLeftCorner = (row > halfRows && row < this.Matrix.GetLength(0)) && (col < halfCols && row - col > halfRows);

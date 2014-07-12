@@ -4,7 +4,7 @@
     using System.Linq;
 
     /// <summary>
-    /// The Menu class holds the info about the menue of the game
+    /// The Menu class holds the info about the menu of the game
     /// </summary>
     internal class Menu : IMenu
     {
@@ -32,7 +32,7 @@
         }
 
         /// <summary>
-        /// The method askes user what is his choice of the game  - play, see scoreboard, restart and so on.
+        /// The method askes user what is his choice of the game  - start game, new game, scoreboard or exit of the game
         /// </summary>
         /// <returns>Return string that holds the input user choice</returns>
         public string GetUserChoice()
@@ -52,7 +52,7 @@
         }
 
         /// <summary>
-        /// The method askes user what type og labyrinth wants to play  - square, hehagon and so on.
+        /// The method askes user what type of labyrinth wants to play  - diamond, pentagon, hexagon or square
         /// </summary>
         /// <returns>Return string that holds the input user choice</returns>
         public string GetLabyrinthTypeFromUser()
