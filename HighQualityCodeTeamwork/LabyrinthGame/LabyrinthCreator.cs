@@ -10,7 +10,8 @@
     /// </summary>
     public class LabyrinthCreator : ILabyrinthCreator
     {
-        // МЕТОДА ИЗВЪРШВА ДВЕ НЕЩА  - СЪЗДАВА И РЕНДВА !!! РЕДНО ЛИ Е 
+
+        private ICoordinate initialPlayerCoordinates = new Coordinate(6, 6);
         public void Create(ILabyrinth labyrinth)
         {
             /* Идеята на този метод е да скрие това,че трябва изришно да се кастне към IRendarable. Понеже ние си 
@@ -33,12 +34,12 @@
             labyrinth.FillMatrix();
 
             Console.WriteLine();
-            bool isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
+            bool isWayOut = this.IsPossibleWayOut(labyrinth, initialPlayerCoordinates);
 
             while (!isWayOut)
             {
                 labyrinth.FillMatrix();
-                isWayOut = this.IsPossibleWayOut(labyrinth, LabyrinthEngine.Instance.Player.Coordinates);
+                isWayOut = this.IsPossibleWayOut(labyrinth, initialPlayerCoordinates);
             }
 
             LabyrinthEngine.Instance.Player.ShowPlayer(labyrinth);
