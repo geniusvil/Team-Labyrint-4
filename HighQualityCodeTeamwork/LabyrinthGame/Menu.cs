@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// The Menu class holds the info about the menue of the game
+    /// </summary>
     internal class Menu : IMenu
     {
         private const string StartMenu = "1";
@@ -28,13 +31,19 @@
         {
         }
 
+        /// <summary>
+        /// The method askes user what is his choice of the game  - play, see scoreboard, restart and so on.
+        /// </summary>
+        /// <returns>Return string that holds the input user choice</returns>
         public string GetUserChoice()
         {
             string userChoiceNum = string.Empty;
 
             do
             {
-                userChoiceNum = this.ReadRequiredChoice();
+                this.MainMenu();
+                Console.Write(YourChoiceSign);
+                userChoiceNum = Console.ReadLine();
                 Console.Clear();
             }
             while (userChoiceNum != StartMenu && userChoiceNum != RestartMenu && userChoiceNum != ScoreboardMenu && userChoiceNum != ExitMenu);
@@ -42,6 +51,10 @@
             return userChoiceNum;
         }
 
+        /// <summary>
+        /// The method askes user what type og labyrinth wants to play  - square, hehagon and so on.
+        /// </summary>
+        /// <returns>Return string that holds the input user choice</returns>
         public string GetLabyrinthTypeFromUser()
         {
             string userChoiceOfLabyrinth = string.Empty;
@@ -49,13 +62,18 @@
             do
             {
                 Console.Clear();
-                userChoiceOfLabyrinth = this.ReadInputTypeLabyrinth();
+                this.TypeLabyrinthMenu();
+                Console.Write(YourChoiceSign);
+                userChoiceOfLabyrinth = Console.ReadLine().ToLower();
             }
             while (userChoiceOfLabyrinth != Pentagram && userChoiceOfLabyrinth != Diamond && userChoiceOfLabyrinth != Square && userChoiceOfLabyrinth != Hexagon);
 
             return userChoiceOfLabyrinth;
         }
 
+        /// <summary>
+        /// Prints on the console the main menu of the game
+        /// </summary>
         public void MainMenu()
         {
             Console.WriteLine(WelcomeSign);
@@ -66,18 +84,9 @@
             Console.WriteLine(ExitSign);
         }
 
-        private string ReadRequiredChoice()
-        {
-            string menuChoiceNum = string.Empty;
-            this.MainMenu();
-            Console.Write(YourChoiceSign);
-
-            //// Retrieve the user's choice
-            menuChoiceNum = Console.ReadLine();
-
-            return menuChoiceNum;
-        }
-
+        /// <summary>
+        /// Prints on the console the menu with the types of labyrinth
+        /// </summary>
         private void TypeLabyrinthMenu()
         {
             Console.WriteLine("\n\nPlease choose type of the labyrinth\n");
@@ -85,16 +94,6 @@
             Console.WriteLine("  P : PENTAGON");
             Console.WriteLine("  H : HEXAGON");
             Console.WriteLine("  S : SQUARE\n ");
-        }
-
-        private string ReadInputTypeLabyrinth()
-        {
-            string chooseTypeOfLab;
-            this.TypeLabyrinthMenu();
-            Console.Write(YourChoiceSign);
-            chooseTypeOfLab = Console.ReadLine().ToLower();
-
-            return chooseTypeOfLab;
         }
     }
 }

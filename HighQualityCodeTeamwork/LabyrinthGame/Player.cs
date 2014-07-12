@@ -65,27 +65,44 @@
 
         public Coordinate Coordinates { get; set; }
 
+        /// <summary>
+        /// The methods calculate the points with every move
+        /// </summary>
         public void UpdatePoints()
         {
             this.Points++;
         }
 
+       /// <summary>
+       /// The method updates the position of the player with the given ccorinates
+       /// </summary>
+       /// <param name="newCoordinates">The coordinates that have to change the players position</param>
         public void UpdatePosition(ICoordinate newCoordinates)
         {
             this.Coordinates.Update(newCoordinates);
         }
 
+        /// <summary>
+        /// Puts players sign in the labyrinth
+        /// </summary>
+        /// <param name="labyrinth">Labyrinth object in which the player should appear </param>
         public void ShowPlayer(ILabyrinth labyrinth)
         {
             this.currentSymbol = this.GetCurrentSymbol(labyrinth);
             labyrinth.ChangeSymbol(this.Coordinates, (char)Symbol.Player);
         }
 
+        /// <summary>
+        /// Remove Player from a position
+        /// </summary>
         public void RemovePlayer(ILabyrinth labyrinth)
         {
             labyrinth.ChangeSymbol(this.Coordinates, this.currentSymbol);
         }
 
+        /// <summary>
+        /// Return the initial sign in current position
+        /// </summary>
         private char GetCurrentSymbol(ILabyrinth labyrinth)
         {
             return labyrinth.Matrix[this.Coordinates.Row, this.Coordinates.Col];

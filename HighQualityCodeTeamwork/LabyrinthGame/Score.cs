@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Score record class keeping player name and acheived result
+    /// Score class keeps player name and acheived result
     /// </summary>
     public sealed class Score : IScore
     {
@@ -22,6 +22,9 @@
 
         public SortedDictionary<string, int> ScoreBoard { get; private set; }
 
+        /// <summary>
+        /// Prints Soreboard on the console
+        /// </summary>
         public void PrintScoreBoard()
         {
             var countPlayers = 0;
@@ -36,6 +39,10 @@
             }
         }
 
+        /// <summary>
+        /// Add player to the archive
+        /// </summary>
+        /// <param name="player">The player that has to be added</param>
         public void AddScore(IPlayer player)
         {
             Console.Write(EnterNameSign);
