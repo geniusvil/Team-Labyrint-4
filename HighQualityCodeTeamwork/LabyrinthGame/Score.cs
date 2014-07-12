@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Score
+    public class Score : IScore
     {
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
@@ -32,7 +32,7 @@
         public void PrintScoreBoard()
         {
             StringBuilder sb = new StringBuilder();
-            
+
             int playersCount = PlayersCount;
 
             if (this.ScoreBoard.Count < PlayersCount)

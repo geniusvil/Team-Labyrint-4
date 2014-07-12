@@ -3,7 +3,7 @@
   <Class Name="LabyrinthGame.Labyrinth" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEABABIAAAAAAAAAAACAAAEAgAAAAABAAAAAAAAg=</HashCode>
+      <HashCode>AAAAEABABIAAAAAEAAAAACAAAEAwAAAAABAAAAAAAAg=</HashCode>
       <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,7 +11,7 @@
   <Class Name="LabyrinthGame.SquareLabyrinth" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SquareLabyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -21,26 +21,26 @@
       <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Coordinate.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LabyrinthGame.TriangleLabyrinth" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TriangleLabyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LabyrinthGame.HexagonalLabyrinth" Collapsed="true">
     <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HexagonalLabyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LabyrinthGame.DiamondLabyrinth" Collapsed="true">
     <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DiamondLabyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,15 +50,15 @@
       <HashCode>AAEgAACAAAAAgCAEAJAACAwAIAAEACAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LabyrinthGame.LabyrinthCreator" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAIAAAEAAABAAAAAAAAA=</HashCode>
       <FileName>LabyrinthCreator.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LabyrinthGame.KeyboardCommand" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.25" Y="0.5" Width="1.5" />
@@ -66,15 +66,15 @@
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIRAAAAAAAAAA=</HashCode>
       <FileName>KeyboardCommand.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LabyrinthGame.LabyrinthEngine" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAQAEIAAgAAAAAAQQAAABQgAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAEACAAAQAEICAoAAgAAAQSAggBQgAgCSCAQAg=</HashCode>
       <FileName>LabyrinthEngine.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LabyrinthGame.GameDemo" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
@@ -86,9 +86,18 @@
   <Class Name="LabyrinthGame.Menu" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gBAAQAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>oBAAQAAAgCAAAAgAADAQAggQAAAQAggBAAAgACAASAA=</HashCode>
       <FileName>Menu.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabyrinthGame.Score" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAIAAAACAAAABAAAAAAAEAAA=</HashCode>
+      <FileName>Score.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="LabyrinthGame.ILabyrinth" Collapsed="true">
     <Position X="11.5" Y="3.75" Width="1.5" />
@@ -114,7 +123,7 @@
   <Interface Name="LabyrinthGame.ILabyrinthCreator" Collapsed="true">
     <Position X="13.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAA=</HashCode>
       <FileName>ILabyrinthCreator.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -133,7 +142,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="LabyrinthGame.IUserCommand" Collapsed="true">
-    <Position X="11.5" Y="5.25" Width="1.5" />
+    <Position X="13.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIRAAAAAAAAAA=</HashCode>
       <FileName>IUserCommand.cs</FileName>
@@ -142,8 +151,15 @@
   <Interface Name="LabyrinthGame.IMenu" Collapsed="true">
     <Position X="11.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMenu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabyrinthGame.IScore" Collapsed="true">
+    <Position X="11.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>IScore.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="LabyrinthGame.Symbol" Collapsed="true">

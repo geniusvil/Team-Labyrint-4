@@ -20,8 +20,8 @@
 
         private readonly ILabyrinthCreator creator;
         private readonly IUserCommand command;
-        private readonly Score score;
-        private readonly Menu menu;
+        private readonly IScore score;
+        private readonly IMenu menu;
         private ILabyrinth labyrinth;
         private ICoordinate coordinates;
 
@@ -47,28 +47,7 @@
 
         public void Start()
         {
-            var userChoise = this.menu.GetUserChoice();
-            string typeLabyrint = string.Empty;
-            if (userChoise == StartMenu)
-            {
-                typeLabyrint = this.menu.GetLabyrinthType();
-            }
-            else if (userChoise == RestartMenu)
-            {
-                this.Start();
-            }
-            else if (userChoise == ScoreboardMenu)
-            {
-                this.score.PrintScoreBoard();
-                this.Start();
-            }
-            else if (userChoise == ExitMenu)
-            {
-                // end of game!!!!
-                Console.Clear();
-                Console.WriteLine(TheEndSign);
-                Environment.Exit(0);
-            }
+            string typeLabyrint = GetPlayersChoice();
 
             this.labyrinth = this.CreateRequiredLabyrinth(typeLabyrint);
             this.creator.Create(this.labyrinth);
@@ -110,6 +89,35 @@
 
                 this.coordinates = this.command.ProcessCommands();
             }
+        }
+
+        private string GetPlayersChoice()
+        {
+            var userChoice = this.menu.GetUserChoice();
+            string typeLabyrint = string.Empty;
+
+            if (userChoice == StartMenu)
+            {
+                typeLabyrint = this.menu.GetLabyrinthType();
+            }
+            else if (userChoice == RestartMenu)
+            {
+                this.Start();
+            }
+            else if (userChoice == ScoreboardMenu)
+            {
+                this.score.PrintScoreBoard();
+                this.Start();
+            }
+            else if (userChoice == ExitMenu)
+            {
+                // end of game!!!!
+                Console.Clear();
+                Console.WriteLine(TheEndSign);
+                Environment.Exit(0);
+            }
+
+            return typeLabyrint;
         }
 
         private void ShowMenuDuringGamePlay()

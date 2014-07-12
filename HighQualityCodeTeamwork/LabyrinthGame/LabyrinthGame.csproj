@@ -51,6 +51,7 @@
     <Compile Include="IMenu.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderable.cs" />
+    <Compile Include="IScore.cs" />
     <Compile Include="IUserCommand.cs" />
     <Compile Include="KeyboardCommand.cs" />
     <Compile Include="Labyrinth.cs" />
