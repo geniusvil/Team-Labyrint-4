@@ -19,12 +19,13 @@
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "Or press some arrow to play.\n";
 
-        private static readonly LabyrinthEngine singleInstance = new LabyrinthEngine();
+        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
         private readonly ILabyrinthCreator creator;
         private readonly IUserCommand command;
         private readonly IScore score;
         private readonly IMenu menu;
+
         private ILabyrinth labyrinth;
         private ICoordinate coordinates;
 
@@ -42,7 +43,7 @@
         {
             get
             {
-                return singleInstance;
+                return SingleInstance;
             }
         }
 
@@ -53,14 +54,14 @@
         /// </summary>
         public void Start()
         {
-            string typeLabyrint = GetPlayersChoice();
+            string typeLabyrint = this.GetPlayersChoice();
 
             this.labyrinth = this.CreateRequiredLabyrinth(typeLabyrint);
             this.creator.Create(this.labyrinth);
 
             this.coordinates = this.command.ProcessCommands();
 
-            GetGameLoop();
+            this.GetGameLoop();
         }
 
         /// <summary>
