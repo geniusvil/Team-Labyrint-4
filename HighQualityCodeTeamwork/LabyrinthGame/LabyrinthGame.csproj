@@ -63,7 +63,7 @@
     <Compile Include="Score.cs" />
     <Compile Include="SquareLabyrinth.cs" />
     <Compile Include="Symbol.cs" />
-    <Compile Include="TriangleLabyrinth.cs" />
+    <Compile Include="PentagonLabyrinth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// Interface which is inherited from the KeyboardCommand
+    /// </summary>
     public interface IUserCommand
     {
         ICoordinate MoveLeft();

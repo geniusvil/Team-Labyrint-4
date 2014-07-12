@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// Interface which is inherited by the Player class
+    /// </summary>
     public interface IPlayer
     {
         string Name { get; set; }

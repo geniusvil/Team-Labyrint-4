@@ -3,8 +3,16 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// The Coordinate class holds the coordinates which will be used from the other classes(like Player)
+    /// </summary>
     public class Coordinate : ICoordinate
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="rowCoordinate">row</param>
+        /// <param name="colCoordinate">col</param>
         public Coordinate(int rowCoordinate, int colCoordinate)
         {
             this.Row = rowCoordinate;
@@ -15,6 +23,13 @@
 
         public int Row { get; private set; }
 
+
+        /// <summary>
+        /// Overrides the operation minus
+        /// </summary>
+        /// <param name="first">First inpit parameter of class Coordinate</param>
+        /// <param name="second">Second inpit parameter of class Coordinate</param>
+        /// <returns>Coordinates</returns>
         public static Coordinate operator -(Coordinate first, Coordinate second)
         {
             return new Coordinate(first.Row - second.Row, first.Col - second.Col);
@@ -23,8 +38,7 @@
         /// <summary>
         /// Updates coordinates assuming the mark of the given parameters
         /// </summary>
-        /// <param name="rowChange">Value to change row coordinate</param>
-        /// <param name="colChange">Value to change col coordinate</param>
+        /// <param name="newCoordinates">Value to change coordinates, taht hold row and col</param>
         public void Update(ICoordinate newCoordinates)
         {
             this.Row += newCoordinates.Row;
