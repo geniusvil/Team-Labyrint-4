@@ -39,7 +39,7 @@
             (labyrinth as IRenderable).Render();
         }
 
-        /// <summary>
+        /// <summary>C:\MyStaff\GitHub\Team-Labyrint-4\HighQualityCodeTeamwork\LabyrinthGame\IUserCommand.cs
         /// The method deep clones the labyrinth matrix
         /// </summary>
         /// <param name="labyrinth">Labyrinth object</param>

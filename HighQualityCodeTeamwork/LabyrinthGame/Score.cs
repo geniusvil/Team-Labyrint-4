@@ -20,7 +20,7 @@
         {
             get
             {
-                return new SortedDictionary<string, int>(this.scoreBoard);
+                return this.scoreBoard;//new SortedDictionary<string, int>(this.scoreBoard);
             }
 
             private set
@@ -31,32 +31,24 @@
 
         public void PrintScoreBoard()
         {
-            StringBuilder sb = new StringBuilder();
-            
-            int playersCount = PlayersCount;
 
-            if (this.ScoreBoard.Count < PlayersCount)
+            var countPlayers = 0;
+            foreach (var p in this.ScoreBoard)
             {
-                playersCount = this.ScoreBoard.Count;
+                Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
+                countPlayers++;
+                if (countPlayers == PlayersCount)
+                {
+                    break;
+                }
             }
-
-            for (int player = 0; player < playersCount; player++)
-            {
-                sb.AppendLine(string.Format("{0} Player:{1} - Score {2}", player + 1, this.ScoreBoard.Keys, this.ScoreBoard.Values));
-            }
-            //// foreach (var p in this.ScoreBoard)
-            //// {
-            ////     Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
-            //// }
         }
 
         public void AddScore(IPlayer player)
         {
             Console.Write(EnterNameSign);
-            //// SHOULD ASK FOR NAME ONLY IF HAS BETTER SCORE THAN THE REST!!!!!!!!!!
             string name = Console.ReadLine();
             player.Name = name;
-            //// no play is added here!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             this.ScoreBoard.Add(player.Name, player.Points);
         }
     }
