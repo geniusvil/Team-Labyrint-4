@@ -14,10 +14,6 @@
         private const string RestartMenu = "2";
         private const string ScoreboardMenu = "3";
         private const string ExitMenu = "4";
-        private const string Pentagram = "p";
-        private const string Diamond = "d";
-        private const string Square = "s";
-        private const string Hexagon = "h";
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "Or press some arrow to play.\n";
 
@@ -29,6 +25,9 @@
         private ILabyrinth labyrinth;
         private ICoordinate coordinates;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         private LabyrinthEngine()
         {
             this.menu = new Menu();
@@ -50,12 +49,21 @@
         public IPlayer Player { get; private set; }
 
         /// <summary>
-        /// Start methods contains the whole game logic in the correct order to be played
+        /// Start method shows the main menue that asked what Player want to do, t.e play, or
+        /// restart, or show scoreboard and so on.
         /// </summary>
         public void Start()
         {
-            string userChoiceOfLabyrinth = this.GetPlayersChoice();
+            this.GetPlayersChoice();
+        }
 
+        /// <summary>
+        /// StartGame method contains the whole game logic in the correct order to be played
+        /// </summary>
+        private void StartGame()
+        {
+            string userChoiceOfLabyrinth = string.Empty;
+            userChoiceOfLabyrinth = this.menu.GetLabyrinthTypeFromUser();
             this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
             LabyrinthEngine.Instance.Player.ShowPlayer(this.labyrinth);
             this.labyrinth.Render();
@@ -108,17 +116,17 @@
         }
 
         /// <summary>
-        /// Handles the player's choice of labyrinth type
+        /// Handles the player's choice of what he want to do  - 
+        /// play, see scoreboard, restart
         /// </summary>
-        /// <returns>labyrinth type as a string</returns>
-        private string GetPlayersChoice()
+        private void GetPlayersChoice()
         {
             var userChoice = this.menu.GetUserChoice();
-            string typeLabyrint = string.Empty;
 
             if (userChoice == StartMenu)
             {
-                typeLabyrint = this.menu.GetLabyrinthTypeFromUser();
+                this.StartGame();
+                //typeLabyrint = this.menu.GetLabyrinthTypeFromUser();
             }
             else if (userChoice == RestartMenu)
             {
@@ -137,7 +145,7 @@
                 Environment.Exit(0);
             }
 
-            return typeLabyrint;
+          //  return typeLabyrint;
         }
 
         /// <summary>
@@ -151,7 +159,7 @@
         }
 
         /// <summary>
-        /// shows the player on over the labyrinth
+        /// Shows the player on over the labyrinth
         /// </summary>
         private void ShowPlayerOnLabyrinth()
         {
@@ -163,7 +171,7 @@
         /// <summary>
         /// Checks whether the game is over or not
         /// </summary>
-        /// <returns>boolean value for the game over</returns>
+        /// <returns>Boolean value - if game is over returns true, if not  - false</returns>
         private bool IsGameOver()
         {
             bool isGameOver = false;
@@ -193,7 +201,7 @@
         /// Checks whether the new position is available or it is an obstacle
         /// </summary>
         /// <param name="newCoordinates">the wanted new position to be checked</param>
-        /// <returns>boolean value</returns>
+        /// <returns>Boolean value - if position is available returns true, if not  - false</returns>
         private bool IsPositionAvailable(ICoordinate newCoordinates)
         {
             if (this.labyrinth.Matrix[newCoordinates.Row, newCoordinates.Col] == (char)Symbol.Obstacle)

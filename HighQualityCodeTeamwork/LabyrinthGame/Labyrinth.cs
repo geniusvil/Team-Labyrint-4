@@ -17,6 +17,9 @@
 
         private char[,] matrix;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Labyrinth()
         {
             this.Matrix = new char[InitialRows, InitialCols];
@@ -43,7 +46,7 @@
         }
 
         /// <summary>
-        /// Creates the char matrix
+        /// Creates the char matrix, specific for the different types of labyrinth
         /// </summary>
         public abstract void FillMatrix();
 
@@ -77,11 +80,10 @@
         }
 
         /// <summary>
-        /// Change symbol at given [row,col] position with given new symbol
+        /// Change symbol at given coordinate position with given new symbol
         /// </summary>
-        /// <param name="row">row coordinate as int</param>
-        /// <param name="col">col coordinate as int</param>
-        /// <param name="newSymbol">symbol to be change one at specified position</param>
+        /// <param name="coordinates">We want to change the symbol on the position with this coordinates</param>
+        /// <param name="newSymbol">This is the symbol we want to put on the given position</param>
         public virtual void ChangeSymbol(ICoordinate coordinates, char newSymbol)
         {
             this.Matrix[coordinates.Row, coordinates.Col] = newSymbol;

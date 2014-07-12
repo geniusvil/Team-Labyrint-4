@@ -5,10 +5,6 @@
     /// </summary>
     public interface ILabyrinthCreator
     {
-        /// <summary>
-        /// Fill labyrinth and rended it on the screen
-        /// </summary>
-        /// <param name="labyrinth"></param>
         ILabyrinth Create(string typeLabyrinth);
 
         void Render(ILabyrinth labyrinth);

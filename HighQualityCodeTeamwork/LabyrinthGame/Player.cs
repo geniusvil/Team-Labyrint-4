@@ -15,6 +15,9 @@
 
         private char currentSymbol;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Player()
         {
             this.Coordinates = new Coordinate(StartRow, StartCol);

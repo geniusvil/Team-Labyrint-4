@@ -16,6 +16,11 @@
 
         private readonly ICoordinate initialPlayerCoordinates = new Coordinate(6, 6);
 
+        /// <summary>
+        /// Creates labyrinth of type asked by the user
+        /// </summary>
+        /// <param name="userChoiceOfLabyrinth">Type of labyrinth asked by user</param>
+        /// <returns>Returns a labyrinth of type as given in param with name "userChoiceOfLabyrinth"</returns>
         public ILabyrinth Create(string userChoiceOfLabyrinth)
         {
             TypeLabyrinth typeOfLabyrinth = this.GetLabyrinthType(userChoiceOfLabyrinth);
@@ -24,18 +29,18 @@
             labyrinth.FillMatrix();
 
             Console.WriteLine();
-          //  Console.WriteLine("lab\n" + labyrinth.ToString());
+            //  Console.WriteLine("lab\n" + labyrinth.ToString());
             ILabyrinth labyrinthDeepCloned = DeepClone(labyrinth);
-          //  Console.WriteLine("dee\n" + labyrinthDeepCloned.ToString());
+            //  Console.WriteLine("dee\n" + labyrinthDeepCloned.ToString());
 
             bool isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
 
             while (!isWayOut)
             {
                 labyrinth.FillMatrix();
-               // Console.WriteLine("lab\n"+labyrinth.ToString());
+                // Console.WriteLine("lab\n"+labyrinth.ToString());
                 labyrinthDeepCloned = DeepClone(labyrinth);
-               /// Console.WriteLine("dee\n"+labyrinthDeepCloned.ToString());
+                /// Console.WriteLine("dee\n"+labyrinthDeepCloned.ToString());
                 isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
             }
 
@@ -52,7 +57,7 @@
             (labyrinth as IRenderable).Render();
         }
 
-        /// <summary>C:\MyStaff\GitHub\Team-Labyrint-4\HighQualityCodeTeamwork\LabyrinthGame\IUserCommand.cs
+        /// <summary>
         /// The method deep clones the labyrinth matrix
         /// </summary>
         /// <param name="labyrinth">Labyrinth object</param>
@@ -118,6 +123,11 @@
             return true;
         }
 
+        /// <summary>
+        /// The method converts sting type of labyrinth into enum type ot TypeLabyrinth
+        /// </summary>
+        /// <param name="userChoiceOfLabyrinth">Input choise of labyrinth type as string</param>
+        /// <returns>Return enum TypeLabyrinth</returns>
         private TypeLabyrinth GetLabyrinthType(string userChoiceOfLabyrinth)
         {
             TypeLabyrinth userChoiseOfTypeLabytint = TypeLabyrinth.Square;
@@ -141,11 +151,11 @@
         /// <summary>
         /// Creates user required labyrinth
         /// </summary>
-        /// <param name="typeLabyrint">string representation of concrete labyrinth</param>
+        /// <param name="typeLabyrinth">string representation of concrete labyrinth</param>
         /// <returns>Instance of the selected labyrinth</returns>
-        private ILabyrinth CreateRequiredLabyrinth(TypeLabyrinth typeLabyrint)
+        private ILabyrinth CreateRequiredLabyrinth(TypeLabyrinth typeLabyrinth)
         {
-            switch (typeLabyrint)
+            switch (typeLabyrinth)
             {
                 case TypeLabyrinth.Diamond:
                     return new DiamondLabyrinth();

@@ -21,6 +21,9 @@
         private const string ExitSign = "  4 : EXIT\n";
         private const string YourChoiceSign = "Your choice : ";
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Menu()
         {
         }
@@ -90,7 +93,7 @@
             this.TypeLabyrinthMenu();
             Console.Write(YourChoiceSign);
             chooseTypeOfLab = Console.ReadLine().ToLower();
-       
+
             return chooseTypeOfLab;
         }
     }

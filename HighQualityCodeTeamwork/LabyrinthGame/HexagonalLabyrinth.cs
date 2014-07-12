@@ -9,6 +9,9 @@
     [Serializable]
     public class HexagonalLabyrinth : Labyrinth
     {
+        private const int TwoParts = 2;
+        private const int ThreeParts = 3;
+
         /// <summary>
         /// The method fills the matrix with symbols forming hexagon shape
         /// </summary>
@@ -39,11 +42,11 @@
         /// <returns>Returns boolean value - true if it is blackspace and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
-            int oneThirdRows = this.Matrix.GetLength(0) / 3;
-            int oneThirdCols = this.Matrix.GetLength(1) / 3;
+            int oneThirdRows = this.Matrix.GetLength(0) / ThreeParts;
+            int oneThirdCols = this.Matrix.GetLength(1) / ThreeParts;
 
-            int twoThirdsRows = 2 * oneThirdRows;
-            int twoThirdsCols = 2 * oneThirdCols;
+            int twoThirdsRows = TwoParts * oneThirdRows;
+            int twoThirdsCols = TwoParts * oneThirdCols;
 
             bool isBlankSpace = false;
 

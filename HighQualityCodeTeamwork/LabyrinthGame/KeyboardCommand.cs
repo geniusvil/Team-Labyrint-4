@@ -50,27 +50,25 @@
         /// <returns>returns the four methods for each pressed arrow-key:MoveLeft(), MoveRight(), MoveUp(), MoveDown()</returns>
         public ICoordinate ProcessCommands()
         {
+            ConsoleKeyInfo keyPressed = Console.ReadKey();
+
+            switch (keyPressed.Key)
             {
-                ConsoleKeyInfo keyPressed = Console.ReadKey();
+                case ConsoleKey.LeftArrow:
 
-                switch (keyPressed.Key)
-                {
-                    case ConsoleKey.LeftArrow:
+                    return this.MoveLeft();
+                case ConsoleKey.RightArrow:
 
-                        return this.MoveLeft();
-                    case ConsoleKey.RightArrow:
+                    return this.MoveRight();
+                case ConsoleKey.UpArrow:
 
-                        return this.MoveRight();
-                    case ConsoleKey.UpArrow:
+                    return this.MoveUp();
+                case ConsoleKey.DownArrow:
 
-                        return this.MoveUp();
-                    case ConsoleKey.DownArrow:
-
-                        return this.MoveDown();
-                    default:
-                        // тук да извикаме началното меню ако натисне число от 1 до 4
-                        return new Coordinate(0, 0);
-                }
+                    return this.MoveDown();
+                default:
+                    // тук да извикаме началното меню ако натисне число от 1 до 4
+                    return new Coordinate(0, 0);
             }
         }
     }
