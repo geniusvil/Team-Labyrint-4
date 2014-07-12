@@ -3,34 +3,21 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
     public sealed class Score : IScore
     {
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
-        private SortedDictionary<string, int> scoreBoard;
 
         public Score()
         {
             this.ScoreBoard = new SortedDictionary<string, int>();
         }
 
-        public SortedDictionary<string, int> ScoreBoard
-        {
-            get
-            {
-                return this.scoreBoard;
-            }
-
-            private set
-            {
-                this.scoreBoard = value;
-            }
-        }
+        public SortedDictionary<string, int> ScoreBoard { get; private set; }
 
         public void PrintScoreBoard()
-        {            
+        { 
             var countPlayers = 0;
             foreach (var p in this.ScoreBoard)
             {
@@ -39,7 +26,7 @@
                 if (countPlayers == PlayersCount)
                 {
                     break;
-            }
+                }
             }
         }
 

@@ -8,6 +8,8 @@
     /// </summary>
     public sealed class LabyrinthEngine : ILabyrinthEngine
     {
+        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
+
         private const string StartMenu = "1";
         private const string RestartMenu = "2";
         private const string ScoreboardMenu = "3";
@@ -18,8 +20,6 @@
         private const string Hexagon = "h";
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "Or press some arrow to play.\n";
-
-        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
         private readonly ILabyrinthCreator creator;
         private readonly IUserCommand command;
@@ -57,7 +57,7 @@
             string userChoiceOfLabyrinth = this.GetPlayersChoice();
 
             this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
-            LabyrinthEngine.Instance.Player.ShowPlayer(labyrinth);
+            LabyrinthEngine.Instance.Player.ShowPlayer(this.labyrinth);
             this.labyrinth.Render();
 
             this.coordinates = this.command.ProcessCommands();
@@ -160,7 +160,6 @@
             this.Player.RemovePlayer(this.labyrinth);
         }
 
-
         /// <summary>
         /// Checks whether the game is over or not
         /// </summary>
@@ -170,11 +169,21 @@
             bool isGameOver = false;
             bool isRowOut = this.Player.Coordinates.Row < 0 || this.Player.Coordinates.Row == this.labyrinth.Matrix.GetLength(0);
             bool isColOut = this.Player.Coordinates.Col < 0 || this.Player.Coordinates.Col == this.labyrinth.Matrix.GetLength(1);
-            bool isBlankSpaceSign = this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == (char)Symbol.BlankSpace;
-
-            if (isRowOut || isColOut || isBlankSpaceSign)
+            if (isRowOut)
             {
                 isGameOver = true;
+            }
+            else if (isColOut)
+            {
+                isGameOver = true;
+            }
+            else
+            {
+                bool isBlankSpaceSign = this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == (char)Symbol.BlankSpace;
+                if (isBlankSpaceSign)
+                {
+                    isGameOver = true;
+                }
             }
 
             return isGameOver;

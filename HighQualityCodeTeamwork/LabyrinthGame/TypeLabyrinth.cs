@@ -1,6 +1,6 @@
 ﻿namespace LabyrinthGame
 {
-    public enum  TypeLabyrinth
+    public enum TypeLabyrinth
     {
         Diamond,
         Pentagram,

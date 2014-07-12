@@ -13,6 +13,5 @@
         void FillMatrix();
 
         void ChangeSymbol(ICoordinate coordinates, char newSymbol);
-
     }
 }

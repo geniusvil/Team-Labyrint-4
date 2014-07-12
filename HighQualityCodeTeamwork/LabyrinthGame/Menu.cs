@@ -63,8 +63,6 @@
             Console.WriteLine(ExitSign);
         }
 
-      
-
         private string ReadRequiredChoice()
         {
             string menuChoiceNum = string.Empty;
