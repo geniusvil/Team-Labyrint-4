@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Score : IScore
+    public sealed class Score : IScore
     {
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
@@ -20,7 +20,7 @@
         {
             get
             {
-                return this.scoreBoard;//new SortedDictionary<string, int>(this.scoreBoard);
+                return this.scoreBoard;
             }
 
             private set
