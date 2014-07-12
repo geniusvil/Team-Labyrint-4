@@ -30,8 +30,7 @@
         }
 
         public void PrintScoreBoard()
-        {
-            
+        {            
             var countPlayers = 0;
             foreach (var p in this.ScoreBoard)
             {

@@ -23,7 +23,6 @@
 
         public int Row { get; private set; }
 
-
         /// <summary>
         /// Overrides the operation minus
         /// </summary>
