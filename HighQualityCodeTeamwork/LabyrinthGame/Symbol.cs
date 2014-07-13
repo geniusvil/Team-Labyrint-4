@@ -7,7 +7,7 @@
     {
         Obstacle = '*',
         Path = '-',
-        BlankSpace = '!',
+        BlankSpace = '.',
         Player = 'X'
     }
 }

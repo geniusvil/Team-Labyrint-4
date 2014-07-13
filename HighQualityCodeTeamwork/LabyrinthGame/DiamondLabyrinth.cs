@@ -9,6 +9,8 @@
     [Serializable]
     public class DiamondLabyrinth : Labyrinth
     {
+        private const int TwoParts = 2;
+
         /// <summary>
         /// The method fills the matrix with symbols forming diamond shape
         /// </summary>
@@ -39,8 +41,8 @@
         /// <returns>Returns boolean value - true if it is blackspace and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
-            int halfRows = this.Matrix.GetLength(0) / 2;
-            int halfCols = this.Matrix.GetLength(1) / 2;
+            int halfRows = this.Matrix.GetLength(0) / TwoParts;
+            int halfCols = this.Matrix.GetLength(1) / TwoParts;
 
             bool isBlankSpace = false;
             
