@@ -23,7 +23,11 @@
         private const string ScoreboardSign = "  3 : SCOREBOARD";
         private const string ExitSign = "  4 : EXIT\n";
         private const string YourChoiceSign = "Your choice : ";
-
+        private const string ChooseLabyrinthTypeSign = "\n\nPlease choose type of the labyrinth\n";
+        private const string PentagramSign = "  P : PENTAGON";
+        private const string DiamondSign = "  D : DIAMOND";
+        private const string SquareSign = "  S : SQUARE\n ";
+        private const string HexagonSign = "  H : HEXAGON";
         /// <summary>
         /// Constructor
         /// </summary>
@@ -84,16 +88,27 @@
             Console.WriteLine(ExitSign);
         }
 
+        public void MenuDuringPlay()
+        {
+            Console.WriteLine(WelcomeSign);
+            Console.WriteLine();
+            Console.WriteLine("  RightArrow - Move Right");
+            Console.WriteLine("  LeftArrow  - Move Left");
+            Console.WriteLine("  UpArrow    - Move Up");
+            Console.WriteLine("  DownArrow  - Move Down");
+            Console.WriteLine();
+        }
+
         /// <summary>
         /// Prints on the console the menu with the types of labyrinth
         /// </summary>
         private void TypeLabyrinthMenu()
         {
-            Console.WriteLine("\n\nPlease choose type of the labyrinth\n");
-            Console.WriteLine("  D : DIAMOND");
-            Console.WriteLine("  P : PENTAGON");
-            Console.WriteLine("  H : HEXAGON");
-            Console.WriteLine("  S : SQUARE\n ");
+            Console.WriteLine(ChooseLabyrinthTypeSign);
+            Console.WriteLine(DiamondSign);
+            Console.WriteLine(PentagramSign);
+            Console.WriteLine(HexagonSign);
+            Console.WriteLine(SquareSign);
         }
     }
 }

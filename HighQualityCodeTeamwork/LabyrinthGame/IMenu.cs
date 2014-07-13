@@ -13,5 +13,7 @@
         string GetLabyrinthTypeFromUser();
 
         void MainMenu();
+
+        void MenuDuringPlay();
     }
 }

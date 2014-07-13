@@ -30,8 +30,11 @@
 
             Console.WriteLine();
             //  Console.WriteLine("lab\n" + labyrinth.ToString());
-            ILabyrinth labyrinthDeepCloned = DeepClone(labyrinth);
+         //   ILabyrinth labyrinthDeepCloned = DeepClone(labyrinth);
             //  Console.WriteLine("dee\n" + labyrinthDeepCloned.ToString());
+
+            //АКО ИЗПОЛЗВАМЕ ICLONABLE
+         ILabyrinth labyrinthDeepCloned = labyrinth.Clone() as ILabyrinth;
 
             bool isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
 
@@ -39,7 +42,8 @@
             {
                 labyrinth.FillMatrix();
                 // Console.WriteLine("lab\n"+labyrinth.ToString());
-                labyrinthDeepCloned = DeepClone(labyrinth);
+              //  labyrinthDeepCloned = DeepClone(labyrinth);
+                labyrinthDeepCloned = labyrinth.Clone() as ILabyrinth;
                 /// Console.WriteLine("dee\n"+labyrinthDeepCloned.ToString());
                 isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
             }
@@ -61,17 +65,19 @@
         /// The method deep clones the labyrinth matrix
         /// </summary>
         /// <param name="labyrinth">Labyrinth object</param>
-        private static ILabyrinth DeepClone(ILabyrinth labyrinth)
-        {
-            using (var ms = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
-                formatter.Serialize(ms, labyrinth);
-                ms.Position = 0;
+        /// 
+        //ОТПАДА АКО ПОЛЗВАМЕ ICLONABLE
+        //private static ILabyrinth DeepClone(ILabyrinth labyrinth)
+        //{
+        //    using (var ms = new MemoryStream())
+        //    {
+        //        var formatter = new BinaryFormatter();
+        //        formatter.Serialize(ms, labyrinth);
+        //        ms.Position = 0;
 
-                return (ILabyrinth)formatter.Deserialize(ms);
-            }
-        }
+        //        return (ILabyrinth)formatter.Deserialize(ms);
+        //    }
+        //}
 
         /// <summary>
         /// The method checks if there is sequence of "path" signs to the edges of the matrix

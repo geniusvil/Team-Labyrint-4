@@ -7,7 +7,7 @@
     /// <summary>
     /// Labyrinth main logic
     /// </summary>
-    [Serializable]
+//    [Serializable]
     public abstract class Labyrinth : ILabyrinth
     {
         protected const int InitialRows = 13;
@@ -126,6 +126,11 @@
             {
                 return (char)Symbol.Path;
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone() as ILabyrinth;
         }
     }
 }

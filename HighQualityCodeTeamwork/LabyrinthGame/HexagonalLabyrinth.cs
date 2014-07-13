@@ -6,7 +6,7 @@
     /// <summary>
     /// Labyrinth with shape like hexagon
     /// </summary>
-    [Serializable]
+ //   [Serializable]
     public class HexagonalLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;

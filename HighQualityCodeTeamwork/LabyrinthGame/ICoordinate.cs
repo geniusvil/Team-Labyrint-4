@@ -8,7 +8,6 @@
     /// </summary>
     public interface ICoordinate
     {
-       
         int Col { get; }
 
         int Row { get; }

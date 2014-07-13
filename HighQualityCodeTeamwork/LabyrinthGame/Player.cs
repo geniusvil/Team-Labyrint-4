@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+
     /// <summary>
     /// The Player class hold information about start position, player name and points
     /// </summary>
@@ -75,10 +76,10 @@
             this.Points++;
         }
 
-       /// <summary>
-       /// The method updates the position of the player with the given ccorinates
-       /// </summary>
-       /// <param name="newCoordinates">The coordinates that have to change the players position</param>
+        /// <summary>
+        /// The method updates the position of the player with the given ccorinates
+        /// </summary>
+        /// <param name="newCoordinates">The coordinates that have to change the players position</param>
         public void UpdatePosition(ICoordinate newCoordinates)
         {
             this.Coordinates.Update(newCoordinates);

@@ -12,12 +12,22 @@
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
 
+        private static readonly Score scoreInstance = new Score();
+
         /// <summary>
         /// Constructor
         /// </summary>
-        public Score()
+        private Score()
         {
             this.ScoreBoard = new SortedDictionary<string, int>();
+        }
+
+        public static Score ScoreInstance
+        {
+            get
+            {
+                return scoreInstance;
+            }
         }
 
         public SortedDictionary<string, int> ScoreBoard { get; private set; }
@@ -30,13 +40,14 @@
             var countPlayers = 0;
             foreach (var p in this.ScoreBoard)
             {
-                Console.WriteLine("Player: {0} - Score {1}", p.Key, p.Value);
+                Console.WriteLine("  Player: {0} - Score {1}", p.Key, p.Value);
                 countPlayers++;
                 if (countPlayers == PlayersCount)
                 {
                     break;
                 }
             }
+            Console.WriteLine();
         }
 
         /// <summary>

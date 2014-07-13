@@ -6,7 +6,7 @@
     /// <summary>
     /// Labyrinth with shape like diamond
     /// </summary>
-    [Serializable]
+  //  [Serializable]
     public class DiamondLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;

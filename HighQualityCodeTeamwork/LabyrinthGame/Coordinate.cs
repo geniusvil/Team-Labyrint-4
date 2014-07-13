@@ -39,7 +39,7 @@
         /// <param name="first">First inpit parameter of class Coordinate</param>
         /// <param name="second">Second inpit parameter of class Coordinate</param>
         /// <returns>Coordinates</returns>
-        public static Coordinate operator - (Coordinate first, Coordinate second)
+        public static Coordinate operator -(Coordinate first, Coordinate second)
         {
             return new Coordinate(first.Row - second.Row, first.Col - second.Col);
         }

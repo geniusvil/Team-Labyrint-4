@@ -15,11 +15,11 @@
         private const string ScoreboardMenu = "3";
         private const string ExitMenu = "4";
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
-        private const string PressArrowSign = "Or press some arrow to play.\n";
+        private const string PressArrowSign = "  Press arrow to play.\n";
 
         private readonly ILabyrinthCreator creator;
         private readonly IUserCommand command;
-        private readonly IScore score;
+        private readonly IScore score = Score.ScoreInstance;
         private readonly IMenu menu;
 
         private ILabyrinth labyrinth;
@@ -32,10 +32,8 @@
         {
             this.menu = new Menu();
             this.creator = new LabyrinthCreator();
-            //  this.labyrinth = new HexagonalLabyrinth();
             this.Player = new Player();
             this.command = new KeyboardCommand();
-            this.score = new Score();
         }
 
         public static LabyrinthEngine Instance
@@ -83,7 +81,8 @@
                 var currentCoord = new Coordinate(this.Player.Coordinates.Row, this.Player.Coordinates.Col);
 
                 this.ShowMenuDuringGamePlay();
-                Console.WriteLine("THIS MENU IS NOT WORKING YET");
+               // Console.WriteLine("THIS MENU IS NOT WORKING YET");
+              
                 Console.WriteLine(PressArrowSign);
 
                 this.Player.RemovePlayer(this.labyrinth);
@@ -96,7 +95,7 @@
 
                     this.score.AddScore(this.Player);
                     this.score.PrintScoreBoard();
-                    break;
+                    Start();
                 }
 
                 var previousCoord = currentCoord - this.Player.Coordinates;
@@ -144,8 +143,7 @@
                 Console.WriteLine(TheEndSign);
                 Environment.Exit(0);
             }
-
-          //  return typeLabyrint;
+            //  return typeLabyrint;
         }
 
         /// <summary>
@@ -155,7 +153,7 @@
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Gray;
-            this.menu.MainMenu();
+            this.menu.MenuDuringPlay();
         }
 
         /// <summary>
@@ -164,7 +162,7 @@
         private void ShowPlayerOnLabyrinth()
         {
             this.Player.ShowPlayer(this.labyrinth);
-            (this.labyrinth as IRenderable).Render();
+            (this.labyrinth).Render();
             this.Player.RemovePlayer(this.labyrinth);
         }
 

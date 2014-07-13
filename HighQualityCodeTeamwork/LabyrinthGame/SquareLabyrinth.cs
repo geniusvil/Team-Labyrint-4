@@ -6,7 +6,7 @@
     /// <summary>
     /// Labyrinth with shape like labirinth
     /// </summary>
-    [Serializable]
+ //   [Serializable]
     public class SquareLabyrinth : Labyrinth
     {
         /// <summary>

@@ -6,7 +6,7 @@
     /// <summary>
     ///  Pentagon shaped labyrinth
     /// </summary>
-    [Serializable]
+ //   [Serializable]
     public class PentagonLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;
