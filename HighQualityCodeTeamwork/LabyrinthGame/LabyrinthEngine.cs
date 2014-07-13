@@ -17,7 +17,7 @@
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "  Press arrow to play.\n";
 
-        private readonly ILabyrinthCreator creator;
+        private  ILabyrinthCreator creator;
         private readonly IUserCommand command;
         private readonly IScore score = Score.ScoreInstance;
         private readonly IMenu menu;
@@ -31,8 +31,8 @@
         private LabyrinthEngine()
         {
             this.menu = new Menu();
-            this.creator = new LabyrinthCreator();
-            this.Player = new Player();
+          //  this.creator = new LabyrinthCreator();
+          //  this.Player = new Player();
             this.command = new KeyboardCommand();
         }
 
@@ -60,6 +60,8 @@
         /// </summary>
         private void StartGame()
         {
+            this.creator = new LabyrinthCreator();
+            this.Player = new Player();
             string userChoiceOfLabyrinth = string.Empty;
             userChoiceOfLabyrinth = this.menu.GetLabyrinthTypeFromUser();
             this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
@@ -125,7 +127,6 @@
             if (userChoice == StartMenu)
             {
                 this.StartGame();
-                //typeLabyrint = this.menu.GetLabyrinthTypeFromUser();
             }
             else if (userChoice == RestartMenu)
             {

@@ -28,7 +28,12 @@
         private const string DiamondSign = "  D : DIAMOND";
         private const string SquareSign = "  S : SQUARE\n ";
         private const string HexagonSign = "  H : HEXAGON";
-        /// <summary>
+        private const string RightArrowSign ="  RightArrow - Move Right";
+        private const string LeftArrowSign = "  LeftArrow  - Move Left";
+        private const string UpArrowSign = "  UpArrow    - Move Up";
+        private const string DownArrowSign = "  DownArrow  - Move Down";
+
+            /// <summary>
         /// Constructor
         /// </summary>
         public Menu()
@@ -92,10 +97,10 @@
         {
             Console.WriteLine(WelcomeSign);
             Console.WriteLine();
-            Console.WriteLine("  RightArrow - Move Right");
-            Console.WriteLine("  LeftArrow  - Move Left");
-            Console.WriteLine("  UpArrow    - Move Up");
-            Console.WriteLine("  DownArrow  - Move Down");
+            Console.WriteLine(RightArrowSign);
+            Console.WriteLine(LeftArrowSign);
+            Console.WriteLine(UpArrowSign);
+            Console.WriteLine(DownArrowSign);
             Console.WriteLine();
         }
 
