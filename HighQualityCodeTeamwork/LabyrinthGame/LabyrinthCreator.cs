@@ -24,7 +24,7 @@
         /// Creates labyrinth of type asked by the user
         /// </summary>
         /// <param name="userChoiceOfLabyrinth">Type of labyrinth asked by user</param>
-        /// <returns>Returns a labyrinth of type as given in param with name "userChoiceOfLabyrinth"</returns>
+        /// <returns>Returns a labyrinth of type as given in parameter with name "userChoiceOfLabyrinth"</returns>
         public ILabyrinth Create(string userChoiceOfLabyrinth)
         {
             TypeLabyrinth typeOfLabyrinth = this.GetLabyrinthType(userChoiceOfLabyrinth);
@@ -38,10 +38,10 @@
         }
 
         /// <summary>
-        /// The method converts sting type of labyrinth into enum type ot TypeLabyrinth
+        /// The method converts sting type of labyrinth into enumeration type of TypeLabyrinth
         /// </summary>
-        /// <param name="userChoiceOfLabyrinth">Input choise of labyrinth type as string</param>
-        /// <returns>Return enum TypeLabyrinth</returns>
+        /// <param name="userChoiceOfLabyrinth">Input choice of labyrinth type as string</param>
+        /// <returns>Return enumeration TypeLabyrinth</returns>
         private TypeLabyrinth GetLabyrinthType(string userChoiceOfLabyrinth)
         {
             TypeLabyrinth userChoiseOfTypeLabytint = TypeLabyrinth.Square;

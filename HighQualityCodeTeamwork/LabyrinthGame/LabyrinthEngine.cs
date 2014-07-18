@@ -44,7 +44,7 @@
         public IPlayer Player { get; private set; }
 
         /// <summary>
-        /// Start method shows the main menue that asked what Player want to do, t.e play, or
+        /// Start method shows the main menu that asked what Player want to do, t.e play, or
         /// restart, or show scoreboard and so on.
         /// </summary>
         public void Start()
