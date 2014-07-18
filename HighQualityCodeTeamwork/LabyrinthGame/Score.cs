@@ -5,12 +5,14 @@
     using System.Linq;
 
     /// <summary>
-    /// Score class keeps player name and acheived result
+    /// Score class keeps player name and achieved result
     /// </summary>
     public sealed class Score : IScore
     {
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
+        private const string HighScoreReached = "Congratulations! New high score!!!";
+        private const string HighScoreFail = "Think harder next time, {0}.\nThis is not a high score";
 
         /// <summary>
         /// Constructor
@@ -31,7 +33,7 @@
         public SortedDictionary<string, int> ScoreBoard { get; private set; }
 
         /// <summary>
-        /// Prints Soreboard on the console
+        /// Prints Scoreboard on the console
         /// </summary>
         public void PrintScoreBoard()
         {
@@ -40,6 +42,7 @@
             {
                 Console.WriteLine("  Player: {0} - Score {1}", p.Key, p.Value);
                 countPlayers++;
+
                 if (countPlayers == PlayersCount)
                 {
                     break;
@@ -57,8 +60,25 @@
         {
             Console.Write(EnterNameSign);
             string name = Console.ReadLine();
+
             player.Name = name;
-            this.ScoreBoard.Add(player.Name, player.Points);
+
+            if (this.ScoreBoard.ContainsKey(player.Name))
+            {
+                if (this.ScoreBoard[player.Name] > player.Points)
+                {
+                    this.ScoreBoard[player.Name] = player.Points;
+                }
+                else
+                {
+                    Console.WriteLine(HighScoreFail, player.Name); 
+                }
+            }
+            else
+            {
+                Console.WriteLine(HighScoreReached);
+                this.ScoreBoard.Add(player.Name, player.Points);
+            }
         }
     }
 }
