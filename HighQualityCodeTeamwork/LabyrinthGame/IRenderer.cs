@@ -6,8 +6,8 @@
     /// <summary>
     /// Interface that gives the view engine logic, is inherited by the Labyrinth class
     /// </summary>
-    public interface IRenderable
+    public interface IRenderer
     {
-        void Render();
+        void Render(ILabyrinth labyrinth);
     }
 }

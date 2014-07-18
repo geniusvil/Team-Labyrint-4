@@ -24,16 +24,6 @@
         public int Row { get; private set; }
 
         /// <summary>
-        /// Updates coordinates assuming the mark of the given parameters
-        /// </summary>
-        /// <param name="newCoordinates">Value to change coordinates, that hold row and col</param>
-        public void Update(ICoordinate newCoordinates)
-        {
-            this.Row += newCoordinates.Row;
-            this.Col += newCoordinates.Col;
-        }
-
-        /// <summary>
         /// Overrides the operation minus
         /// </summary>
         /// <param name="first">First inpit parameter of class Coordinate</param>
@@ -42,6 +32,16 @@
         public static Coordinate operator -(Coordinate first, Coordinate second)
         {
             return new Coordinate(first.Row - second.Row, first.Col - second.Col);
+        }
+
+        /// <summary>
+        /// Updates coordinates assuming the mark of the given parameters
+        /// </summary>
+        /// <param name="newCoordinates">Value to change coordinates, that hold row and col</param>
+        public void Update(ICoordinate newCoordinates)
+        {
+            this.Row += newCoordinates.Row;
+            this.Col += newCoordinates.Col;
         }
     }
 }

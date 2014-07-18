@@ -8,8 +8,6 @@
     /// </summary>
     public sealed class LabyrinthEngine : ILabyrinthEngine
     {
-        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
-
         private const string StartMenu = "1";
         private const string RestartMenu = "2";
         private const string ScoreboardMenu = "3";
@@ -17,23 +15,22 @@
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "  Press arrow to play.\n";
 
-        private  ILabyrinthCreator creator;
+        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
+
         private readonly IUserCommand command;
         private readonly IScore score = Score.ScoreInstance;
         private readonly IMenu menu;
+        private readonly IRenderer renderer;
 
+        private ILabyrinthCreator creator;
         private ILabyrinth labyrinth;
         private ICoordinate coordinates;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         private LabyrinthEngine()
         {
             this.menu = new Menu();
-          //  this.creator = new LabyrinthCreator();
-          //  this.Player = new Player();
             this.command = new KeyboardCommand();
+            this.renderer = new ConsoleRenderer();
         }
 
         public static LabyrinthEngine Instance
@@ -47,7 +44,7 @@
         public IPlayer Player { get; private set; }
 
         /// <summary>
-        /// Start method shows the main menue that asked what Player want to do, t.e play, or
+        /// Start method shows the main menu that asked what Player want to do, t.e play, or
         /// restart, or show scoreboard and so on.
         /// </summary>
         public void Start()
@@ -66,7 +63,7 @@
             userChoiceOfLabyrinth = this.menu.GetLabyrinthTypeFromUser();
             this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
             LabyrinthEngine.Instance.Player.ShowPlayer(this.labyrinth);
-            this.labyrinth.Render();
+            this.renderer.Render(this.labyrinth);
 
             this.coordinates = this.command.ProcessCommands();
 
@@ -83,8 +80,7 @@
                 var currentCoord = new Coordinate(this.Player.Coordinates.Row, this.Player.Coordinates.Col);
 
                 this.ShowMenuDuringGamePlay();
-               // Console.WriteLine("THIS MENU IS NOT WORKING YET");
-              
+
                 Console.WriteLine(PressArrowSign);
 
                 this.Player.RemovePlayer(this.labyrinth);
@@ -97,7 +93,7 @@
 
                     this.score.AddScore(this.Player);
                     this.score.PrintScoreBoard();
-                    Start();
+                    this.Start();
                 }
 
                 var previousCoord = currentCoord - this.Player.Coordinates;
@@ -144,7 +140,6 @@
                 Console.WriteLine(TheEndSign);
                 Environment.Exit(0);
             }
-            //  return typeLabyrint;
         }
 
         /// <summary>
@@ -163,7 +158,7 @@
         private void ShowPlayerOnLabyrinth()
         {
             this.Player.ShowPlayer(this.labyrinth);
-            (this.labyrinth).Render();
+            this.renderer.Render(this.labyrinth);
             this.Player.RemovePlayer(this.labyrinth);
         }
 
@@ -176,6 +171,7 @@
             bool isGameOver = false;
             bool isRowOut = this.Player.Coordinates.Row < 0 || this.Player.Coordinates.Row == this.labyrinth.Matrix.GetLength(0);
             bool isColOut = this.Player.Coordinates.Col < 0 || this.Player.Coordinates.Col == this.labyrinth.Matrix.GetLength(1);
+
             if (isRowOut)
             {
                 isGameOver = true;
@@ -187,6 +183,7 @@
             else
             {
                 bool isBlankSpaceSign = this.labyrinth.Matrix[this.Player.Coordinates.Row, this.Player.Coordinates.Col] == (char)Symbol.BlankSpace;
+
                 if (isBlankSpaceSign)
                 {
                     isGameOver = true;

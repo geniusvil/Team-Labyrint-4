@@ -6,10 +6,14 @@
     /// <summary>
     /// Labyrinth with shape like diamond
     /// </summary>
-  //  [Serializable]
     public class DiamondLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;
+
+        public DiamondLabyrinth(IRenderer renderer)
+            : base(renderer)
+        {
+        }
 
         /// <summary>
         /// The method fills the matrix with symbols forming diamond shape
@@ -30,6 +34,7 @@
                 //    }
 
                     bool isBlankSpace = this.IsBlankSpaceSign(row, col);
+
                     if (isBlankSpace)
                     {
                         this.Matrix[row, col] = (char)Symbol.BlankSpace;
@@ -43,22 +48,24 @@
         }
 
         /// <summary>
-        /// The methods checks if sign is blankspace or not
+        /// The methods checks if sign is blank space or not
         /// </summary>
         /// <param name="row">The row we want to check</param>
         /// <param name="col">The column we want to check</param>
-        /// <returns>Returns boolean value - true if it is blackspace and false id it is not</returns>
+        /// <returns>Returns boolean value - true if it is blank space and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
             int halfRows = this.Matrix.GetLength(0) / TwoParts;
             int halfCols = this.Matrix.GetLength(1) / TwoParts;
 
             bool isBlankSpace = false;
-            
+
             bool isInUpLeftCorner = row + col < halfRows;
             bool isInUpRightCorner = (col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols);
             bool isInDownLeftCorner = (row > halfRows && row < this.Matrix.GetLength(0)) && (col < halfCols && row - col > halfRows);
-            bool isInDownRightCorner = (row > halfRows && row < this.Matrix.GetLength(0)) && (col > halfCols && col < this.Matrix.GetLength(1)) && (row + col > (this.Matrix.GetLength(0) + halfRows - 1));
+            bool isInDownRightCorner = (row > halfRows && row < this.Matrix.GetLength(0)) &&
+                                        (col > halfCols && col < this.Matrix.GetLength(1)) &&
+                                        (row + col > (this.Matrix.GetLength(0) + halfRows - 1));
 
             if (isInUpLeftCorner || isInUpRightCorner || isInDownLeftCorner || isInDownRightCorner)
             {

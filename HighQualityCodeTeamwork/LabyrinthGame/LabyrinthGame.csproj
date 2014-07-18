@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Coordinate.cs" />
     <Compile Include="DiamondLabyrinth.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="HexagonalLabyrinth.cs" />
     <Compile Include="ICoordinate.cs" />
     <Compile Include="ILabyrinth.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="ILabyrinthEngine.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="IPlayer.cs" />
-    <Compile Include="IRenderable.cs" />
+    <Compile Include="IRenderer.cs" />
     <Compile Include="IScore.cs" />
     <Compile Include="IUserCommand.cs" />
     <Compile Include="KeyboardCommand.cs" />

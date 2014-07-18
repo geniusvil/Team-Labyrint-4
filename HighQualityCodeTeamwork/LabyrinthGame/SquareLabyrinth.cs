@@ -4,11 +4,15 @@
     using System.Linq;
 
     /// <summary>
-    /// Labyrinth with shape like labirinth
+    /// Labyrinth with square shape
     /// </summary>
- //   [Serializable]
     public class SquareLabyrinth : Labyrinth
     {
+        public SquareLabyrinth(IRenderer renderer)
+            : base(renderer)
+        {
+        }
+
         /// <summary>
         /// The method fills the matrix with symbols forming square shape
         /// </summary>
@@ -23,16 +27,17 @@
             }
         }
 
-        // ДА ГО ИЗМЕСЕМ В ОТДЕЛЕН ИНТЕРФЕЙС ЗА ДА НЕ ХВЪРЛЯ ГРЕШКА ТУК 
         /// <summary>
-        /// The methods checks if sign is blankspace or not
+        /// The methods checks if sign is blank-space or not
         /// </summary>
         /// <param name="row">The row we want to check</param>
         /// <param name="col">The column we want to check</param>
-        /// <returns>In that case the matrix does not have blankspaces, so the method throws an exception</returns>
+        /// <returns>In that case the matrix does not have blank-spaces, so the method throws an exception</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
-            throw new ArgumentException("No such condition for that type of Labyrinth.");
+            // since there are no blank spaces in the square labyrinth
+            // the value should always be false
+            return false;
         }
     }
 }
