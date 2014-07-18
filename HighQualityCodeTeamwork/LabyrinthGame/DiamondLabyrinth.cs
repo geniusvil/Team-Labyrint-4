@@ -16,10 +16,19 @@
         /// </summary>
         public override void FillMatrix()
         {
+            int initialRowStart = this.Matrix.GetLength(0) / TwoParts;
+            int initialColStart = this.Matrix.GetLength(1) / TwoParts;
+
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
+                //    if (row == initialRowStart && col == initialColStart)
+                //    {
+                //        this.Matrix[row, col] = (char)Symbol.Path;
+                //        continue;
+                //    }
+
                     bool isBlankSpace = this.IsBlankSpaceSign(row, col);
                     if (isBlankSpace)
                     {
