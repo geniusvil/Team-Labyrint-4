@@ -6,10 +6,14 @@
     /// <summary>
     ///  Pentagon shaped labyrinth
     /// </summary>
- //   [Serializable]
     public class PentagonLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;
+
+        public PentagonLabyrinth(IRenderer renderer)
+            : base(renderer)
+        {
+        }
 
         /// <summary>
         /// The method fills the matrix with symbols forming pentagon shape
@@ -35,11 +39,11 @@
         }
 
         /// <summary>
-        /// The methods checks if sign is blankspace or not
+        /// The methods checks if sign is blank-space or not
         /// </summary>
         /// <param name="row">The row we want to check</param>
         /// <param name="col">The column we want to check</param>
-        /// <returns>Returns boolean value - true if it is blackspace and false id it is not</returns>
+        /// <returns>Returns boolean value - true if it is blank-space and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
             int halfRows = this.Matrix.GetLength(0) / TwoParts;

@@ -6,11 +6,15 @@
     /// <summary>
     /// Labyrinth with shape like hexagon
     /// </summary>
- //   [Serializable]
     public class HexagonalLabyrinth : Labyrinth
     {
         private const int TwoParts = 2;
         private const int ThreeParts = 3;
+
+        public HexagonalLabyrinth(IRenderer renderer)
+            : base(renderer)
+        {
+        }
 
         /// <summary>
         /// The method fills the matrix with symbols forming hexagon shape
@@ -22,6 +26,7 @@
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
                     bool isBlankSpace = this.IsBlankSpaceSign(row, col);
+
                     if (isBlankSpace)
                     {
                         this.Matrix[row, col] = (char)Symbol.BlankSpace;
@@ -35,11 +40,11 @@
         }
 
         /// <summary>
-        /// The methods checks if sign is blankspace or not
+        /// The methods checks if sign is blank space or not
         /// </summary>
         /// <param name="row">The row we want to check</param>
         /// <param name="col">The column we want to check</param>
-        /// <returns>Returns boolean value - true if it is blackspace and false id it is not</returns>
+        /// <returns>Returns boolean value - true if it is blank space and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
             int oneThirdRows = this.Matrix.GetLength(0) / ThreeParts;

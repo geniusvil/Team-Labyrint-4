@@ -2,16 +2,18 @@
 {
     using System;
     using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Labyrinth main logic
     /// </summary>
-//    [Serializable]
     public abstract class Labyrinth : ILabyrinth
     {
         protected const int InitialRows = 13;
         protected const int InitialCols = 13;
+
+        private const int ChanceOfObstacle = 10;
+        
+        private readonly IRenderer renderer;
 
         private readonly Random randomGenerator = new Random();
 
@@ -20,9 +22,10 @@
         /// <summary>
         /// Constructor
         /// </summary>
-        public Labyrinth()
+        protected Labyrinth(IRenderer renderer)
         {
             this.Matrix = new char[InitialRows, InitialCols];
+            this.renderer = renderer;
         }
 
         public char[,] Matrix
@@ -51,35 +54,6 @@
         public abstract void FillMatrix();
 
         /// <summary>
-        /// This method gives each symbol a specific color to render on the console
-        /// </summary>
-        public virtual void Render()
-        {
-            for (int row = 0; row < InitialRows; row++)
-            {
-                for (int col = 0; col < InitialCols; col++)
-                {
-                    if (this.Matrix[row, col] == (char)Symbol.Obstacle || this.Matrix[row, col] == (char)Symbol.Path)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                    }
-                    else if (this.Matrix[row, col] == (char)Symbol.BlankSpace)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Black;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                    }
-
-                    Console.Write("{0,2}", this.Matrix[row, col]);
-                }
-
-                Console.WriteLine();
-            }
-        }
-
-        /// <summary>
         /// Change symbol at given coordinate position with given new symbol
         /// </summary>
         /// <param name="coordinates">We want to change the symbol on the position with this coordinates</param>
@@ -89,22 +63,11 @@
             this.Matrix[coordinates.Row, coordinates.Col] = newSymbol;
         }
 
-        public override string ToString()
+        public object Clone()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int row = 0; row < InitialRows; row++)
-            {
-                for (int col = 0; col < InitialCols; col++)
-                {
-                    sb.AppendFormat("{0,2}", this.Matrix[row, col]);
-                }
-
-                sb.AppendLine();
-            }
-
-            return sb.ToString();
+            return this.MemberwiseClone() as ILabyrinth;
         }
-      
+
         /// <summary>
         /// Checks if sign is BlankSpace
         /// </summary>
@@ -116,9 +79,9 @@
         /// <returns>A symbol</returns>
         protected virtual char GetSymbol()
         {
-            int currentNumber = this.randomGenerator.Next(0, 2);
+            int currentNumber = this.randomGenerator.Next(0, 100);
 
-            if (currentNumber == 1)
+            if (currentNumber <= ChanceOfObstacle)
             {
                 return (char)Symbol.Obstacle;
             }
@@ -126,11 +89,6 @@
             {
                 return (char)Symbol.Path;
             }
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone() as ILabyrinth;
         }
     }
 }

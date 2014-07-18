@@ -12,8 +12,6 @@
         private const int PlayersCount = 5;
         private const string EnterNameSign = "Please Enter Name: ";
 
-        private static readonly Score scoreInstance = new Score();
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -26,7 +24,7 @@
         {
             get
             {
-                return scoreInstance;
+                return new Score();
             }
         }
 
@@ -47,6 +45,7 @@
                     break;
                 }
             }
+
             Console.WriteLine();
         }
 

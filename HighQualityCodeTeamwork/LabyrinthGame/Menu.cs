@@ -28,20 +28,13 @@
         private const string DiamondSign = "  D : DIAMOND";
         private const string SquareSign = "  S : SQUARE\n ";
         private const string HexagonSign = "  H : HEXAGON";
-        private const string RightArrowSign ="  RightArrow - Move Right";
+        private const string RightArrowSign = "  RightArrow - Move Right";
         private const string LeftArrowSign = "  LeftArrow  - Move Left";
         private const string UpArrowSign = "  UpArrow    - Move Up";
         private const string DownArrowSign = "  DownArrow  - Move Down";
 
-            /// <summary>
-        /// Constructor
-        /// </summary>
-        public Menu()
-        {
-        }
-
         /// <summary>
-        /// The method askes user what is his choice of the game  - start game, new game, scoreboard or exit of the game
+        /// The method asks user what is his choice of the game  - start game, new game, scoreboard or exit of the game
         /// </summary>
         /// <returns>Return string that holds the input user choice</returns>
         public string GetUserChoice()

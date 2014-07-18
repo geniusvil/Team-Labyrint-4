@@ -6,7 +6,7 @@
     /// <summary>
     /// Interface which is inherited by the Labyrinth class
     /// </summary>
-    public interface ILabyrinth :IRenderable, ICloneable
+    public interface ILabyrinth : ICloneable
     {
         char[,] Matrix { get; }
 

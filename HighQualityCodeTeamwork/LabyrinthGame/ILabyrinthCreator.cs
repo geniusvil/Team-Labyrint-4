@@ -6,7 +6,5 @@
     public interface ILabyrinthCreator
     {
         ILabyrinth Create(string typeLabyrinth);
-
-        void Render(ILabyrinth labyrinth);
     }
 }
