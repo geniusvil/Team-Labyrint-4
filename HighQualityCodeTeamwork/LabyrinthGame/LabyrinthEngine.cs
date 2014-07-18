@@ -26,14 +26,11 @@
         private ILabyrinth labyrinth;
         private ICoordinate coordinates;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         private LabyrinthEngine()
         {
             this.menu = new Menu();
             this.command = new KeyboardCommand();
-            this.renderer = new DrawingManager();
+            this.renderer = new ConsoleRenderer();
         }
 
         public static LabyrinthEngine Instance

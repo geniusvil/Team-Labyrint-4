@@ -48,7 +48,7 @@
   <Class Name="LabyrinthGame.LabyrinthCreator" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAEACAAAAAAACAAAAAAAAAAAkAAAABAACAAgAA=</HashCode>
+      <HashCode>AAAAQAAEAAAAAAAAACAAAAAAAAAAAkAAAABAACAAgAA=</HashCode>
       <FileName>LabyrinthCreator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -87,7 +87,7 @@
   <Class Name="LabyrinthGame.Score" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAABCAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAABCAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAEAAA=</HashCode>
       <FileName>Score.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -99,14 +99,14 @@
       <FileName>PentagonLabyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LabyrinthGame.DrawingManager" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="LabyrinthGame.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Public" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
-      <FileName>DrawingManager.cs</FileName>
+      <FileName>ConsoleRenderer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

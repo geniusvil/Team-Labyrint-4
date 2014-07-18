@@ -17,7 +17,7 @@
 
         public LabyrinthCreator()
         {
-            this.renderer = new DrawingManager();
+            this.renderer = new ConsoleRenderer();
         }
 
         /// <summary>
@@ -34,69 +34,7 @@
 
             Console.WriteLine();
 
-            ILabyrinth labyrinthDeepCloned = labyrinth.Clone() as ILabyrinth;
-
-            bool isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
-
-            while (!isWayOut)
-            {
-                labyrinth.FillMatrix();
-                labyrinthDeepCloned = labyrinth.Clone() as ILabyrinth;
-                Console.WriteLine(labyrinthDeepCloned.Matrix == labyrinth.Matrix);
-                isWayOut = this.IsPossibleWayOut(labyrinthDeepCloned, this.initialPlayerCoordinates);
-            }
-
             return labyrinth;
-        }
-
-        /// <summary>
-        /// The method checks if there is sequence of "path" signs to the edges of the matrix
-        /// </summary>
-        /// <param name="labyrinth">Labyrinth object</param>
-        /// <param name="givenCoords">The start point for checking</param>
-        /// <returns>Returns boolean type - if there is such "path" it is true, and if there is not - it is false</returns>
-        private bool IsPossibleWayOut(ILabyrinth labyrinthDeepCloned, ICoordinate givenCoords)
-        {
-            if (givenCoords.Row >= labyrinthDeepCloned.Matrix.GetLength(0) || givenCoords.Row < 0 ||
-                givenCoords.Col >= labyrinthDeepCloned.Matrix.GetLength(1) || givenCoords.Col < 0)
-            {
-                // We are out
-                return false;
-            }
-
-            if (givenCoords.Row == labyrinthDeepCloned.Matrix.GetLength(0) - 1 ||
-                givenCoords.Col == labyrinthDeepCloned.Matrix.GetLength(1) - 1)
-            {
-                // reached Corner
-                return true;
-            }
-
-            if (labyrinthDeepCloned.Matrix[givenCoords.Row, givenCoords.Col] == (char)Symbol.Obstacle)
-            {
-                return false;
-            }
-
-            if (labyrinthDeepCloned.Matrix[givenCoords.Row, givenCoords.Col] == (char)Symbol.BlankSpace)
-            {
-                return true;
-            }
-
-            // Marked as visited
-            labyrinthDeepCloned.Matrix[givenCoords.Row, givenCoords.Col] = (char)Symbol.Obstacle;
-
-            givenCoords.Update(new Coordinate(0, -1));
-            this.IsPossibleWayOut(labyrinthDeepCloned, givenCoords); // left
-
-            givenCoords.Update(new Coordinate(-1, 0));
-            this.IsPossibleWayOut(labyrinthDeepCloned, givenCoords);  // up
-
-            givenCoords.Update(new Coordinate(0, 1));
-            this.IsPossibleWayOut(labyrinthDeepCloned, givenCoords);  // right
-
-            givenCoords.Update(new Coordinate(1, 0));
-            this.IsPossibleWayOut(labyrinthDeepCloned, givenCoords); // down
-
-            return true;
         }
 
         /// <summary>

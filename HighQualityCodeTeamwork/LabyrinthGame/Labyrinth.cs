@@ -11,11 +11,11 @@
         protected const int InitialRows = 13;
         protected const int InitialCols = 13;
 
-        private const int ChanceOfObstacle = 10;
-        
+        private const int ChanceOfObstacle = 30;
+
         private readonly IRenderer renderer;
 
-        private readonly Random randomGenerator = new Random();
+        private readonly Random randomGenerator;
 
         private char[,] matrix;
 
@@ -26,6 +26,7 @@
         {
             this.Matrix = new char[InitialRows, InitialCols];
             this.renderer = renderer;
+            this.randomGenerator = new Random();
         }
 
         public char[,] Matrix
@@ -65,7 +66,7 @@
 
         public object Clone()
         {
-            return this.MemberwiseClone() as ILabyrinth;
+            return (ILabyrinth)this.MemberwiseClone();
         }
 
         /// <summary>

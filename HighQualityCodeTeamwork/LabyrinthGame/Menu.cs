@@ -44,8 +44,10 @@
             do
             {
                 this.MainMenu();
+
                 Console.Write(YourChoiceSign);
                 userChoiceNum = Console.ReadLine();
+
                 Console.Clear();
             }
             while (userChoiceNum != StartMenu && userChoiceNum != RestartMenu && userChoiceNum != ScoreboardMenu && userChoiceNum != ExitMenu);
