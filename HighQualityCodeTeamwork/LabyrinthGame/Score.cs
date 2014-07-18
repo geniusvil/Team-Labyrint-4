@@ -14,9 +14,6 @@
         private const string HighScoreReached = "Congratulations! New high score!!!";
         private const string HighScoreFail = "Think harder next time, {0}.\nThis is not a high score";
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         private Score()
         {
             this.ScoreBoard = new SortedDictionary<string, int>();
