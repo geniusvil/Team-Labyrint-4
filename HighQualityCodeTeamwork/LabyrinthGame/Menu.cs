@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// The method askes user what type of labyrinth wants to play  - diamond, pentagon, hexagon or square
+        /// The method asks user what type of labyrinth wants to play  - diamond, pentagon, hexagon or square
         /// </summary>
         /// <returns>Return string that holds the input user choice</returns>
         public string GetLabyrinthTypeFromUser()

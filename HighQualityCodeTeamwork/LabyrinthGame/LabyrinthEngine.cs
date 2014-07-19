@@ -59,10 +59,14 @@
         {
             this.creator = new LabyrinthCreator();
             this.Player = new Player();
+
             string userChoiceOfLabyrinth = string.Empty;
             userChoiceOfLabyrinth = this.menu.GetLabyrinthTypeFromUser();
+
             this.labyrinth = this.creator.Create(userChoiceOfLabyrinth);
-            LabyrinthEngine.Instance.Player.ShowPlayer(this.labyrinth);
+
+            this.Player.ShowPlayer(this.labyrinth);
+
             this.renderer.Render(this.labyrinth);
 
             this.coordinates = this.command.ProcessCommands();

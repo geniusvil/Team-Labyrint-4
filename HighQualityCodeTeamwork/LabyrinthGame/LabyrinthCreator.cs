@@ -10,8 +10,7 @@
         private const string Pentagram = "p";
         private const string Diamond = "d";
         private const string Hexagon = "h";
-
-        private readonly ICoordinate initialPlayerCoordinates = new Coordinate(6, 6);
+        private const string Square = "s";
 
         private IRenderer renderer;
 
@@ -44,23 +43,20 @@
         /// <returns>Return enumeration TypeLabyrinth</returns>
         private TypeLabyrinth GetLabyrinthType(string userChoiceOfLabyrinth)
         {
-            TypeLabyrinth userChoiseOfTypeLabytint = TypeLabyrinth.Square;
-
-            if (userChoiceOfLabyrinth == Pentagram)
+            switch (userChoiceOfLabyrinth)
             {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Pentagram;
+                case Square:
+                    return TypeLabyrinth.Square;
+                case Hexagon:
+                    return TypeLabyrinth.Hexagon;
+                case Pentagram:
+                    return TypeLabyrinth.Pentagram;
+                case Diamond:
+                    return TypeLabyrinth.Diamond;s
+                default:
+                    throw new ArgumentException("Not specified labyrinth in the enum.");
             }
-            else if (userChoiceOfLabyrinth == Diamond)
-            {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Diamond;
-            }
-            else if (userChoiceOfLabyrinth == Hexagon)
-            {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Hexagon;
-            }
-
-            return userChoiseOfTypeLabytint;
-        }
+          }
 
         /// <summary>
         /// Creates user required labyrinth
@@ -77,8 +73,10 @@
                     return new PentagonLabyrinth(this.renderer);
                 case TypeLabyrinth.Hexagon:
                     return new HexagonalLabyrinth(this.renderer);
-                default:
+                case TypeLabyrinth.Square:
                     return new SquareLabyrinth(this.renderer);
+                default:
+                    throw new ArgumentException("Not specified labyrinth");
             }
         }
     }
