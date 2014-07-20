@@ -2,6 +2,8 @@
 {
     using System;
     using LabyrinthGame;
+    using LabyrinthGame.Labyrinths;
+    using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -109,6 +111,44 @@
             Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row), "Row is changed");
             Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col - 1), "Col  is not changed with -1");
 
+        }
+
+        [TestMethod]
+        public void RemovePlayerTrueTest()
+        {
+            IPlayer player = new Player();
+            ILabyrinth labyrinth = new SquareLabyrinth();
+           FillDiamondMatrix(labyrinth);
+           player.RemovePlayer(labyrinth);
+           Assert.IsTrue(labyrinth.Matrix[player.Coordinates.Row, player.Coordinates.Col] == '\0');
+        }
+
+        [TestMethod]
+        public void ShowPlayerTrueTest()
+        {
+            IPlayer player = new Player();
+            ILabyrinth labyrinth = new SquareLabyrinth();
+            FillDiamondMatrix(labyrinth);
+            player.ShowPlayer(labyrinth);
+            Assert.IsTrue(labyrinth.Matrix[player.Coordinates.Row, player.Coordinates.Col] == (char)Symbol.Player);
+        }
+        
+        private void FillDiamondMatrix(ILabyrinth labyrinth)
+        {
+            for (int row = 0; row < labyrinth.Matrix.GetLength(0); row++)
+            {
+                for (int col = 0; col < labyrinth.Matrix.GetLength(1); col++)
+                {
+                    if (row % 2 == 1 && col % 2 == 1)
+                    {
+                        labyrinth.Matrix[row, col] = (char)Symbol.Obstacle;
+                    }
+                    else
+                    {
+                        labyrinth.Matrix[row, col] = (char)Symbol.Path;
+                    }
+                }
+            }
         }
     }
 }
