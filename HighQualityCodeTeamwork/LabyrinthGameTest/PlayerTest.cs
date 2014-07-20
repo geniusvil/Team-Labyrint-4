@@ -1,6 +1,4 @@
-﻿
-
-namespace LabyrinthGameTest
+﻿namespace LabyrinthGameTest
 {
     using System;
     using LabyrinthGame;
@@ -10,19 +8,39 @@ namespace LabyrinthGameTest
     [TestClass]
     public class PlayerTest
     {
-        private static IPlayer player;
 
-        //[TestInitialize]
-        //public static void PlayerClassInitialize(TestContext testContext)
-        //{
-        //    player = new Player();
+        [TestMethod]
+        public void GetNamePlayerTrue()
+        {
+            IPlayer player = new Player(){Name="Joe"};
+            Assert.IsTrue(player.Name == "Joe");
+        }
 
-        //}
+        [TestMethod]
+        public void SetNamePlayerNullDefaultResult()
+        {
+            IPlayer player = new Player() { Name = null };
+            Assert.IsTrue(player.Name == "Bai Ivan");
+        }
+
+        [TestMethod]
+        public void SetNamePlayerWhitespaceDefaultResult()
+        {
+            IPlayer player = new Player() { Name = " " };
+            Assert.IsTrue(player.Name == "Bai Ivan");
+        }
+
+        [TestMethod]
+        public void SetNamePlayerEmptyDefaultResult()
+        {
+            IPlayer player = new Player() { Name = "" };
+            Assert.IsTrue(player.Name == "Bai Ivan");
+        }
 
         [TestMethod]
         public void UpdatePointsTrue()
         {
-            player = new Player();
+            IPlayer player = new Player();
             Assert.IsTrue(player.Points == 0,"Player initial points are not 0");
             player.UpdatePoints();
             Assert.IsTrue(player.Points== 1,"After first update player's points are not 1");
@@ -31,7 +49,7 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void UpdatePosition1x0RowChangedTest()
         {
-            player = new Player();
+            IPlayer player = new Player();
             ICoordinate newCoodrinate = new Coordinate(1,0);
             IPlayer initializedPlayer = new Player(); 
            
@@ -44,7 +62,7 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void UpdatePosition0x1RowChangedTest()
         {
-            player = new Player();
+            IPlayer player = new Player();
             ICoordinate newCoodrinate = new Coordinate(0, 1);
             IPlayer initializedPlayer = new Player();
 
@@ -57,7 +75,7 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void UpdatePosition0x0RowChangedTest()
         {
-            player = new Player();
+            IPlayer player = new Player();
             ICoordinate newCoodrinate = new Coordinate(0, 0);
             IPlayer initializedPlayer = new Player();
 
@@ -70,7 +88,7 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void UpdatePositionNegative1x0RowChangedTest()
         {
-            player = new Player();
+            IPlayer player = new Player();
             ICoordinate newCoodrinate = new Coordinate(-1, 0);
             IPlayer initializedPlayer = new Player();
 
@@ -83,7 +101,7 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void UpdatePosition0xNegatiw1RowChangedTest()
         {
-            player = new Player();
+            IPlayer player = new Player();
             ICoordinate newCoodrinate = new Coordinate(0, -1);
             IPlayer initializedPlayer = new Player();
 
