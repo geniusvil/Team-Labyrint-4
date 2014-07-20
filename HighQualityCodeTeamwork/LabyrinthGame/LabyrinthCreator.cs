@@ -1,6 +1,10 @@
 ﻿namespace LabyrinthGame
 {
     using System;
+    using System.Reflection;
+    using LabyrinthGame.Interfaces;
+
+    using Ninject;
 
     /// <summary>
     /// Labyrinth creator class. Builder pattern used and this class acts as a Director
@@ -12,11 +16,8 @@
         private const string Hexagon = "h";
         private const string Square = "s";
 
-        private IRenderer renderer;
-
         public LabyrinthCreator()
         {
-            this.renderer = new ConsoleRenderer();
         }
 
         /// <summary>
@@ -26,10 +27,15 @@
         /// <returns>Returns a labyrinth of type as given in parameter with name "userChoiceOfLabyrinth"</returns>
         public ILabyrinth Create(string userChoiceOfLabyrinth)
         {
+            // Ninject used to get contracted class
+            var kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
+            var randomGenerator = kernel.Get<IRandomCharProvider>();
+
             TypeLabyrinth typeOfLabyrinth = this.GetLabyrinthType(userChoiceOfLabyrinth);
             ILabyrinth labyrinth = this.CreateRequiredLabyrinth(typeOfLabyrinth);
 
-            labyrinth.FillMatrix();
+            labyrinth.FillMatrix(randomGenerator);
 
             Console.WriteLine();
 
@@ -52,11 +58,11 @@
                 case Pentagram:
                     return TypeLabyrinth.Pentagram;
                 case Diamond:
-                    return TypeLabyrinth.Diamond;s
+                    return TypeLabyrinth.Diamond;
                 default:
                     throw new ArgumentException("Not specified labyrinth in the enum.");
             }
-          }
+        }
 
         /// <summary>
         /// Creates user required labyrinth
@@ -68,13 +74,13 @@
             switch (typeLabyrinth)
             {
                 case TypeLabyrinth.Diamond:
-                    return new DiamondLabyrinth(this.renderer);
+                    return new DiamondLabyrinth();
                 case TypeLabyrinth.Pentagram:
-                    return new PentagonLabyrinth(this.renderer);
+                    return new PentagonLabyrinth();
                 case TypeLabyrinth.Hexagon:
-                    return new HexagonalLabyrinth(this.renderer);
+                    return new HexagonalLabyrinth();
                 case TypeLabyrinth.Square:
-                    return new SquareLabyrinth(this.renderer);
+                    return new SquareLabyrinth();
                 default:
                     throw new ArgumentException("Not specified labyrinth");
             }

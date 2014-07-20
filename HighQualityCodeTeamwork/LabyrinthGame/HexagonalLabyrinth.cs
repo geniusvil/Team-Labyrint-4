@@ -2,12 +2,15 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// Labyrinth with shape like hexagon
     /// </summary>
     public class HexagonalLabyrinth : Labyrinth
     {
+        private const int ChanceOfObstacle = 30;
+
         private const int TwoParts = 2;
         private const int ThreeParts = 3;
 
@@ -16,10 +19,15 @@
         {
         }
 
+        public HexagonalLabyrinth()
+            : this(Labyrinth.Renderer)
+        {
+        }
+
         /// <summary>
         /// The method fills the matrix with symbols forming hexagon shape
         /// </summary>
-        public override void FillMatrix()
+        public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
@@ -33,7 +41,7 @@
                     }
                     else
                     {
-                        this.Matrix[row, col] = this.GetSymbol();
+                        this.Matrix[row, col] = randomCharProvider.GetRandomSymbol(ChanceOfObstacle);
                     }
                 }
             }

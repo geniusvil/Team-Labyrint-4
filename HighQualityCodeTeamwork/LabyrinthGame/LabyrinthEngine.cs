@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// Singleton implementation of the game engine

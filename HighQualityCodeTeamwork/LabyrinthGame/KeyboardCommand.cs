@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// The class manages the input from the Engine

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// The Menu class holds the info about the menu of the game
