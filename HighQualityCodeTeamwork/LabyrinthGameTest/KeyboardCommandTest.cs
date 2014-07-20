@@ -8,18 +8,19 @@
     [TestClass]
     public class KeyboardCommandTest
     {
+
         private static IUserCommand userCommand;
 
         [ClassInitialize]
         public static void UserCommandClassInicialize(TestContext testContext)
-        { 
-            userCommand = new KeyboardCommand();    
+        {
+            userCommand = new KeyboardCommand();
         }
 
         [TestMethod]
         public void MoveLeftTestTrue()
+
         {
-           
             ICoordinate coordinate = userCommand.MoveLeft();
             Assert.IsTrue(coordinate.Row == 0, "Row is not 0");
             Assert.IsTrue(coordinate.Col == -1, "Col is not -1");
@@ -77,5 +78,6 @@
              Assert.IsFalse(coordinate.Row != 1, "Row is not 1");
              Assert.IsFalse(coordinate.Col != 0, "Col is not 0");
          }
+
     }
 }
