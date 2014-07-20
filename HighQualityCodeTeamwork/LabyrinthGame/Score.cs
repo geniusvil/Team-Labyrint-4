@@ -36,7 +36,8 @@
         public void PrintScoreBoard()
         {
             var countPlayers = 0;
-            foreach (var p in this.ScoreBoard)
+            var sortedDict = from entry in this.ScoreBoard orderby entry.Value descending select entry;
+            foreach (var p in sortedDict)
             {
                 Console.WriteLine("  Player: {0} - Score {1}", p.Key, p.Value);
                 countPlayers++;
