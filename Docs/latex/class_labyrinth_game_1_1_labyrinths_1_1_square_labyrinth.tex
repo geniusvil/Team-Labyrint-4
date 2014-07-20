@@ -1,0 +1,94 @@
+\hypertarget{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth}{\section{Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth Class Reference}
+\label{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth}\index{Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth@{Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth}}
+}
+
+
+\hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_labyrinth}{Labyrinth} with square shape  
+
+
+Inheritance diagram for Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_a9db3074cf958a1a27556bfe99bc1086f}{{\bfseries Square\+Labyrinth} (\hyperlink{interface_labyrinth_game_1_1_interfaces_1_1_i_renderer}{I\+Renderer} renderer)}\label{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_a9db3074cf958a1a27556bfe99bc1086f}
+
+\item 
+override void \hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_abd26adbb694f70d8de8eb6239b90ef27}{Fill\+Matrix} (\hyperlink{interface_labyrinth_game_1_1_interfaces_1_1_i_random_char_provider}{I\+Random\+Char\+Provider} random\+Char\+Provider)
+\begin{DoxyCompactList}\small\item\em The method fills the matrix with symbols forming square shape \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override bool \hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_af822a30acccb444933b734fe91d9794e}{Is\+Blank\+Space\+Sign} (int row, int col)
+\begin{DoxyCompactList}\small\item\em The methods checks if sign is blank-\/space or not \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_labyrinth}{Labyrinth} with square shape 
+
+
+
+Definition at line 8 of file Square\+Labyrinth.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_abd26adbb694f70d8de8eb6239b90ef27}{\index{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth@{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth}!Fill\+Matrix@{Fill\+Matrix}}
+\index{Fill\+Matrix@{Fill\+Matrix}!Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth@{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth}}
+\subsubsection[{Fill\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}override void Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth.\+Fill\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Random\+Char\+Provider}}]{random\+Char\+Provider}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_abd26adbb694f70d8de8eb6239b90ef27}
+
+
+The method fills the matrix with symbols forming square shape 
+
+
+
+Implements \hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_labyrinth_a13b3599b7157943b1c028b2f0f5df26c}{Labyrinth\+Game.\+Labyrinths.\+Labyrinth}.
+
+
+
+Definition at line 23 of file Square\+Labyrinth.\+cs.
+
+\hypertarget{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_af822a30acccb444933b734fe91d9794e}{\index{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth@{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth}!Is\+Blank\+Space\+Sign@{Is\+Blank\+Space\+Sign}}
+\index{Is\+Blank\+Space\+Sign@{Is\+Blank\+Space\+Sign}!Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth@{Labyrinth\+Game\+::\+Labyrinths\+::\+Square\+Labyrinth}}
+\subsubsection[{Is\+Blank\+Space\+Sign}]{\setlength{\rightskip}{0pt plus 5cm}override bool Labyrinth\+Game.\+Labyrinths.\+Square\+Labyrinth.\+Is\+Blank\+Space\+Sign (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_labyrinth_game_1_1_labyrinths_1_1_square_labyrinth_af822a30acccb444933b734fe91d9794e}
+
+
+The methods checks if sign is blank-\/space or not 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row we want to check\\
+\hline
+{\em col} & The column we want to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+In that case the matrix does not have blank-\/spaces, so the method throws an exception
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_labyrinth_game_1_1_labyrinths_1_1_labyrinth_a1f35ce958322025715acf77852f112fa}{Labyrinth\+Game.\+Labyrinths.\+Labyrinth}.
+
+
+
+Definition at line 40 of file Square\+Labyrinth.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Labyrinth\+Game/\+Labyrinths/Square\+Labyrinth.\+cs\end{DoxyCompactItemize}
