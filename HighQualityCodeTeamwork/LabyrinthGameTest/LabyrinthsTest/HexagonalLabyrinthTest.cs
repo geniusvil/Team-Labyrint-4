@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LabyrinthGameTest.LabyrinthsTest
 {
     [TestClass]
-    public class HexagonalLabytinthTest
+    public class HexagonalLabyrinthTest
     {
         [TestMethod]
         public void TestMethod1()
