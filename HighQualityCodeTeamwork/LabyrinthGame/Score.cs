@@ -36,10 +36,10 @@
         public void PrintScoreBoard()
         {
             var countPlayers = 0;
-            var sortedDict = from entry in this.ScoreBoard orderby entry.Value descending select entry;
+            var sortedDict = from entry in this.ScoreBoard orderby entry.Value ascending select entry;
             foreach (var p in sortedDict)
             {
-                Console.WriteLine("  Player: {0} - Score {1}", p.Key, p.Value);
+                Console.WriteLine("  Player: {0} - Steps {1}", p.Key, p.Value);
                 countPlayers++;
 
                 if (countPlayers == PlayersCount)
@@ -70,7 +70,7 @@
                 }
                 else
                 {
-                    Console.WriteLine(HighScoreFail, player.Name); 
+                    Console.WriteLine(HighScoreFail, player.Name);
                 }
             }
             else
