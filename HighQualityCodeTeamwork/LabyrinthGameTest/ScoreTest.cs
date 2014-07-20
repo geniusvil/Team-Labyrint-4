@@ -30,6 +30,15 @@
         }
 
         [TestMethod]
+        public void AddScorePlayerTwoTimeTest()
+        {
+            player.UpdatePoints();
+            score.AddScore(player);
+
+            Assert.IsTrue(score.ScoreBoard[player.Name] == player.Points);
+        }
+
+        [TestMethod]
         public void ScoreBoardContainsSpecificKeyTest()
         {
             score.AddScore(player);
