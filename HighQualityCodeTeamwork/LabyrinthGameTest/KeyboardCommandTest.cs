@@ -10,6 +10,7 @@
     {
 
         private static IUserCommand userCommand;
+        
 
         [ClassInitialize]
         public static void UserCommandClassInicialize(TestContext testContext)
