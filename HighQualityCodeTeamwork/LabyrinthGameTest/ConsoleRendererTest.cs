@@ -10,12 +10,19 @@
     [TestClass]
     public class ConsoleRendererTest
     {
+        private static Mock<IRenderer> renderMock;
+        private static bool isRendered;
+
+        [ClassInitialize]
+        public static void ConsoleRendererClassInicialize(TestContext testContext)
+        {
+            renderMock = new Mock<IRenderer>();
+            isRendered = false;
+        }
+
         [TestMethod]
         public void RenderDiamondLabyrinthTest()
         {
-            var renderMock = new Mock<IRenderer>();
-            bool isRendered = false;
-
             renderMock.Setup(r => r.Render(It.IsAny<ILabyrinth>())).Callback(() => { isRendered = true; });
             renderMock.Object.Render(new DiamondLabyrinth(renderMock.Object));
 
@@ -25,9 +32,6 @@
         [TestMethod]
         public void RenderHexadiagonalLabyrinthTest()
         {
-            var renderMock = new Mock<IRenderer>();
-            bool isRendered = false;
-
             renderMock.Setup(r => r.Render(It.IsAny<ILabyrinth>())).Callback(() => { isRendered = true; });
             renderMock.Object.Render(new HexagonalLabyrinth(renderMock.Object));
 
@@ -37,9 +41,6 @@
         [TestMethod]
         public void RenderPentagonLabyrinthTest()
         {
-            var renderMock = new Mock<IRenderer>();
-            bool isRendered = false;
-
             renderMock.Setup(r => r.Render(It.IsAny<ILabyrinth>())).Callback(() => { isRendered = true; });
             renderMock.Object.Render(new PentagonLabyrinth(renderMock.Object));
 
@@ -49,9 +50,6 @@
         [TestMethod]
         public void RenderSquareLabyrinthTest()
         {
-            var renderMock = new Mock<IRenderer>();
-            bool isRendered = false;
-
             renderMock.Setup(r => r.Render(It.IsAny<ILabyrinth>())).Callback(() => { isRendered = true; });
             renderMock.Object.Render(new SquareLabyrinth(renderMock.Object));
 
