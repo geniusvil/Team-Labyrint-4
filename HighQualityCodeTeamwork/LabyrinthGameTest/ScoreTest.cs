@@ -16,16 +16,23 @@
         {
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
+            player.UpdatePoints();
         }
 
         [TestMethod]
-        public void AddScoreTest()
+        public void AddPlayerToScoreboardTest()
         {
-            player.UpdatePoints();
             score.AddScore(player);
             bool hasAddedPlayer = score.ScoreBoard.Count > 0;
-
             Assert.IsTrue(hasAddedPlayer);
         }
+        [TestMethod]
+        public void AddScoreTest()
+        {
+            score.AddScore(player);
+            bool IsKeyContent = score.ScoreBoard.ContainsKey(player.Name);
+            Assert.IsTrue(IsKeyContent);
+        }
+
     }
 }
