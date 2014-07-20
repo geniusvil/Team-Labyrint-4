@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LabyrinthExecuter.cs" />
-    <Compile Include="Labyrinth.cs" />
-    <Compile Include="GameEngine.cs" />
-    <Compile Include="Score.cs" />
+    <Compile Include="KPK_PROEKT.cs" />
+    <Compile Include="LabyrinthMatrix.cs" />
+    <Compile Include="LabyrinthProcesor.cs" />
+    <Compile Include="Top5Scoreboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
