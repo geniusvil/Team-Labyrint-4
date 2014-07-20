@@ -39,7 +39,7 @@
             labyrinth = new DiamondLabyrinth();
             labyrinth.FillMatrix(randomCharProvider);
 
-            labyrinth.ChangeSymbol(coordinates), ChangedSymbol);
+            labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
             bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
 
             Assert.IsTrue(isChanged);
@@ -51,7 +51,7 @@
             labyrinth = new HexagonalLabyrinth();
             labyrinth.FillMatrix(randomCharProvider);
 
-            labyrinth.ChangeSymbol(coordinates), ChangedSymbol);
+            labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
             bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
 
             Assert.IsTrue(isChanged);
@@ -63,7 +63,7 @@
             labyrinth = new PentagonLabyrinth();
             labyrinth.FillMatrix(randomCharProvider);
 
-            labyrinth.ChangeSymbol(coordinates), ChangedSymbol);
+            labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
             bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
 
             Assert.IsTrue(isChanged);
