@@ -68,7 +68,6 @@
 
                     return this.MoveDown();
                 default:
-                    // тук да извикаме началното меню ако натисне число от 1 до 4
                     return new Coordinate(0, 0);
             }
         }

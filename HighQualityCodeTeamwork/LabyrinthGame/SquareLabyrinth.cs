@@ -9,13 +9,11 @@
     {
         private const int ChanceOfObstacle = 30;
 
-        public SquareLabyrinth(IRenderer renderer)
-            : base(renderer)
+        public SquareLabyrinth(IRenderer renderer) : base(renderer)
         {
         }
 
-        public SquareLabyrinth()
-            : this(Labyrinth.Renderer)
+        public SquareLabyrinth() : this(Labyrinth.Renderer)
         {
         }
 

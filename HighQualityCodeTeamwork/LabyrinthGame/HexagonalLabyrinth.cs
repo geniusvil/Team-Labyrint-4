@@ -14,13 +14,11 @@
         private const int TwoParts = 2;
         private const int ThreeParts = 3;
 
-        public HexagonalLabyrinth(IRenderer renderer)
-            : base(renderer)
+        public HexagonalLabyrinth(IRenderer renderer) : base(renderer)
         {
         }
 
-        public HexagonalLabyrinth()
-            : this(Labyrinth.Renderer)
+        public HexagonalLabyrinth() : this(Labyrinth.Renderer)
         {
         }
 

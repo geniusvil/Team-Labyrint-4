@@ -9,14 +9,14 @@
     /// </summary>
     public sealed class LabyrinthEngine : ILabyrinthEngine
     {
+        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
+
         private const string StartMenu = "1";
         private const string RestartMenu = "2";
         private const string ScoreboardMenu = "3";
         private const string ExitMenu = "4";
         private const string TheEndSign = "\n\n\nTHE END!\n\n\n";
         private const string PressArrowSign = "  Press arrow to play.\n";
-
-        private static readonly LabyrinthEngine SingleInstance = new LabyrinthEngine();
 
         private readonly IUserCommand command;
         private readonly IScore score = Score.ScoreInstance;

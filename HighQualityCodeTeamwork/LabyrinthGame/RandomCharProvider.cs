@@ -1,11 +1,11 @@
 ﻿namespace LabyrinthGame
 {
-    using LabyrinthGame.Interfaces;
     using System;
+    using LabyrinthGame.Interfaces;
 
     public class RandomCharProvider : IRandomCharProvider
     {
-        private Random randomGenerator;
+        private readonly Random randomGenerator;
 
         public RandomCharProvider()
         {

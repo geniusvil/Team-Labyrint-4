@@ -13,13 +13,11 @@
 
         private const int TwoParts = 2;
 
-        public PentagonLabyrinth(IRenderer renderer)
-            : base(renderer)
+        public PentagonLabyrinth(IRenderer renderer) : base(renderer)
         {
         }
 
-        public PentagonLabyrinth()
-            : this(Labyrinth.Renderer)
+        public PentagonLabyrinth() : this(Labyrinth.Renderer)
         {
         }
 

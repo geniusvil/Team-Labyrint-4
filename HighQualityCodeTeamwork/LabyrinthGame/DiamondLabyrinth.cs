@@ -13,13 +13,11 @@
 
         private const int TwoParts = 2;
 
-        public DiamondLabyrinth(IRenderer renderer)
-            : base(renderer)
+        public DiamondLabyrinth(IRenderer renderer) : base(renderer)
         {
         }
 
-        public DiamondLabyrinth()
-            : this(Labyrinth.Renderer)
+        public DiamondLabyrinth() : this(Labyrinth.Renderer)
         {
         }
 
@@ -28,19 +26,10 @@
         /// </summary>
         public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
-            int initialRowStart = this.Matrix.GetLength(0) / TwoParts;
-            int initialColStart = this.Matrix.GetLength(1) / TwoParts;
-
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
-                {
-                //    if (row == initialRowStart && col == initialColStart)
-                //    {
-                //        this.Matrix[row, col] = (char)Symbol.Path;
-                //        continue;
-                //    }
-
+                { 
                     bool isBlankSpace = this.IsBlankSpaceSign(row, col);
 
                     if (isBlankSpace)
@@ -72,8 +61,8 @@
             bool isInUpRightCorner = (col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols);
             bool isInDownLeftCorner = (row > halfRows && row < this.Matrix.GetLength(0)) && (col < halfCols && row - col > halfRows);
             bool isInDownRightCorner = (row > halfRows && row < this.Matrix.GetLength(0)) &&
-                                        (col > halfCols && col < this.Matrix.GetLength(1)) &&
-                                        (row + col > (this.Matrix.GetLength(0) + halfRows - 1));
+                                       (col > halfCols && col < this.Matrix.GetLength(1)) &&
+                                       (row + col > (this.Matrix.GetLength(0) + halfRows - 1));
 
             if (isInUpLeftCorner || isInUpRightCorner || isInDownLeftCorner || isInDownRightCorner)
             {

@@ -1,6 +1,5 @@
 ﻿namespace LabyrinthGame.Interfaces
 {
-
     /// <summary>
     /// Interface which is inherited by the Labyrinth class
     /// </summary>
