@@ -25,9 +25,9 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void TestMenuGetChoiceTypeDiamond()
         {
-            using (StringReader sw = new StringReader("D"))
+            using (StringReader sr = new StringReader("D"))
             {
-                Console.SetIn(sw);
+                Console.SetIn(sr);
 
                 var testMenu = new Menu();
                 var result = testMenu.GetLabyrinthTypeFromUser();
@@ -39,9 +39,9 @@ namespace LabyrinthGameTest
         [TestMethod]
         public void TestMenuGetUserChoice()
         {
-            using (StringReader sw = new StringReader("1"))
+            using (StringReader sr = new StringReader("1"))
             {
-                Console.SetIn(sw);
+                Console.SetIn(sr);
 
                 var testMenu = new Menu();
                 var result = testMenu.GetUserChoice();
@@ -51,17 +51,35 @@ namespace LabyrinthGameTest
         }
 
         [TestMethod]
-        public void TestMenuGetUserChoiceNonValid()
+        public void TestMainMenu()
         {
-            using (StringReader sw = new StringReader("9"))
+            using (StringWriter sw = new StringWriter())
             {
-                Console.SetIn(sw);
+                Console.SetOut(sw);
 
                 var testMenu = new Menu();
-                var result = testMenu.GetUserChoice();
-                Assert.Fail();
+                testMenu.MainMenu();
+                var stringResult = "Welcome to “LABYRINTH” game.\r\n\nPlease choose between 1, 2, 3 and 4\n\r\n  1 : START\r\n  2 : RESTART\r\n  3 : SCOREBOARD\r\n  4 : EXIT\n\r\n";
+                Assert.AreEqual(stringResult, sw.ToString());
 
             }
         }
+
+        [TestMethod]
+        public void TestMenuDuringPlay()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                var testMenu = new Menu();
+                testMenu.MenuDuringPlay();
+                var stringResult = "Welcome to “LABYRINTH” game.\r\n\r\n  RightArrow - Move Right\r\n  LeftArrow  - Move Left\r\n  UpArrow    - Move Up\r\n  DownArrow  - Move Down\r\n\r\n";
+                Assert.AreEqual(stringResult, sw.ToString());
+
+            }
+        }
+
+
     }
 }
