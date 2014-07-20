@@ -56,7 +56,7 @@
     <Compile Include="ConsoleRendererTest.cs" />
     <Compile Include="LabyrinthsTest\HexagonalLabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\DiamondLabyrinthTest.cs" />
-    <Compile Include="LabyrinthsTest\PentagonLabytinthTest.cs" />
+    <Compile Include="LabyrinthsTest\PentagonLabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\LabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\SquareLabyrinthTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
