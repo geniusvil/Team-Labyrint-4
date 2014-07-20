@@ -1,6 +1,10 @@
 ﻿namespace LabyrinthGame
 {
     using System;
+    using System.Reflection;
+    using LabyrinthGame.Interfaces;
+
+    using Ninject;
 
     /// <summary>
     /// Labyrinth creator class. Builder pattern used and this class acts as a Director
@@ -10,14 +14,10 @@
         private const string Pentagram = "p";
         private const string Diamond = "d";
         private const string Hexagon = "h";
-
-        private readonly ICoordinate initialPlayerCoordinates = new Coordinate(6, 6);
-
-        private IRenderer renderer;
+        private const string Square = "s";
 
         public LabyrinthCreator()
         {
-            this.renderer = new ConsoleRenderer();
         }
 
         /// <summary>
@@ -27,10 +27,15 @@
         /// <returns>Returns a labyrinth of type as given in parameter with name "userChoiceOfLabyrinth"</returns>
         public ILabyrinth Create(string userChoiceOfLabyrinth)
         {
+            // Ninject used to get contracted class
+            var kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
+            var randomGenerator = kernel.Get<IRandomCharProvider>();
+
             TypeLabyrinth typeOfLabyrinth = this.GetLabyrinthType(userChoiceOfLabyrinth);
             ILabyrinth labyrinth = this.CreateRequiredLabyrinth(typeOfLabyrinth);
 
-            labyrinth.FillMatrix();
+            labyrinth.FillMatrix(randomGenerator);
 
             Console.WriteLine();
 
@@ -44,22 +49,19 @@
         /// <returns>Return enumeration TypeLabyrinth</returns>
         private TypeLabyrinth GetLabyrinthType(string userChoiceOfLabyrinth)
         {
-            TypeLabyrinth userChoiseOfTypeLabytint = TypeLabyrinth.Square;
-
-            if (userChoiceOfLabyrinth == Pentagram)
+            switch (userChoiceOfLabyrinth)
             {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Pentagram;
+                case Square:
+                    return TypeLabyrinth.Square;
+                case Hexagon:
+                    return TypeLabyrinth.Hexagon;
+                case Pentagram:
+                    return TypeLabyrinth.Pentagram;
+                case Diamond:
+                    return TypeLabyrinth.Diamond;
+                default:
+                    throw new ArgumentException("Not specified labyrinth in the enum.");
             }
-            else if (userChoiceOfLabyrinth == Diamond)
-            {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Diamond;
-            }
-            else if (userChoiceOfLabyrinth == Hexagon)
-            {
-                userChoiseOfTypeLabytint = TypeLabyrinth.Hexagon;
-            }
-
-            return userChoiseOfTypeLabytint;
         }
 
         /// <summary>
@@ -72,13 +74,15 @@
             switch (typeLabyrinth)
             {
                 case TypeLabyrinth.Diamond:
-                    return new DiamondLabyrinth(this.renderer);
+                    return new DiamondLabyrinth();
                 case TypeLabyrinth.Pentagram:
-                    return new PentagonLabyrinth(this.renderer);
+                    return new PentagonLabyrinth();
                 case TypeLabyrinth.Hexagon:
-                    return new HexagonalLabyrinth(this.renderer);
+                    return new HexagonalLabyrinth();
+                case TypeLabyrinth.Square:
+                    return new SquareLabyrinth();
                 default:
-                    return new SquareLabyrinth(this.renderer);
+                    throw new ArgumentException("Not specified labyrinth");
             }
         }
     }

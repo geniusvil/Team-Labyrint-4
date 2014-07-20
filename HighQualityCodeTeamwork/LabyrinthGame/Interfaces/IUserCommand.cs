@@ -1,4 +1,4 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Interfaces
 {
     using System;
     using System.Linq;

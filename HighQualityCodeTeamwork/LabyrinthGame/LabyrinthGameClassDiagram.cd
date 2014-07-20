@@ -3,7 +3,7 @@
   <Class Name="LabyrinthGame.Labyrinth" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAhABIAAAAAAAAAAACAAAEAgAAAAAAAAAgAAgBg=</HashCode>
+      <HashCode>AAAAEAhABIAAAAAAAAAAACAAAEAgAAAAAAAAAgAAgAg=</HashCode>
       <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -16,12 +16,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LabyrinthGame.Coordinate" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Coordinate.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.HexagonalLabyrinth" Collapsed="true">
     <Position X="5" Y="1.75" Width="1.5" />
@@ -43,15 +43,15 @@
       <HashCode>AAEgAACAAAAAgCAEAJAACAwAIAAEACAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.LabyrinthCreator" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAEAAAAAAAAACAAAAAAAAAAAkAAAABAACAAgAA=</HashCode>
+      <HashCode>AAAAQAAEAAAAAAAAACAAAAAAAAAAAkAAAAAgACAAAAA=</HashCode>
       <FileName>LabyrinthCreator.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.KeyboardCommand" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.75" Y="1.5" Width="1.5" />
@@ -59,7 +59,7 @@
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIRAAAAAAAAAA=</HashCode>
       <FileName>KeyboardCommand.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.LabyrinthEngine" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.25" Y="1.5" Width="1.5" />
@@ -67,7 +67,7 @@
       <HashCode>AgAAAAAAACAAAQAEIAAoAAggAAQSAAgBQwAACQCAwAg=</HashCode>
       <FileName>LabyrinthEngine.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.GameDemo" Collapsed="true">
     <Position X="13.25" Y="0.5" Width="1.5" />
@@ -82,15 +82,15 @@
       <HashCode>oBAggAAAgCAAEAgAADAwAAgYAAAQAggBKAAgECAASQA=</HashCode>
       <FileName>Menu.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.Score" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABCAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAABCAAAAAAAAAAAAAABAAAACAAACBAAAAAAAEAAA=</HashCode>
       <FileName>Score.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="LabyrinthGame.PentagonLabyrinth" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
@@ -100,7 +100,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LabyrinthGame.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Public" Collapsed="true" />
     </Compartments>
@@ -108,69 +108,84 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>ConsoleRenderer.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LabyrinthGame.RandomCharProvider">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>RandomCharProvider.cs</FileName>
+    </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="LabyrinthGame.ILabyrinth" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.ILabyrinth" Collapsed="true">
     <Position X="11.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>ILabyrinth.cs</FileName>
+      <FileName>Interfaces\ILabyrinth.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.IRenderer" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.IRenderer" Collapsed="true">
     <Position X="9.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
-      <FileName>IRenderer.cs</FileName>
+      <FileName>Interfaces\IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.IPlayer" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.IPlayer" Collapsed="true">
     <Position X="13.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgCAEAJAAAAQAIAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IPlayer.cs</FileName>
+      <FileName>Interfaces\IPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.ILabyrinthCreator" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.ILabyrinthCreator" Collapsed="true">
     <Position X="13.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
-      <FileName>ILabyrinthCreator.cs</FileName>
+      <FileName>Interfaces\ILabyrinthCreator.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.ICoordinate" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.ICoordinate" Collapsed="true">
     <Position X="9.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>ICoordinate.cs</FileName>
+      <FileName>Interfaces\ICoordinate.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.ILabyrinthEngine" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.ILabyrinthEngine" Collapsed="true">
     <Position X="9.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ILabyrinthEngine.cs</FileName>
+      <FileName>Interfaces\ILabyrinthEngine.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.IUserCommand" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.IUserCommand" Collapsed="true">
     <Position X="13.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIRAAAAAAAAAA=</HashCode>
-      <FileName>IUserCommand.cs</FileName>
+      <FileName>Interfaces\IUserCommand.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.IMenu" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.IMenu" Collapsed="true">
     <Position X="11.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAEAAAAAA=</HashCode>
-      <FileName>IMenu.cs</FileName>
+      <FileName>Interfaces\IMenu.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="LabyrinthGame.IScore" Collapsed="true">
+  <Interface Name="LabyrinthGame.Interfaces.IScore" Collapsed="true">
     <Position X="11.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>IScore.cs</FileName>
+      <FileName>Interfaces\IScore.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabyrinthGame.Interfaces.IRandomCharProvider">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRandomCharProvider.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="LabyrinthGame.Symbol" Collapsed="true">

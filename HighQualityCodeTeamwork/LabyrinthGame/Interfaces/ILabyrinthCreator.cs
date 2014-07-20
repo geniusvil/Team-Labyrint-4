@@ -1,7 +1,7 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Interfaces
 {
     /// <summary>
-    /// Main logic for creating labyrinth. Used interface to be extendable.
+    /// Main logic for creating labyrinth.
     /// </summary>
     public interface ILabyrinthCreator
     {

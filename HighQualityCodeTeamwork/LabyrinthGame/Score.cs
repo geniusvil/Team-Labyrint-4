@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// Score class keeps player name and achieved result

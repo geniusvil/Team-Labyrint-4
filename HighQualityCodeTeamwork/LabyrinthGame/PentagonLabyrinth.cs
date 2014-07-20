@@ -2,12 +2,15 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     ///  Pentagon shaped labyrinth
     /// </summary>
     public class PentagonLabyrinth : Labyrinth
     {
+        private const int ChanceOfObstacle = 30;
+
         private const int TwoParts = 2;
 
         public PentagonLabyrinth(IRenderer renderer)
@@ -15,10 +18,15 @@
         {
         }
 
+        public PentagonLabyrinth()
+            : this(Labyrinth.Renderer)
+        {
+        }
+
         /// <summary>
         /// The method fills the matrix with symbols forming pentagon shape
         /// </summary>
-        public override void FillMatrix()
+        public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
@@ -32,7 +40,7 @@
                     }
                     else
                     {
-                        this.Matrix[row, col] = this.GetSymbol();
+                        this.Matrix[row, col] = randomCharProvider.GetRandomSymbol(ChanceOfObstacle);
                     }
                 }
             }

@@ -2,12 +2,15 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// Labyrinth with shape like diamond
     /// </summary>
     public class DiamondLabyrinth : Labyrinth
     {
+        private const int ChanceOfObstacle = 30;
+
         private const int TwoParts = 2;
 
         public DiamondLabyrinth(IRenderer renderer)
@@ -15,10 +18,15 @@
         {
         }
 
+        public DiamondLabyrinth()
+            : this(Labyrinth.Renderer)
+        {
+        }
+
         /// <summary>
         /// The method fills the matrix with symbols forming diamond shape
         /// </summary>
-        public override void FillMatrix()
+        public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
             int initialRowStart = this.Matrix.GetLength(0) / TwoParts;
             int initialColStart = this.Matrix.GetLength(1) / TwoParts;
@@ -41,7 +49,7 @@
                     }
                     else
                     {
-                        this.Matrix[row, col] = this.GetSymbol();
+                        this.Matrix[row, col] = randomCharProvider.GetRandomSymbol(ChanceOfObstacle);
                     }
                 }
             }

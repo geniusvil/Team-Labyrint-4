@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// The Player class hold information about start position, player name and points

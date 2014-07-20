@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// The Coordinate class holds the coordinates which will be used from the other classes(like Player)

@@ -1,7 +1,8 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Interfaces
 {
     using System;
     using System.Linq;
+    using LabyrinthGame;
 
     /// <summary>
     /// Interface which is inherited by the Player class

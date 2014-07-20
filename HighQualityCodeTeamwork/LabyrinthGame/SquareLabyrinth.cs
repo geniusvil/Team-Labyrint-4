@@ -1,28 +1,34 @@
 ﻿namespace LabyrinthGame
 {
-    using System;
-    using System.Linq;
+    using LabyrinthGame.Interfaces;
 
     /// <summary>
     /// Labyrinth with square shape
     /// </summary>
     public class SquareLabyrinth : Labyrinth
     {
+        private const int ChanceOfObstacle = 30;
+
         public SquareLabyrinth(IRenderer renderer)
             : base(renderer)
+        {
+        }
+
+        public SquareLabyrinth()
+            : this(Labyrinth.Renderer)
         {
         }
 
         /// <summary>
         /// The method fills the matrix with symbols forming square shape
         /// </summary>
-        public override void FillMatrix()
+        public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
             for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
-                    this.Matrix[row, col] = this.GetSymbol();
+                    this.Matrix[row, col] = randomCharProvider.GetRandomSymbol(ChanceOfObstacle);
                 }
             }
         }
