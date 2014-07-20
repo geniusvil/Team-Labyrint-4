@@ -12,20 +12,30 @@
         private static IScore score;
 
         [ClassInitialize]
-        public static void playerClassInicialize(TestContext testContext)
+        public static void PlayerClassInicialize(TestContext testContext)
         {
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
         }
 
         [TestMethod]
-        public void AddScoreTest()
+        public void AddScorePlayerOneTimeTest()
         {
             player.UpdatePoints();
             score.AddScore(player);
             bool hasAddedPlayer = score.ScoreBoard.Count > 0;
 
             Assert.IsTrue(hasAddedPlayer);
+        }
+
+        [TestMethod]
+        public void AddScorePlayerTwoTimeTest()
+        {
+            player.UpdatePoints();
+            player.UpdatePoints();
+            score.AddScore(player);
+
+            Assert.IsTrue(score.ScoreBoard[player.Name] == player.Points);
         }
     }
 }
