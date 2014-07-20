@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
-  <Class Name="LabyrinthGame.SquareLabyrinth" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SquareLabyrinth.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="LabyrinthGame.Coordinate" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>

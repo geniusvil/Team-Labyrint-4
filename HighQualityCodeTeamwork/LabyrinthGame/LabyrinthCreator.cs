@@ -38,8 +38,6 @@
 
             labyrinth.FillMatrix(randomGenerator);
 
-            Console.WriteLine();
-
             return labyrinth;
         }
 
