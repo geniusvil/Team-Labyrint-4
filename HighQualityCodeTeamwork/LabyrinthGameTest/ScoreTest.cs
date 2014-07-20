@@ -1,14 +1,31 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace LabyrinthGameTest
+﻿namespace LabyrinthGameTest
 {
+    using System;
+    using LabyrinthGame;
+    using LabyrinthGame.Interfaces;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class ScoreTest
     {
-        [TestMethod]
-        public void TestMethod1()
+        private static IPlayer player;
+        private static IScore score;
+
+        [ClassInitialize]
+        public static void playerClassInicialize(TestContext testContext)
         {
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+        }
+
+        [TestMethod]
+        public void AddScoreTest()
+        {
+            player.UpdatePoints();
+            score.AddScore(player);
+            bool hasAddedPlayer = score.ScoreBoard.Count > 0;
+
+            Assert.IsTrue(hasAddedPlayer);
         }
     }
 }

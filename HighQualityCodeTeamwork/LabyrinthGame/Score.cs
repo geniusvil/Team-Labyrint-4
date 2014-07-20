@@ -57,10 +57,13 @@
         /// <param name="player">The player that has to be added</param>
         public void AddScore(IPlayer player)
         {
-            Console.Write(EnterNameSign);
-            string name = Console.ReadLine();
+            if (player.Name == null)
+            {
+                Console.Write(EnterNameSign);
+                string name = Console.ReadLine();
 
-            player.Name = name;
+                player.Name = name;
+            }
 
             if (this.ScoreBoard.ContainsKey(player.Name))
             {
