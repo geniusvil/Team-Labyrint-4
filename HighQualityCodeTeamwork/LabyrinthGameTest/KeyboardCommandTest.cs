@@ -1,6 +1,4 @@
-﻿
-
-namespace LabyrinthGameTest
+﻿namespace LabyrinthGameTest
 {
     using System;
     using LabyrinthGame;
@@ -10,6 +8,7 @@ namespace LabyrinthGameTest
     [TestClass]
     public class KeyboardCommandTest
     {
+
         static IUserCommand userCommand;
         [ClassInitialize]
         public static void UserCommandClassInicialize(TestContext testContext)
@@ -17,14 +16,14 @@ namespace LabyrinthGameTest
             userCommand = new KeyboardCommand();    
         }
 
-          [TestMethod]
+        [TestMethod]
+
         public void MoveLeftTest_True()
         {
            
             ICoordinate coordinate = userCommand.MoveLeft();
-            Assert.IsTrue(coordinate.Row ==0,"Row is not 0");
+            Assert.IsTrue(coordinate.Row == 0, "Row is not 0");
             Assert.IsTrue(coordinate.Col == -1, "Col is not -1");
-
         }
 
 
@@ -37,5 +36,6 @@ namespace LabyrinthGameTest
               Assert.IsFalse(coordinate.Col != -1, "Col is not -1");
 
           }
+
     }
 }
