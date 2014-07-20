@@ -7,7 +7,7 @@
     <ProjectGuid>{D928BFD1-1E48-4983-B938-0AE4951B1A3A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LabyrinthGameDemo</RootNamespace>
+    <RootNamespace>LabyrinthGame</RootNamespace>
     <AssemblyName>LabyrinthGame</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
