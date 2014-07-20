@@ -54,8 +54,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ConsoleRendererTest.cs" />
-    <Compile Include="LabyrinthsTest\HexagonalLabytinthTest.cs" />
-    <Compile Include="LabyrinthsTest\DiamondLabytinthTest.cs" />
+    <Compile Include="LabyrinthsTest\HexagonalLabyrinthTest.cs" />
+    <Compile Include="LabyrinthsTest\DiamondLabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\PentagonLabytinthTest.cs" />
     <Compile Include="LabyrinthsTest\LabytinthTest.cs" />
     <Compile Include="LabyrinthsTest\SquareLabytinthTest.cs" />
