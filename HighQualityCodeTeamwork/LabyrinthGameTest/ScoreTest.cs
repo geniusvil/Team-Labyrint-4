@@ -12,17 +12,13 @@
         private static IPlayer player;
         private static IScore score;
 
-        [ClassInitialize]
-        public static void ScoreClassInicialize(TestContext testContext)
-        {
-            player = new Player() { Name = "Ivan" };
-            score = Score.ScoreInstance;
-            player.UpdatePoints();
-        }
-
         [TestMethod]
         public void AddScorePlayerOneTimeTest()
         {
+
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+            player.UpdatePoints();
             score.AddScore(player);
             bool hasAddedPlayer = score.ScoreBoard.Count > 0;
 
@@ -32,6 +28,10 @@
         [TestMethod]
         public void AddScorePlayerTwoTimeTest()
         {
+
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+            player.UpdatePoints();
             player.UpdatePoints();
             score.AddScore(player);
 
@@ -41,6 +41,10 @@
         [TestMethod]
         public void ScoreBoardContainsSpecificKeyTest()
         {
+
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+            player.UpdatePoints();
             score.AddScore(player);
             bool isKeyContained = score.ScoreBoard.ContainsKey(player.Name);
 
@@ -50,6 +54,10 @@
         [TestMethod]
         public void ScoreBoardContainsSpecificValueTest()
         {
+
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+            player.UpdatePoints();
             score.AddScore(player);
             bool isValueContainted = score.ScoreBoard.ContainsValue(player.Points);
 
@@ -59,6 +67,10 @@
         [TestMethod]
         public void PrintScoreTest()
         {
+
+            player = new Player() { Name = "Ivan" };
+            score = Score.ScoreInstance;
+            player.UpdatePoints();
             var printScoreMock = new Mock<IScore>();
             bool isScorePrinted = false;
 
