@@ -7,7 +7,7 @@
     /// <summary>
     /// The Menu class holds the info about the menu of the game
     /// </summary>
-    internal class Menu : IMenu
+    public class Menu : IMenu
     {
         private const string StartMenu = "1";
         private const string RestartMenu = "2";
