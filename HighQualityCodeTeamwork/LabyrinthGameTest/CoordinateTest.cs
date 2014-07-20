@@ -8,11 +8,19 @@ namespace LabyrinthGameTest
     public class CoordinateTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestRowCoordinate()
         {
             var testedCoord = new Coordinate(4,5);
             testedCoord.Update(new Coordinate(1, 1));
-            Assert.AreEqual(new Coordinate(5, 6), testedCoord);
+            Assert.AreEqual(5,testedCoord.Row);
+        }
+
+        [TestMethod]
+        public void TestColCoordinate()
+        {
+            var testedCoord = new Coordinate(4, 5);
+            testedCoord.Update(new Coordinate(1, 1));
+            Assert.AreEqual(6, testedCoord.Col);
         }
     }
 }
