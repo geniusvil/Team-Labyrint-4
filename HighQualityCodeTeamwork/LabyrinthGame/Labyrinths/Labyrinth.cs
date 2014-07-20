@@ -1,9 +1,9 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Labyrinths
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
     using LabyrinthGame.Interfaces;
+    using System;
+    using System.Reflection;
+
     using Ninject;
 
     /// <summary>
@@ -28,6 +28,17 @@
             this.renderer = renderer;
         }
 
+        protected static IRenderer Renderer
+        {
+            get
+            {
+                var kernel = new StandardKernel();
+                kernel.Load(Assembly.GetExecutingAssembly());
+
+                return kernel.Get<IRenderer>();
+            }
+        }
+
         public char[,] Matrix
         {
             get
@@ -45,17 +56,6 @@
                 {
                     this.matrix = value;
                 }
-            }
-        }
-
-        protected static IRenderer Renderer
-        {
-            get
-            {
-                var kernel = new StandardKernel();
-                kernel.Load(Assembly.GetExecutingAssembly());
-
-                return kernel.Get<IRenderer>();
             }
         }
 

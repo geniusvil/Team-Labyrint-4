@@ -1,4 +1,4 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Labyrinths
 {
     using LabyrinthGame.Interfaces;
 
