@@ -1,5 +1,6 @@
 ﻿namespace LabyrinthGame
 {
+    using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
     using System;
 

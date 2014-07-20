@@ -49,9 +49,9 @@
   <ItemGroup>
     <Compile Include="Configuration\NinjectConfiguration.cs" />
     <Compile Include="Coordinate.cs" />
-    <Compile Include="DiamondLabyrinth.cs" />
+    <Compile Include="Labyrinths\DiamondLabyrinth.cs" />
     <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="HexagonalLabyrinth.cs" />
+    <Compile Include="Labyrinths\HexagonalLabyrinth.cs" />
     <Compile Include="Interfaces\ICoordinate.cs" />
     <Compile Include="Interfaces\ILabyrinth.cs" />
     <Compile Include="Interfaces\ILabyrinthCreator.cs" />
@@ -63,7 +63,7 @@
     <Compile Include="Interfaces\IUserCommand.cs" />
     <Compile Include="Interfaces\IRandomCharProvider.cs" />
     <Compile Include="KeyboardCommand.cs" />
-    <Compile Include="Labyrinth.cs" />
+    <Compile Include="Labyrinths\Labyrinth.cs" />
     <Compile Include="LabyrinthCreator.cs" />
     <Compile Include="LabyrinthEngine.cs" />
     <Compile Include="Menu.cs" />
@@ -71,10 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomCharProvider.cs" />
     <Compile Include="Score.cs" />
-    <Compile Include="SquareLabyrinth.cs" />
-    <Compile Include="Symbol.cs" />
-    <Compile Include="PentagonLabyrinth.cs" />
-    <Compile Include="TypeLabyrinth.cs" />
+    <Compile Include="Labyrinths\SquareLabyrinth.cs" />
+    <Compile Include="GameData\Symbol.cs" />
+    <Compile Include="Labyrinths\PentagonLabyrinth.cs" />
+    <Compile Include="GameData\TypeLabyrinth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

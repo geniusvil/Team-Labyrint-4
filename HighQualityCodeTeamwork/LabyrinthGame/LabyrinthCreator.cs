@@ -2,8 +2,9 @@
 {
     using System;
     using System.Reflection;
+    using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
-
+    using LabyrinthGame.Labyrinths;
     using Ninject;
 
     /// <summary>

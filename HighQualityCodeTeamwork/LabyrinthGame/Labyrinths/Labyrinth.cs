@@ -1,8 +1,7 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Labyrinths
 {
-    using System;
-    using System.Linq;
     using LabyrinthGame.Interfaces;
+    using System;
     using System.Reflection;
 
     using Ninject;

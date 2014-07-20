@@ -1,4 +1,4 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.GameData
 {
     /// <summary>
     /// Enumeration containing  the specific type of the labyrinths

@@ -1,31 +1,29 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGame.Labyrinths
 {
-    using System;
-    using System.Linq;
+    using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
 
     /// <summary>
-    /// Labyrinth with shape like hexagon
+    ///  Pentagon shaped labyrinth
     /// </summary>
-    public class HexagonalLabyrinth : Labyrinth
+    public class PentagonLabyrinth : Labyrinth
     {
         private const int ChanceOfObstacle = 30;
 
         private const int TwoParts = 2;
-        private const int ThreeParts = 3;
 
-        public HexagonalLabyrinth(IRenderer renderer)
+        public PentagonLabyrinth(IRenderer renderer)
             : base(renderer)
         {
         }
 
-        public HexagonalLabyrinth()
+        public PentagonLabyrinth()
             : this(Labyrinth.Renderer)
         {
         }
 
         /// <summary>
-        /// The method fills the matrix with symbols forming hexagon shape
+        /// The method fills the matrix with symbols forming pentagon shape
         /// </summary>
         public override void FillMatrix(IRandomCharProvider randomCharProvider)
         {
@@ -48,27 +46,22 @@
         }
 
         /// <summary>
-        /// The methods checks if sign is blank space or not
+        /// The methods checks if sign is blank-space or not
         /// </summary>
         /// <param name="row">The row we want to check</param>
         /// <param name="col">The column we want to check</param>
-        /// <returns>Returns boolean value - true if it is blank space and false id it is not</returns>
+        /// <returns>Returns boolean value - true if it is blank-space and false id it is not</returns>
         protected override bool IsBlankSpaceSign(int row, int col)
         {
-            int oneThirdRows = this.Matrix.GetLength(0) / ThreeParts;
-            int oneThirdCols = this.Matrix.GetLength(1) / ThreeParts;
-
-            int twoThirdsRows = TwoParts * oneThirdRows;
-            int twoThirdsCols = TwoParts * oneThirdCols;
+            int halfRows = this.Matrix.GetLength(0) / TwoParts;
+            int halfCols = this.Matrix.GetLength(1) / TwoParts;
 
             bool isBlankSpace = false;
 
-            bool isInUpLeftCorner = row + col < oneThirdRows;
-            bool isInUpRightCorner = (col > twoThirdsCols && col < this.Matrix.GetLength(1)) && (row < oneThirdRows && col - row > twoThirdsCols);
-            bool isInDownLeftCorner = (row > twoThirdsRows && row < this.Matrix.GetLength(0)) && (col < oneThirdCols && row - col > twoThirdsRows);
-            bool isInDownRightCorner = (row > twoThirdsRows && row < this.Matrix.GetLength(0)) && (col > twoThirdsCols && col < this.Matrix.GetLength(0) && row + col > 20);
+            bool isInUpLeftCorner = row + col < halfRows;
+            bool isInUpRightCorner = (col > halfCols && col < this.Matrix.GetLength(1)) && (row < halfRows && col - row > halfCols);
 
-            if (isInUpLeftCorner || isInUpRightCorner || isInDownLeftCorner || isInDownRightCorner)
+            if (isInUpLeftCorner || isInUpRightCorner)
             {
                 isBlankSpace = true;
             }

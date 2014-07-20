@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
 
     /// <summary>
