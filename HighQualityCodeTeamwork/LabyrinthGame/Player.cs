@@ -39,7 +39,7 @@
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
-                    this.name = this.defaultPlayerName;
+                    throw new ArgumentNullException("Player name cannot be null or empty.");
                 }
                 else
                 {
@@ -47,7 +47,7 @@
                 }
             }
         }
-        
+
         public int Points
         {
             get
@@ -67,7 +67,7 @@
                 }
             }
         }
-        
+
         public Coordinate Coordinates { get; set; }
 
         /// <summary>
@@ -75,7 +75,7 @@
         /// </summary>
         public void UpdatePoints()
         {
-            this.Points++;
+            this.Points += 1;
         }
 
         /// <summary>

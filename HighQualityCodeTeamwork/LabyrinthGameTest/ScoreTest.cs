@@ -4,8 +4,6 @@
     using LabyrinthGame;
     using LabyrinthGame.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Collections.Generic;
-
 
     [TestClass]
     public class ScoreTest

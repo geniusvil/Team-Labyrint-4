@@ -12,47 +12,40 @@
         [TestMethod]
         public void GetNamePlayerTrue()
         {
-            IPlayer player = new Player(){Name="Joe"};
+            IPlayer player = new Player() { Name = "Joe" };
             Assert.IsTrue(player.Name == "Joe");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void SetNamePlayerNullDefaultResult()
         {
             IPlayer player = new Player() { Name = null };
-            Assert.IsTrue(player.Name == "Bai Ivan");
         }
 
         [TestMethod]
-        public void SetNamePlayerWhitespaceDefaultResult()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void SetNamePlayerWithEmptyStringResult()
         {
-            IPlayer player = new Player() { Name = " " };
-            Assert.IsTrue(player.Name == "Bai Ivan");
-        }
-
-        [TestMethod]
-        public void SetNamePlayerEmptyDefaultResult()
-        {
-            IPlayer player = new Player() { Name = "" };
-            Assert.IsTrue(player.Name == "Bai Ivan");
+            IPlayer player = new Player() { Name = string.Empty };
         }
 
         [TestMethod]
         public void UpdatePointsTrue()
         {
             IPlayer player = new Player();
-            Assert.IsTrue(player.Points == 0,"Player initial points are not 0");
+            Assert.IsTrue(player.Points == 0, "Player initial points are not 0");
             player.UpdatePoints();
-            Assert.IsTrue(player.Points== 1,"After first update player's points are not 1");
+            Assert.IsTrue(player.Points == 1, "After first update player's points are not 1");
         }
 
         [TestMethod]
         public void UpdatePosition1x0RowChangedTest()
         {
             IPlayer player = new Player();
-            ICoordinate newCoodrinate = new Coordinate(1,0);
-            IPlayer initializedPlayer = new Player(); 
-           
+            ICoordinate newCoodrinate = new Coordinate(1, 0);
+            IPlayer initializedPlayer = new Player();
+
             player.UpdatePosition(newCoodrinate);
             Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row + 1), "Row is not changed with 1");
             Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col), "Col is changed");
@@ -93,7 +86,7 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row-1), "Row is not changed with -1");
+            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row - 1), "Row is not changed with -1");
             Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col), "Col is changed");
 
         }
