@@ -9,7 +9,10 @@
 
     [TestClass]
     public class DiamondLabyrinthTest
+
     {
+       
+
         [TestMethod]
         public void IsDiamnodLabyrinthMatrixFilled()
         {
