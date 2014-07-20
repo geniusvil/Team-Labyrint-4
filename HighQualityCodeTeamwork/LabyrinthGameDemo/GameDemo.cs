@@ -1,15 +1,14 @@
-﻿namespace LabyrinthGame
+﻿namespace LabyrinthGameDemo
 {
-    using System;
-    using System.Linq;
+    using LabyrinthGame;
 
     /// <summary>
-    /// Main class executer
+    /// Game demo class
     /// </summary>
-    internal class GameDemo
+    public class GameDemo
     {
         /// <summary>
-        /// Main method
+        /// Main method to demonstrate game logic on the console
         /// </summary>
         private static void Main()
         {
