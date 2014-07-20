@@ -9,6 +9,8 @@
     public class LabyrinthTest
     {
         private const char ChangedSymbol = '@';
+        private const int DefaultRowCoordinate = 6;
+        private const int DefaultColCoordinate = 6;
 
         private static ILabyrinth labyrinth;
         private static IRandomCharProvider randomCharProvider;
@@ -18,7 +20,7 @@
         public static void ConsoleRendererClassInicialize(TestContext testContext)
         {
             randomCharProvider = new RandomCharProvider();
-            coordinates = new Coordinate(6, 6);
+            coordinates = new Coordinate(DefaultRowCoordinate, DefaultColCoordinate);
         }
 
         [TestMethod]
@@ -28,7 +30,7 @@
             labyrinth.FillMatrix(randomCharProvider);
 
             labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
-            bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
+            bool isChanged = ChangedSymbol == labyrinth.Matrix[DefaultRowCoordinate, DefaultColCoordinate];
 
             Assert.IsTrue(isChanged);
         }
@@ -40,7 +42,7 @@
             labyrinth.FillMatrix(randomCharProvider);
 
             labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
-            bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
+            bool isChanged = ChangedSymbol == labyrinth.Matrix[DefaultRowCoordinate, DefaultColCoordinate];
 
             Assert.IsTrue(isChanged);
         }
@@ -52,7 +54,7 @@
             labyrinth.FillMatrix(randomCharProvider);
 
             labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
-            bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
+            bool isChanged = ChangedSymbol == labyrinth.Matrix[DefaultRowCoordinate, DefaultColCoordinate];
 
             Assert.IsTrue(isChanged);
         }
@@ -64,7 +66,7 @@
             labyrinth.FillMatrix(randomCharProvider);
 
             labyrinth.ChangeSymbol(coordinates, ChangedSymbol);
-            bool isChanged = ChangedSymbol == labyrinth.Matrix[6, 6];
+            bool isChanged = ChangedSymbol == labyrinth.Matrix[DefaultRowCoordinate, DefaultColCoordinate];
 
             Assert.IsTrue(isChanged);
         }
