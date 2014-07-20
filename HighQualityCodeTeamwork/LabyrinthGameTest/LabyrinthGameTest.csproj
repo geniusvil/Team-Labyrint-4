@@ -57,8 +57,8 @@
     <Compile Include="LabyrinthsTest\HexagonalLabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\DiamondLabyrinthTest.cs" />
     <Compile Include="LabyrinthsTest\PentagonLabytinthTest.cs" />
-    <Compile Include="LabyrinthsTest\LabytinthTest.cs" />
-    <Compile Include="LabyrinthsTest\SquareLabytinthTest.cs" />
+    <Compile Include="LabyrinthsTest\LabyrinthTest.cs" />
+    <Compile Include="LabyrinthsTest\SquareLabyrinthTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CoordinateTest.cs" />
     <Compile Include="KeyboardCommandTest.cs" />
