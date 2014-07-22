@@ -1,8 +1,7 @@
 ﻿namespace LabyrinthGameTest
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using LabyrinthGame.Interfaces;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Moq;
 

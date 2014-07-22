@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
-using LabyrinthGame;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace LabyrinthGameTest
+﻿namespace LabyrinthGameTest
 {
+    using System;
+    using System.IO;
+    using LabyrinthGame;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    
     [TestClass]
     public class MenuTest
     {
-
         [TestMethod]
         public void MenuGetChoiceTypeDiamondTest()
         {
@@ -18,6 +17,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetLabyrinthTypeFromUser();
+
                 Assert.AreEqual("d", result);
             }
         }
@@ -31,6 +31,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetLabyrinthTypeFromUser();
+
                 Assert.AreEqual("p", result);
             }
         }
@@ -44,6 +45,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetLabyrinthTypeFromUser();
+
                 Assert.AreEqual("h", result);
             }
         }
@@ -57,6 +59,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetLabyrinthTypeFromUser();
+
                 Assert.AreEqual("s", result);
             }
         }
@@ -70,6 +73,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetUserChoice();
+
                 Assert.AreEqual("1", result);
             }
         }
@@ -83,6 +87,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetUserChoice();
+
                 Assert.AreEqual("2", result);
             }
         }
@@ -96,6 +101,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetUserChoice();
+
                 Assert.AreEqual("3", result);
             }
         }
@@ -109,6 +115,7 @@ namespace LabyrinthGameTest
 
                 var testMenu = new Menu();
                 var result = testMenu.GetUserChoice();
+
                 Assert.AreEqual("4", result);
             }
         }
@@ -123,6 +130,7 @@ namespace LabyrinthGameTest
                 var testMenu = new Menu();
                 testMenu.MainMenu();
                 var stringResult = "Welcome to “LABYRINTH” game.\r\n\nPlease choose between 1, 2, 3 and 4\n\r\n  1 : START\r\n  2 : RESTART\r\n  3 : SCOREBOARD\r\n  4 : EXIT\n\r\n";
+                
                 Assert.AreEqual(stringResult, sw.ToString());
             }
         }
@@ -137,6 +145,7 @@ namespace LabyrinthGameTest
                 var testMenu = new Menu();
                 testMenu.MenuDuringPlay();
                 var stringResult = "Welcome to “LABYRINTH” game.\r\n\r\n  RightArrow - Move Right\r\n  LeftArrow  - Move Left\r\n  UpArrow    - Move Up\r\n  DownArrow  - Move Down\r\n\r\n";
+               
                 Assert.AreEqual(stringResult, sw.ToString());
             }
         }

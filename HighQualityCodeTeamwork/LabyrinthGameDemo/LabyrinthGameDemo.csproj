@@ -41,11 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameDemo.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameDemo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LabyrinthGame\LabyrinthGame.csproj">

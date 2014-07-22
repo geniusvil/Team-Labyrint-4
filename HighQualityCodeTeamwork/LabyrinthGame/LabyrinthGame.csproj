@@ -68,7 +68,9 @@
     <Compile Include="LabyrinthEngine.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="RandomCharProvider.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="Labyrinths\SquareLabyrinth.cs" />
@@ -77,9 +79,13 @@
     <Compile Include="GameData\TypeLabyrinth.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </None>
     <None Include="LabyrinthGameClassDiagram.cd" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

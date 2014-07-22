@@ -1,8 +1,9 @@
 ﻿namespace LabyrinthGame
 {
+    using System;
+
     using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
-    using System;
 
     /// <summary>
     /// Menages the drawing interface

@@ -13,8 +13,6 @@
         private const int StartRow = 6;
         private const int StartCol = 6;
 
-        private readonly string defaultPlayerName = "Bai Ivan";
-
         private string name;
         private int points;
 

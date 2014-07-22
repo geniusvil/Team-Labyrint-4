@@ -4,6 +4,7 @@
     using LabyrinthGame;
     using LabyrinthGame.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using Moq;
 
     [TestClass]
@@ -15,7 +16,6 @@
         [TestMethod]
         public void AddScorePlayerOneTimeTest()
         {
-
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
             player.UpdatePoints();
@@ -28,7 +28,6 @@
         [TestMethod]
         public void AddScorePlayerTwoTimeTest()
         {
-
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
             player.UpdatePoints();
@@ -41,7 +40,6 @@
         [TestMethod]
         public void ScoreBoardContainsSpecificKeyTest()
         {
-
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
             player.UpdatePoints();
@@ -54,7 +52,6 @@
         [TestMethod]
         public void ScoreBoardContainsSpecificValueTest()
         {
-
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
             player.UpdatePoints();
@@ -67,7 +64,6 @@
         [TestMethod]
         public void PrintScoreTest()
         {
-
             player = new Player() { Name = "Ivan" };
             score = Score.ScoreInstance;
             player.UpdatePoints();

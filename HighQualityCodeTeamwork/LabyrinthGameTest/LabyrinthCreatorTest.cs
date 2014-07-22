@@ -1,10 +1,12 @@
 ﻿namespace LabyrinthGameTest
 {
+    using System;
+
     using LabyrinthGame;
     using LabyrinthGame.Interfaces;
     using LabyrinthGame.Labyrinths;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
 
     [TestClass]
     public class LabyrinthCreatorTest

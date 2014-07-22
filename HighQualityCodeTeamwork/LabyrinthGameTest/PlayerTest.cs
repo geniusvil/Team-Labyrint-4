@@ -1,20 +1,22 @@
 ﻿namespace LabyrinthGameTest
 {
     using System;
+
     using LabyrinthGame;
-    using LabyrinthGame.Labyrinths;
     using LabyrinthGame.GameData;
     using LabyrinthGame.Interfaces;
+    using LabyrinthGame.Labyrinths;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class PlayerTest
     {
-
         [TestMethod]
         public void GetNamePlayerTrue()
         {
             IPlayer player = new Player() { Name = "Joe" };
+
             Assert.IsTrue(player.Name == "Joe");
         }
 
@@ -36,8 +38,10 @@
         public void UpdatePointsTrue()
         {
             IPlayer player = new Player();
+
             Assert.IsTrue(player.Points == 0, "Player initial points are not 0");
             player.UpdatePoints();
+
             Assert.IsTrue(player.Points == 1, "After first update player's points are not 1");
         }
 
@@ -49,9 +53,9 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row + 1), "Row is not changed with 1");
-            Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col), "Col is changed");
 
+            Assert.IsTrue(player.Coordinates.Row == initializedPlayer.Coordinates.Row + 1, "Row is not changed with 1");
+            Assert.IsTrue(player.Coordinates.Col == initializedPlayer.Coordinates.Col, "Col is changed");
         }
 
         [TestMethod]
@@ -62,9 +66,9 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row), "Row is changed");
-            Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col + 1), "Col is not changed with 1");
 
+            Assert.IsTrue(player.Coordinates.Row == initializedPlayer.Coordinates.Row, "Row is changed");
+            Assert.IsTrue(player.Coordinates.Col == initializedPlayer.Coordinates.Col + 1, "Col is not changed with 1");
         }
 
         [TestMethod]
@@ -75,9 +79,9 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row), "Row is changed");
-            Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col), "Col is changed");
 
+            Assert.IsTrue(player.Coordinates.Col == initializedPlayer.Coordinates.Col, "Col is changed");
+            Assert.IsTrue(player.Coordinates.Row == initializedPlayer.Coordinates.Row, "Row is changed");
         }
 
         [TestMethod]
@@ -88,9 +92,9 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row - 1), "Row is not changed with -1");
-            Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col), "Col is changed");
 
+            Assert.IsTrue(player.Coordinates.Row == initializedPlayer.Coordinates.Row - 1, "Row is not changed with -1");
+            Assert.IsTrue(player.Coordinates.Col == initializedPlayer.Coordinates.Col, "Col is changed");
         }
 
         [TestMethod]
@@ -101,9 +105,9 @@
             IPlayer initializedPlayer = new Player();
 
             player.UpdatePosition(newCoodrinate);
-            Assert.IsTrue(player.Coordinates.Row == (initializedPlayer.Coordinates.Row), "Row is changed");
-            Assert.IsTrue(player.Coordinates.Col == (initializedPlayer.Coordinates.Col - 1), "Col  is not changed with -1");
 
+            Assert.IsTrue(player.Coordinates.Row == initializedPlayer.Coordinates.Row, "Row is changed");
+            Assert.IsTrue(player.Coordinates.Col == initializedPlayer.Coordinates.Col - 1, "Col  is not changed with -1");
         }
 
         [TestMethod]
@@ -111,9 +115,11 @@
         {
             IPlayer player = new Player();
             ILabyrinth labyrinth = new SquareLabyrinth();
-           FillDiamondMatrix(labyrinth);
-           player.RemovePlayer(labyrinth);
-           Assert.IsTrue(labyrinth.Matrix[player.Coordinates.Row, player.Coordinates.Col] == '\0');
+
+            this.FillDiamondMatrix(labyrinth);
+            player.RemovePlayer(labyrinth);
+
+            Assert.IsTrue(labyrinth.Matrix[player.Coordinates.Row, player.Coordinates.Col] == '\0');
         }
 
         [TestMethod]
@@ -121,11 +127,13 @@
         {
             IPlayer player = new Player();
             ILabyrinth labyrinth = new SquareLabyrinth();
-            FillDiamondMatrix(labyrinth);
+
+            this.FillDiamondMatrix(labyrinth);
             player.ShowPlayer(labyrinth);
+
             Assert.IsTrue(labyrinth.Matrix[player.Coordinates.Row, player.Coordinates.Col] == (char)Symbol.Player);
         }
-        
+
         private void FillDiamondMatrix(ILabyrinth labyrinth)
         {
             for (int row = 0; row < labyrinth.Matrix.GetLength(0); row++)
